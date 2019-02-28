@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.ManagefeeMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Managefee" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="house_rent" property="houseRent" jdbcType="DOUBLE" />
+    <result column="office_fee" property="officeFee" jdbcType="DOUBLE" />
+    <result column="other_payout" property="otherPayout" jdbcType="DOUBLE" />
+    <result column="payout_month" property="payoutMonth" jdbcType="VARCHAR" />
+    <result column="phone_fee" property="phoneFee" jdbcType="DOUBLE" />
+    <result column="water_elec_fee" property="waterElecFee" jdbcType="DOUBLE" />
+    <result column="write_date" property="writeDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, house_rent, office_fee, other_payout, payout_month, phone_fee, water_elec_fee, 
+    write_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.ManagefeeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from managefee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from managefee
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from managefee
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.ManagefeeExample" >
+    delete from managefee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Managefee" >
+    insert into managefee (id, house_rent, office_fee, 
+      other_payout, payout_month, phone_fee, 
+      water_elec_fee, write_date)
+    values (#{id,jdbcType=INTEGER}, #{houseRent,jdbcType=DOUBLE}, #{officeFee,jdbcType=DOUBLE}, 
+      #{otherPayout,jdbcType=DOUBLE}, #{payoutMonth,jdbcType=VARCHAR}, #{phoneFee,jdbcType=DOUBLE}, 
+      #{waterElecFee,jdbcType=DOUBLE}, #{writeDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Managefee" >
+    insert into managefee
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="houseRent != null" >
+        house_rent,
+      </if>
+      <if test="officeFee != null" >
+        office_fee,
+      </if>
+      <if test="otherPayout != null" >
+        other_payout,
+      </if>
+      <if test="payoutMonth != null" >
+        payout_month,
+      </if>
+      <if test="phoneFee != null" >
+        phone_fee,
+      </if>
+      <if test="waterElecFee != null" >
+        water_elec_fee,
+      </if>
+      <if test="writeDate != null" >
+        write_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="houseRent != null" >
+        #{houseRent,jdbcType=DOUBLE},
+      </if>
+      <if test="officeFee != null" >
+        #{officeFee,jdbcType=DOUBLE},
+      </if>
+      <if test="otherPayout != null" >
+        #{otherPayout,jdbcType=DOUBLE},
+      </if>
+      <if test="payoutMonth != null" >
+        #{payoutMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneFee != null" >
+        #{phoneFee,jdbcType=DOUBLE},
+      </if>
+      <if test="waterElecFee != null" >
+        #{waterElecFee,jdbcType=DOUBLE},
+      </if>
+      <if test="writeDate != null" >
+        #{writeDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.ManagefeeExample" resultType="java.lang.Integer" >
+    select count(*) from managefee
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update managefee
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.houseRent != null" >
+        house_rent = #{record.houseRent,jdbcType=DOUBLE},
+      </if>
+      <if test="record.officeFee != null" >
+        office_fee = #{record.officeFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.otherPayout != null" >
+        other_payout = #{record.otherPayout,jdbcType=DOUBLE},
+      </if>
+      <if test="record.payoutMonth != null" >
+        payout_month = #{record.payoutMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phoneFee != null" >
+        phone_fee = #{record.phoneFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.waterElecFee != null" >
+        water_elec_fee = #{record.waterElecFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.writeDate != null" >
+        write_date = #{record.writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update managefee
+    set id = #{record.id,jdbcType=INTEGER},
+      house_rent = #{record.houseRent,jdbcType=DOUBLE},
+      office_fee = #{record.officeFee,jdbcType=DOUBLE},
+      other_payout = #{record.otherPayout,jdbcType=DOUBLE},
+      payout_month = #{record.payoutMonth,jdbcType=VARCHAR},
+      phone_fee = #{record.phoneFee,jdbcType=DOUBLE},
+      water_elec_fee = #{record.waterElecFee,jdbcType=DOUBLE},
+      write_date = #{record.writeDate,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Managefee" >
+    update managefee
+    <set >
+      <if test="houseRent != null" >
+        house_rent = #{houseRent,jdbcType=DOUBLE},
+      </if>
+      <if test="officeFee != null" >
+        office_fee = #{officeFee,jdbcType=DOUBLE},
+      </if>
+      <if test="otherPayout != null" >
+        other_payout = #{otherPayout,jdbcType=DOUBLE},
+      </if>
+      <if test="payoutMonth != null" >
+        payout_month = #{payoutMonth,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneFee != null" >
+        phone_fee = #{phoneFee,jdbcType=DOUBLE},
+      </if>
+      <if test="waterElecFee != null" >
+        water_elec_fee = #{waterElecFee,jdbcType=DOUBLE},
+      </if>
+      <if test="writeDate != null" >
+        write_date = #{writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Managefee" >
+    update managefee
+    set house_rent = #{houseRent,jdbcType=DOUBLE},
+      office_fee = #{officeFee,jdbcType=DOUBLE},
+      other_payout = #{otherPayout,jdbcType=DOUBLE},
+      payout_month = #{payoutMonth,jdbcType=VARCHAR},
+      phone_fee = #{phoneFee,jdbcType=DOUBLE},
+      water_elec_fee = #{waterElecFee,jdbcType=DOUBLE},
+      write_date = #{writeDate,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

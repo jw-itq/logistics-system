@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CarcostMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Carcost" >
+    <id column="driver_code" property="driverCode" jdbcType="VARCHAR" />
+    <result column="add_carriage_total" property="addCarriageTotal" jdbcType="DOUBLE" />
+    <result column="allow_carry_weight" property="allowCarryWeight" jdbcType="DOUBLE" />
+    <result column="back_bill_code" property="backBillCode" jdbcType="VARCHAR" />
+    <result column="balance_time" property="balanceTime" jdbcType="TIMESTAMP" />
+    <result column="car_no" property="carNo" jdbcType="VARCHAR" />
+    <result column="car_type" property="carType" jdbcType="VARCHAR" />
+    <result column="car_width" property="carWidth" jdbcType="VARCHAR" />
+    <result column="carry_fee_total" property="carryFeeTotal" jdbcType="DOUBLE" />
+    <result column="deal_goods_station" property="dealGoodsStation" jdbcType="VARCHAR" />
+    <result column="fact_carriage_total" property="factCarriageTotal" jdbcType="DOUBLE" />
+    <result column="goods_height" property="goodsHeight" jdbcType="VARCHAR" />
+    <result column="load_station" property="loadStation" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    driver_code, add_carriage_total, allow_carry_weight, back_bill_code, balance_time, 
+    car_no, car_type, car_width, carry_fee_total, deal_goods_station, fact_carriage_total, 
+    goods_height, load_station
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CarcostExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from carcost
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from carcost
+    where driver_code = #{driverCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from carcost
+    where driver_code = #{driverCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CarcostExample" >
+    delete from carcost
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Carcost" >
+    insert into carcost (driver_code, add_carriage_total, allow_carry_weight, 
+      back_bill_code, balance_time, car_no, 
+      car_type, car_width, carry_fee_total, 
+      deal_goods_station, fact_carriage_total, goods_height, 
+      load_station)
+    values (#{driverCode,jdbcType=VARCHAR}, #{addCarriageTotal,jdbcType=DOUBLE}, #{allowCarryWeight,jdbcType=DOUBLE}, 
+      #{backBillCode,jdbcType=VARCHAR}, #{balanceTime,jdbcType=TIMESTAMP}, #{carNo,jdbcType=VARCHAR}, 
+      #{carType,jdbcType=VARCHAR}, #{carWidth,jdbcType=VARCHAR}, #{carryFeeTotal,jdbcType=DOUBLE}, 
+      #{dealGoodsStation,jdbcType=VARCHAR}, #{factCarriageTotal,jdbcType=DOUBLE}, #{goodsHeight,jdbcType=VARCHAR}, 
+      #{loadStation,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Carcost" >
+    insert into carcost
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="driverCode != null" >
+        driver_code,
+      </if>
+      <if test="addCarriageTotal != null" >
+        add_carriage_total,
+      </if>
+      <if test="allowCarryWeight != null" >
+        allow_carry_weight,
+      </if>
+      <if test="backBillCode != null" >
+        back_bill_code,
+      </if>
+      <if test="balanceTime != null" >
+        balance_time,
+      </if>
+      <if test="carNo != null" >
+        car_no,
+      </if>
+      <if test="carType != null" >
+        car_type,
+      </if>
+      <if test="carWidth != null" >
+        car_width,
+      </if>
+      <if test="carryFeeTotal != null" >
+        carry_fee_total,
+      </if>
+      <if test="dealGoodsStation != null" >
+        deal_goods_station,
+      </if>
+      <if test="factCarriageTotal != null" >
+        fact_carriage_total,
+      </if>
+      <if test="goodsHeight != null" >
+        goods_height,
+      </if>
+      <if test="loadStation != null" >
+        load_station,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="driverCode != null" >
+        #{driverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="addCarriageTotal != null" >
+        #{addCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="allowCarryWeight != null" >
+        #{allowCarryWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="backBillCode != null" >
+        #{backBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceTime != null" >
+        #{balanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carWidth != null" >
+        #{carWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="carryFeeTotal != null" >
+        #{carryFeeTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="dealGoodsStation != null" >
+        #{dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="factCarriageTotal != null" >
+        #{factCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsHeight != null" >
+        #{goodsHeight,jdbcType=VARCHAR},
+      </if>
+      <if test="loadStation != null" >
+        #{loadStation,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CarcostExample" resultType="java.lang.Integer" >
+    select count(*) from carcost
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update carcost
+    <set >
+      <if test="record.driverCode != null" >
+        driver_code = #{record.driverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addCarriageTotal != null" >
+        add_carriage_total = #{record.addCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="record.allowCarryWeight != null" >
+        allow_carry_weight = #{record.allowCarryWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="record.backBillCode != null" >
+        back_bill_code = #{record.backBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balanceTime != null" >
+        balance_time = #{record.balanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.carNo != null" >
+        car_no = #{record.carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carType != null" >
+        car_type = #{record.carType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carWidth != null" >
+        car_width = #{record.carWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carryFeeTotal != null" >
+        carry_fee_total = #{record.carryFeeTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="record.dealGoodsStation != null" >
+        deal_goods_station = #{record.dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.factCarriageTotal != null" >
+        fact_carriage_total = #{record.factCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="record.goodsHeight != null" >
+        goods_height = #{record.goodsHeight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loadStation != null" >
+        load_station = #{record.loadStation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update carcost
+    set driver_code = #{record.driverCode,jdbcType=VARCHAR},
+      add_carriage_total = #{record.addCarriageTotal,jdbcType=DOUBLE},
+      allow_carry_weight = #{record.allowCarryWeight,jdbcType=DOUBLE},
+      back_bill_code = #{record.backBillCode,jdbcType=VARCHAR},
+      balance_time = #{record.balanceTime,jdbcType=TIMESTAMP},
+      car_no = #{record.carNo,jdbcType=VARCHAR},
+      car_type = #{record.carType,jdbcType=VARCHAR},
+      car_width = #{record.carWidth,jdbcType=VARCHAR},
+      carry_fee_total = #{record.carryFeeTotal,jdbcType=DOUBLE},
+      deal_goods_station = #{record.dealGoodsStation,jdbcType=VARCHAR},
+      fact_carriage_total = #{record.factCarriageTotal,jdbcType=DOUBLE},
+      goods_height = #{record.goodsHeight,jdbcType=VARCHAR},
+      load_station = #{record.loadStation,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Carcost" >
+    update carcost
+    <set >
+      <if test="addCarriageTotal != null" >
+        add_carriage_total = #{addCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="allowCarryWeight != null" >
+        allow_carry_weight = #{allowCarryWeight,jdbcType=DOUBLE},
+      </if>
+      <if test="backBillCode != null" >
+        back_bill_code = #{backBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="balanceTime != null" >
+        balance_time = #{balanceTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="carNo != null" >
+        car_no = #{carNo,jdbcType=VARCHAR},
+      </if>
+      <if test="carType != null" >
+        car_type = #{carType,jdbcType=VARCHAR},
+      </if>
+      <if test="carWidth != null" >
+        car_width = #{carWidth,jdbcType=VARCHAR},
+      </if>
+      <if test="carryFeeTotal != null" >
+        carry_fee_total = #{carryFeeTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="dealGoodsStation != null" >
+        deal_goods_station = #{dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="factCarriageTotal != null" >
+        fact_carriage_total = #{factCarriageTotal,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsHeight != null" >
+        goods_height = #{goodsHeight,jdbcType=VARCHAR},
+      </if>
+      <if test="loadStation != null" >
+        load_station = #{loadStation,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where driver_code = #{driverCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Carcost" >
+    update carcost
+    set add_carriage_total = #{addCarriageTotal,jdbcType=DOUBLE},
+      allow_carry_weight = #{allowCarryWeight,jdbcType=DOUBLE},
+      back_bill_code = #{backBillCode,jdbcType=VARCHAR},
+      balance_time = #{balanceTime,jdbcType=TIMESTAMP},
+      car_no = #{carNo,jdbcType=VARCHAR},
+      car_type = #{carType,jdbcType=VARCHAR},
+      car_width = #{carWidth,jdbcType=VARCHAR},
+      carry_fee_total = #{carryFeeTotal,jdbcType=DOUBLE},
+      deal_goods_station = #{dealGoodsStation,jdbcType=VARCHAR},
+      fact_carriage_total = #{factCarriageTotal,jdbcType=DOUBLE},
+      goods_height = #{goodsHeight,jdbcType=VARCHAR},
+      load_station = #{loadStation,jdbcType=VARCHAR}
+    where driver_code = #{driverCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

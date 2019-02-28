@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CustomerreceiptinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Customerreceiptinfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="carry_bill_event_id" property="carryBillEventId" jdbcType="INTEGER" />
+    <result column="check_goods_record" property="checkGoodsRecord" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="goods_bill_code" property="goodsBillCode" jdbcType="VARCHAR" />
+    <result column="receive_goods_date" property="receiveGoodsDate" jdbcType="DATE" />
+    <result column="receive_goods_person" property="receiveGoodsPerson" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, carry_bill_event_id, check_goods_record, customer, goods_bill_code, receive_goods_date, 
+    receive_goods_person
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CustomerreceiptinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from customerreceiptinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from customerreceiptinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from customerreceiptinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CustomerreceiptinfoExample" >
+    delete from customerreceiptinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Customerreceiptinfo" >
+    insert into customerreceiptinfo (id, carry_bill_event_id, check_goods_record, 
+      customer, goods_bill_code, receive_goods_date, 
+      receive_goods_person)
+    values (#{id,jdbcType=INTEGER}, #{carryBillEventId,jdbcType=INTEGER}, #{checkGoodsRecord,jdbcType=VARCHAR}, 
+      #{customer,jdbcType=VARCHAR}, #{goodsBillCode,jdbcType=VARCHAR}, #{receiveGoodsDate,jdbcType=DATE}, 
+      #{receiveGoodsPerson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Customerreceiptinfo" >
+    insert into customerreceiptinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="carryBillEventId != null" >
+        carry_bill_event_id,
+      </if>
+      <if test="checkGoodsRecord != null" >
+        check_goods_record,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="goodsBillCode != null" >
+        goods_bill_code,
+      </if>
+      <if test="receiveGoodsDate != null" >
+        receive_goods_date,
+      </if>
+      <if test="receiveGoodsPerson != null" >
+        receive_goods_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carryBillEventId != null" >
+        #{carryBillEventId,jdbcType=INTEGER},
+      </if>
+      <if test="checkGoodsRecord != null" >
+        #{checkGoodsRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsBillCode != null" >
+        #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsDate != null" >
+        #{receiveGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="receiveGoodsPerson != null" >
+        #{receiveGoodsPerson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CustomerreceiptinfoExample" resultType="java.lang.Integer" >
+    select count(*) from customerreceiptinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update customerreceiptinfo
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.carryBillEventId != null" >
+        carry_bill_event_id = #{record.carryBillEventId,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkGoodsRecord != null" >
+        check_goods_record = #{record.checkGoodsRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsBillCode != null" >
+        goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsDate != null" >
+        receive_goods_date = #{record.receiveGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="record.receiveGoodsPerson != null" >
+        receive_goods_person = #{record.receiveGoodsPerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update customerreceiptinfo
+    set id = #{record.id,jdbcType=INTEGER},
+      carry_bill_event_id = #{record.carryBillEventId,jdbcType=INTEGER},
+      check_goods_record = #{record.checkGoodsRecord,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      receive_goods_date = #{record.receiveGoodsDate,jdbcType=DATE},
+      receive_goods_person = #{record.receiveGoodsPerson,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Customerreceiptinfo" >
+    update customerreceiptinfo
+    <set >
+      <if test="carryBillEventId != null" >
+        carry_bill_event_id = #{carryBillEventId,jdbcType=INTEGER},
+      </if>
+      <if test="checkGoodsRecord != null" >
+        check_goods_record = #{checkGoodsRecord,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsBillCode != null" >
+        goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsDate != null" >
+        receive_goods_date = #{receiveGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="receiveGoodsPerson != null" >
+        receive_goods_person = #{receiveGoodsPerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Customerreceiptinfo" >
+    update customerreceiptinfo
+    set carry_bill_event_id = #{carryBillEventId,jdbcType=INTEGER},
+      check_goods_record = #{checkGoodsRecord,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR},
+      receive_goods_date = #{receiveGoodsDate,jdbcType=DATE},
+      receive_goods_person = #{receiveGoodsPerson,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

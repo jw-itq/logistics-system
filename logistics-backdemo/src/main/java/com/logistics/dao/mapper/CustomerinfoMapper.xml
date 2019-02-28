@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CustomerinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Customerinfo" >
+    <id column="customer_code" property="customerCode" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="customer_type" property="customerType" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="enterprise_property" property="enterpriseProperty" jdbcType="VARCHAR" />
+    <result column="enterprise_size" property="enterpriseSize" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="linkman" property="linkman" jdbcType="VARCHAR" />
+    <result column="linkman_mobile" property="linkmanMobile" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="post_code" property="postCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    customer_code, address, customer, customer_type, email, enterprise_property, enterprise_size, 
+    fax, linkman, linkman_mobile, phone, post_code
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CustomerinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from customerinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from customerinfo
+    where customer_code = #{customerCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from customerinfo
+    where customer_code = #{customerCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CustomerinfoExample" >
+    delete from customerinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Customerinfo" >
+    insert into customerinfo (customer_code, address, customer, 
+      customer_type, email, enterprise_property, 
+      enterprise_size, fax, linkman, 
+      linkman_mobile, phone, post_code
+      )
+    values (#{customerCode,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{customer,jdbcType=VARCHAR}, 
+      #{customerType,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{enterpriseProperty,jdbcType=VARCHAR}, 
+      #{enterpriseSize,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
+      #{linkmanMobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{postCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Customerinfo" >
+    insert into customerinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="customerCode != null" >
+        customer_code,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="customerType != null" >
+        customer_type,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="enterpriseProperty != null" >
+        enterprise_property,
+      </if>
+      <if test="enterpriseSize != null" >
+        enterprise_size,
+      </if>
+      <if test="fax != null" >
+        fax,
+      </if>
+      <if test="linkman != null" >
+        linkman,
+      </if>
+      <if test="linkmanMobile != null" >
+        linkman_mobile,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="postCode != null" >
+        post_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="customerCode != null" >
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null" >
+        #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseProperty != null" >
+        #{enterpriseProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseSize != null" >
+        #{enterpriseSize,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanMobile != null" >
+        #{linkmanMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CustomerinfoExample" resultType="java.lang.Integer" >
+    select count(*) from customerinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update customerinfo
+    <set >
+      <if test="record.customerCode != null" >
+        customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerType != null" >
+        customer_type = #{record.customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseProperty != null" >
+        enterprise_property = #{record.enterpriseProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpriseSize != null" >
+        enterprise_size = #{record.enterpriseSize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fax != null" >
+        fax = #{record.fax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkman != null" >
+        linkman = #{record.linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanMobile != null" >
+        linkman_mobile = #{record.linkmanMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postCode != null" >
+        post_code = #{record.postCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update customerinfo
+    set customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      customer_type = #{record.customerType,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      enterprise_property = #{record.enterpriseProperty,jdbcType=VARCHAR},
+      enterprise_size = #{record.enterpriseSize,jdbcType=VARCHAR},
+      fax = #{record.fax,jdbcType=VARCHAR},
+      linkman = #{record.linkman,jdbcType=VARCHAR},
+      linkman_mobile = #{record.linkmanMobile,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      post_code = #{record.postCode,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Customerinfo" >
+    update customerinfo
+    <set >
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="customerType != null" >
+        customer_type = #{customerType,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseProperty != null" >
+        enterprise_property = #{enterpriseProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpriseSize != null" >
+        enterprise_size = #{enterpriseSize,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        fax = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        linkman = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanMobile != null" >
+        linkman_mobile = #{linkmanMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="postCode != null" >
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where customer_code = #{customerCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Customerinfo" >
+    update customerinfo
+    set address = #{address,jdbcType=VARCHAR},
+      customer = #{customer,jdbcType=VARCHAR},
+      customer_type = #{customerType,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      enterprise_property = #{enterpriseProperty,jdbcType=VARCHAR},
+      enterprise_size = #{enterpriseSize,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      linkman = #{linkman,jdbcType=VARCHAR},
+      linkman_mobile = #{linkmanMobile,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      post_code = #{postCode,jdbcType=VARCHAR}
+    where customer_code = #{customerCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

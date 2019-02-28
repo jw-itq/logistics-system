@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.ContactsserviceMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Contactsservice" >
+    <id column="send_goods_customer" property="sendGoodsCustomer" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="DOUBLE" />
+    <result column="bill_money" property="billMoney" jdbcType="DOUBLE" />
+    <result column="carriage" property="carriage" jdbcType="DOUBLE" />
+    <result column="goods_bill_code" property="goodsBillCode" jdbcType="VARCHAR" />
+    <result column="insurance" property="insurance" jdbcType="DOUBLE" />
+    <result column="money_receivable" property="moneyReceivable" jdbcType="DOUBLE" />
+    <result column="receive_goods_addr" property="receiveGoodsAddr" jdbcType="VARCHAR" />
+    <result column="received_money" property="receivedMoney" jdbcType="DOUBLE" />
+    <result column="send_goods_addr" property="sendGoodsAddr" jdbcType="VARCHAR" />
+    <result column="send_goods_date" property="sendGoodsDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    send_goods_customer, balance, bill_money, carriage, goods_bill_code, insurance, money_receivable, 
+    receive_goods_addr, received_money, send_goods_addr, send_goods_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.ContactsserviceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from contactsservice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from contactsservice
+    where send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from contactsservice
+    where send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.ContactsserviceExample" >
+    delete from contactsservice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Contactsservice" >
+    insert into contactsservice (send_goods_customer, balance, bill_money, 
+      carriage, goods_bill_code, insurance, 
+      money_receivable, receive_goods_addr, received_money, 
+      send_goods_addr, send_goods_date)
+    values (#{sendGoodsCustomer,jdbcType=VARCHAR}, #{balance,jdbcType=DOUBLE}, #{billMoney,jdbcType=DOUBLE}, 
+      #{carriage,jdbcType=DOUBLE}, #{goodsBillCode,jdbcType=VARCHAR}, #{insurance,jdbcType=DOUBLE}, 
+      #{moneyReceivable,jdbcType=DOUBLE}, #{receiveGoodsAddr,jdbcType=VARCHAR}, #{receivedMoney,jdbcType=DOUBLE}, 
+      #{sendGoodsAddr,jdbcType=VARCHAR}, #{sendGoodsDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Contactsservice" >
+    insert into contactsservice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sendGoodsCustomer != null" >
+        send_goods_customer,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="billMoney != null" >
+        bill_money,
+      </if>
+      <if test="carriage != null" >
+        carriage,
+      </if>
+      <if test="goodsBillCode != null" >
+        goods_bill_code,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="moneyReceivable != null" >
+        money_receivable,
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        receive_goods_addr,
+      </if>
+      <if test="receivedMoney != null" >
+        received_money,
+      </if>
+      <if test="sendGoodsAddr != null" >
+        send_goods_addr,
+      </if>
+      <if test="sendGoodsDate != null" >
+        send_goods_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sendGoodsCustomer != null" >
+        #{sendGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="billMoney != null" >
+        #{billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="carriage != null" >
+        #{carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsBillCode != null" >
+        #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyReceivable != null" >
+        #{moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        #{receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoney != null" >
+        #{receivedMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sendGoodsAddr != null" >
+        #{sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsDate != null" >
+        #{sendGoodsDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.ContactsserviceExample" resultType="java.lang.Integer" >
+    select count(*) from contactsservice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update contactsservice
+    <set >
+      <if test="record.sendGoodsCustomer != null" >
+        send_goods_customer = #{record.sendGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null" >
+        balance = #{record.balance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.billMoney != null" >
+        bill_money = #{record.billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.carriage != null" >
+        carriage = #{record.carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.goodsBillCode != null" >
+        goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurance != null" >
+        insurance = #{record.insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.moneyReceivable != null" >
+        money_receivable = #{record.moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="record.receiveGoodsAddr != null" >
+        receive_goods_addr = #{record.receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivedMoney != null" >
+        received_money = #{record.receivedMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.sendGoodsAddr != null" >
+        send_goods_addr = #{record.sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsDate != null" >
+        send_goods_date = #{record.sendGoodsDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update contactsservice
+    set send_goods_customer = #{record.sendGoodsCustomer,jdbcType=VARCHAR},
+      balance = #{record.balance,jdbcType=DOUBLE},
+      bill_money = #{record.billMoney,jdbcType=DOUBLE},
+      carriage = #{record.carriage,jdbcType=DOUBLE},
+      goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      insurance = #{record.insurance,jdbcType=DOUBLE},
+      money_receivable = #{record.moneyReceivable,jdbcType=DOUBLE},
+      receive_goods_addr = #{record.receiveGoodsAddr,jdbcType=VARCHAR},
+      received_money = #{record.receivedMoney,jdbcType=DOUBLE},
+      send_goods_addr = #{record.sendGoodsAddr,jdbcType=VARCHAR},
+      send_goods_date = #{record.sendGoodsDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Contactsservice" >
+    update contactsservice
+    <set >
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="billMoney != null" >
+        bill_money = #{billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="carriage != null" >
+        carriage = #{carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="goodsBillCode != null" >
+        goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyReceivable != null" >
+        money_receivable = #{moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        receive_goods_addr = #{receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receivedMoney != null" >
+        received_money = #{receivedMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="sendGoodsAddr != null" >
+        send_goods_addr = #{sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsDate != null" >
+        send_goods_date = #{sendGoodsDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Contactsservice" >
+    update contactsservice
+    set balance = #{balance,jdbcType=DOUBLE},
+      bill_money = #{billMoney,jdbcType=DOUBLE},
+      carriage = #{carriage,jdbcType=DOUBLE},
+      goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR},
+      insurance = #{insurance,jdbcType=DOUBLE},
+      money_receivable = #{moneyReceivable,jdbcType=DOUBLE},
+      receive_goods_addr = #{receiveGoodsAddr,jdbcType=VARCHAR},
+      received_money = #{receivedMoney,jdbcType=DOUBLE},
+      send_goods_addr = #{sendGoodsAddr,jdbcType=VARCHAR},
+      send_goods_date = #{sendGoodsDate,jdbcType=TIMESTAMP}
+    where send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR}
+  </update>
+</mapper>

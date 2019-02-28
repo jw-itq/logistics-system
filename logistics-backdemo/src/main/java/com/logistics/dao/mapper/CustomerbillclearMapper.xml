@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CustomerbillclearMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Customerbillclear" >
+    <id column="goods_bill_code" property="goodsBillCode" jdbcType="VARCHAR" />
+    <result column="customer_code" property="customerCode" jdbcType="VARCHAR" />
+    <result column="balance" property="balance" jdbcType="DOUBLE" />
+    <result column="balance_time" property="balanceTime" jdbcType="DATE" />
+    <result column="balance_type" property="balanceType" jdbcType="VARCHAR" />
+    <result column="bill_money" property="billMoney" jdbcType="DOUBLE" />
+    <result column="carriage_reduce_fund" property="carriageReduceFund" jdbcType="DOUBLE" />
+    <result column="carry_goods_fee" property="carryGoodsFee" jdbcType="DOUBLE" />
+    <result column="insurance" property="insurance" jdbcType="DOUBLE" />
+    <result column="money_receivable" property="moneyReceivable" jdbcType="DOUBLE" />
+    <result column="pay_kickback" property="payKickback" jdbcType="DOUBLE" />
+    <result column="prepay_money" property="prepayMoney" jdbcType="DOUBLE" />
+    <result column="received_money" property="receivedMoney" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goods_bill_code, customer_code, balance, balance_time, balance_type, bill_money, 
+    carriage_reduce_fund, carry_goods_fee, insurance, money_receivable, pay_kickback, 
+    prepay_money, received_money
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CustomerbillclearExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from customerbillclear
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from customerbillclear
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from customerbillclear
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CustomerbillclearExample" >
+    delete from customerbillclear
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Customerbillclear" >
+    insert into customerbillclear (goods_bill_code, customer_code, balance, 
+      balance_time, balance_type, bill_money, 
+      carriage_reduce_fund, carry_goods_fee, insurance, 
+      money_receivable, pay_kickback, prepay_money, 
+      received_money)
+    values (#{goodsBillCode,jdbcType=VARCHAR}, #{customerCode,jdbcType=VARCHAR}, #{balance,jdbcType=DOUBLE}, 
+      #{balanceTime,jdbcType=DATE}, #{balanceType,jdbcType=VARCHAR}, #{billMoney,jdbcType=DOUBLE}, 
+      #{carriageReduceFund,jdbcType=DOUBLE}, #{carryGoodsFee,jdbcType=DOUBLE}, #{insurance,jdbcType=DOUBLE}, 
+      #{moneyReceivable,jdbcType=DOUBLE}, #{payKickback,jdbcType=DOUBLE}, #{prepayMoney,jdbcType=DOUBLE}, 
+      #{receivedMoney,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Customerbillclear" >
+    insert into customerbillclear
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsBillCode != null" >
+        goods_bill_code,
+      </if>
+      <if test="customerCode != null" >
+        customer_code,
+      </if>
+      <if test="balance != null" >
+        balance,
+      </if>
+      <if test="balanceTime != null" >
+        balance_time,
+      </if>
+      <if test="balanceType != null" >
+        balance_type,
+      </if>
+      <if test="billMoney != null" >
+        bill_money,
+      </if>
+      <if test="carriageReduceFund != null" >
+        carriage_reduce_fund,
+      </if>
+      <if test="carryGoodsFee != null" >
+        carry_goods_fee,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="moneyReceivable != null" >
+        money_receivable,
+      </if>
+      <if test="payKickback != null" >
+        pay_kickback,
+      </if>
+      <if test="prepayMoney != null" >
+        prepay_money,
+      </if>
+      <if test="receivedMoney != null" >
+        received_money,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsBillCode != null" >
+        #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="customerCode != null" >
+        #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="balanceTime != null" >
+        #{balanceTime,jdbcType=DATE},
+      </if>
+      <if test="balanceType != null" >
+        #{balanceType,jdbcType=VARCHAR},
+      </if>
+      <if test="billMoney != null" >
+        #{billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="carriageReduceFund != null" >
+        #{carriageReduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsFee != null" >
+        #{carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyReceivable != null" >
+        #{moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="payKickback != null" >
+        #{payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="prepayMoney != null" >
+        #{prepayMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="receivedMoney != null" >
+        #{receivedMoney,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CustomerbillclearExample" resultType="java.lang.Integer" >
+    select count(*) from customerbillclear
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update customerbillclear
+    <set >
+      <if test="record.goodsBillCode != null" >
+        goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.customerCode != null" >
+        customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.balance != null" >
+        balance = #{record.balance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.balanceTime != null" >
+        balance_time = #{record.balanceTime,jdbcType=DATE},
+      </if>
+      <if test="record.balanceType != null" >
+        balance_type = #{record.balanceType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billMoney != null" >
+        bill_money = #{record.billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.carriageReduceFund != null" >
+        carriage_reduce_fund = #{record.carriageReduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="record.carryGoodsFee != null" >
+        carry_goods_fee = #{record.carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.insurance != null" >
+        insurance = #{record.insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.moneyReceivable != null" >
+        money_receivable = #{record.moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="record.payKickback != null" >
+        pay_kickback = #{record.payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="record.prepayMoney != null" >
+        prepay_money = #{record.prepayMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="record.receivedMoney != null" >
+        received_money = #{record.receivedMoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update customerbillclear
+    set goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      customer_code = #{record.customerCode,jdbcType=VARCHAR},
+      balance = #{record.balance,jdbcType=DOUBLE},
+      balance_time = #{record.balanceTime,jdbcType=DATE},
+      balance_type = #{record.balanceType,jdbcType=VARCHAR},
+      bill_money = #{record.billMoney,jdbcType=DOUBLE},
+      carriage_reduce_fund = #{record.carriageReduceFund,jdbcType=DOUBLE},
+      carry_goods_fee = #{record.carryGoodsFee,jdbcType=DOUBLE},
+      insurance = #{record.insurance,jdbcType=DOUBLE},
+      money_receivable = #{record.moneyReceivable,jdbcType=DOUBLE},
+      pay_kickback = #{record.payKickback,jdbcType=DOUBLE},
+      prepay_money = #{record.prepayMoney,jdbcType=DOUBLE},
+      received_money = #{record.receivedMoney,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Customerbillclear" >
+    update customerbillclear
+    <set >
+      <if test="customerCode != null" >
+        customer_code = #{customerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null" >
+        balance = #{balance,jdbcType=DOUBLE},
+      </if>
+      <if test="balanceTime != null" >
+        balance_time = #{balanceTime,jdbcType=DATE},
+      </if>
+      <if test="balanceType != null" >
+        balance_type = #{balanceType,jdbcType=VARCHAR},
+      </if>
+      <if test="billMoney != null" >
+        bill_money = #{billMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="carriageReduceFund != null" >
+        carriage_reduce_fund = #{carriageReduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsFee != null" >
+        carry_goods_fee = #{carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyReceivable != null" >
+        money_receivable = #{moneyReceivable,jdbcType=DOUBLE},
+      </if>
+      <if test="payKickback != null" >
+        pay_kickback = #{payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="prepayMoney != null" >
+        prepay_money = #{prepayMoney,jdbcType=DOUBLE},
+      </if>
+      <if test="receivedMoney != null" >
+        received_money = #{receivedMoney,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Customerbillclear" >
+    update customerbillclear
+    set customer_code = #{customerCode,jdbcType=VARCHAR},
+      balance = #{balance,jdbcType=DOUBLE},
+      balance_time = #{balanceTime,jdbcType=DATE},
+      balance_type = #{balanceType,jdbcType=VARCHAR},
+      bill_money = #{billMoney,jdbcType=DOUBLE},
+      carriage_reduce_fund = #{carriageReduceFund,jdbcType=DOUBLE},
+      carry_goods_fee = #{carryGoodsFee,jdbcType=DOUBLE},
+      insurance = #{insurance,jdbcType=DOUBLE},
+      money_receivable = #{moneyReceivable,jdbcType=DOUBLE},
+      pay_kickback = #{payKickback,jdbcType=DOUBLE},
+      prepay_money = #{prepayMoney,jdbcType=DOUBLE},
+      received_money = #{receivedMoney,jdbcType=DOUBLE}
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

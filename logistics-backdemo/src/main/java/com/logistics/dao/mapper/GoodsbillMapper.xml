@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.GoodsbillMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Goodsbill" >
+    <id column="goods_bill_code" property="goodsBillCode" jdbcType="VARCHAR" />
+    <result column="accept_procedure_rate" property="acceptProcedureRate" jdbcType="VARCHAR" />
+    <result column="accept_station" property="acceptStation" jdbcType="VARCHAR" />
+    <result column="carriage" property="carriage" jdbcType="DOUBLE" />
+    <result column="carry_goods_fee" property="carryGoodsFee" jdbcType="DOUBLE" />
+    <result column="employee_code" property="employeeCode" jdbcType="VARCHAR" />
+    <result column="fact_deal_date" property="factDealDate" jdbcType="DATE" />
+    <result column="fetch_goods_mode" property="fetchGoodsMode" jdbcType="VARCHAR" />
+    <result column="help_accept_payment" property="helpAcceptPayment" jdbcType="DOUBLE" />
+    <result column="if_audit" property="ifAudit" jdbcType="BIT" />
+    <result column="if_settle_accounts" property="ifSettleAccounts" jdbcType="BIT" />
+    <result column="insurance" property="insurance" jdbcType="DOUBLE" />
+    <result column="money_of_change_pay" property="moneyOfChangePay" jdbcType="DOUBLE" />
+    <result column="pay_kickback" property="payKickback" jdbcType="DOUBLE" />
+    <result column="pay_mode" property="payMode" jdbcType="VARCHAR" />
+    <result column="predelivery_date" property="predeliveryDate" jdbcType="DATE" />
+    <result column="receive_goods_addr" property="receiveGoodsAddr" jdbcType="VARCHAR" />
+    <result column="receive_goods_customer" property="receiveGoodsCustomer" jdbcType="VARCHAR" />
+    <result column="receive_goods_customer_addr" property="receiveGoodsCustomerAddr" jdbcType="VARCHAR" />
+    <result column="receive_goods_customer_code" property="receiveGoodsCustomerCode" jdbcType="VARCHAR" />
+    <result column="receive_goods_customer_tel" property="receiveGoodsCustomerTel" jdbcType="VARCHAR" />
+    <result column="reduce_fund" property="reduceFund" jdbcType="DOUBLE" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="send_goods_addr" property="sendGoodsAddr" jdbcType="VARCHAR" />
+    <result column="send_goods_customer" property="sendGoodsCustomer" jdbcType="VARCHAR" />
+    <result column="send_goods_customer_addr" property="sendGoodsCustomerAddr" jdbcType="VARCHAR" />
+    <result column="send_goods_customer_no" property="sendGoodsCustomerNo" jdbcType="VARCHAR" />
+    <result column="send_goods_customer_tel" property="sendGoodsCustomerTel" jdbcType="VARCHAR" />
+    <result column="send_goods_date" property="sendGoodsDate" jdbcType="DATE" />
+    <result column="transfer_fee" property="transferFee" jdbcType="DOUBLE" />
+    <result column="transfer_station" property="transferStation" jdbcType="VARCHAR" />
+    <result column="validity" property="validity" jdbcType="BIT" />
+    <result column="write_bill_person" property="writeBillPerson" jdbcType="VARCHAR" />
+    <result column="write_date" property="writeDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goods_bill_code, accept_procedure_rate, accept_station, carriage, carry_goods_fee, 
+    employee_code, fact_deal_date, fetch_goods_mode, help_accept_payment, if_audit, if_settle_accounts, 
+    insurance, money_of_change_pay, pay_kickback, pay_mode, predelivery_date, receive_goods_addr, 
+    receive_goods_customer, receive_goods_customer_addr, receive_goods_customer_code, 
+    receive_goods_customer_tel, reduce_fund, remark, send_goods_addr, send_goods_customer, 
+    send_goods_customer_addr, send_goods_customer_no, send_goods_customer_tel, send_goods_date, 
+    transfer_fee, transfer_station, validity, write_bill_person, write_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.GoodsbillExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from goodsbill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from goodsbill
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from goodsbill
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.GoodsbillExample" >
+    delete from goodsbill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Goodsbill" >
+    insert into goodsbill (goods_bill_code, accept_procedure_rate, 
+      accept_station, carriage, carry_goods_fee, 
+      employee_code, fact_deal_date, fetch_goods_mode, 
+      help_accept_payment, if_audit, if_settle_accounts, 
+      insurance, money_of_change_pay, pay_kickback, 
+      pay_mode, predelivery_date, receive_goods_addr, 
+      receive_goods_customer, receive_goods_customer_addr, 
+      receive_goods_customer_code, receive_goods_customer_tel, 
+      reduce_fund, remark, send_goods_addr, 
+      send_goods_customer, send_goods_customer_addr, 
+      send_goods_customer_no, send_goods_customer_tel, 
+      send_goods_date, transfer_fee, transfer_station, 
+      validity, write_bill_person, write_date
+      )
+    values (#{goodsBillCode,jdbcType=VARCHAR}, #{acceptProcedureRate,jdbcType=VARCHAR}, 
+      #{acceptStation,jdbcType=VARCHAR}, #{carriage,jdbcType=DOUBLE}, #{carryGoodsFee,jdbcType=DOUBLE}, 
+      #{employeeCode,jdbcType=VARCHAR}, #{factDealDate,jdbcType=DATE}, #{fetchGoodsMode,jdbcType=VARCHAR}, 
+      #{helpAcceptPayment,jdbcType=DOUBLE}, #{ifAudit,jdbcType=BIT}, #{ifSettleAccounts,jdbcType=BIT}, 
+      #{insurance,jdbcType=DOUBLE}, #{moneyOfChangePay,jdbcType=DOUBLE}, #{payKickback,jdbcType=DOUBLE}, 
+      #{payMode,jdbcType=VARCHAR}, #{predeliveryDate,jdbcType=DATE}, #{receiveGoodsAddr,jdbcType=VARCHAR}, 
+      #{receiveGoodsCustomer,jdbcType=VARCHAR}, #{receiveGoodsCustomerAddr,jdbcType=VARCHAR}, 
+      #{receiveGoodsCustomerCode,jdbcType=VARCHAR}, #{receiveGoodsCustomerTel,jdbcType=VARCHAR}, 
+      #{reduceFund,jdbcType=DOUBLE}, #{remark,jdbcType=VARCHAR}, #{sendGoodsAddr,jdbcType=VARCHAR}, 
+      #{sendGoodsCustomer,jdbcType=VARCHAR}, #{sendGoodsCustomerAddr,jdbcType=VARCHAR}, 
+      #{sendGoodsCustomerNo,jdbcType=VARCHAR}, #{sendGoodsCustomerTel,jdbcType=VARCHAR}, 
+      #{sendGoodsDate,jdbcType=DATE}, #{transferFee,jdbcType=DOUBLE}, #{transferStation,jdbcType=VARCHAR}, 
+      #{validity,jdbcType=BIT}, #{writeBillPerson,jdbcType=VARCHAR}, #{writeDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Goodsbill" >
+    insert into goodsbill
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsBillCode != null" >
+        goods_bill_code,
+      </if>
+      <if test="acceptProcedureRate != null" >
+        accept_procedure_rate,
+      </if>
+      <if test="acceptStation != null" >
+        accept_station,
+      </if>
+      <if test="carriage != null" >
+        carriage,
+      </if>
+      <if test="carryGoodsFee != null" >
+        carry_goods_fee,
+      </if>
+      <if test="employeeCode != null" >
+        employee_code,
+      </if>
+      <if test="factDealDate != null" >
+        fact_deal_date,
+      </if>
+      <if test="fetchGoodsMode != null" >
+        fetch_goods_mode,
+      </if>
+      <if test="helpAcceptPayment != null" >
+        help_accept_payment,
+      </if>
+      <if test="ifAudit != null" >
+        if_audit,
+      </if>
+      <if test="ifSettleAccounts != null" >
+        if_settle_accounts,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="moneyOfChangePay != null" >
+        money_of_change_pay,
+      </if>
+      <if test="payKickback != null" >
+        pay_kickback,
+      </if>
+      <if test="payMode != null" >
+        pay_mode,
+      </if>
+      <if test="predeliveryDate != null" >
+        predelivery_date,
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        receive_goods_addr,
+      </if>
+      <if test="receiveGoodsCustomer != null" >
+        receive_goods_customer,
+      </if>
+      <if test="receiveGoodsCustomerAddr != null" >
+        receive_goods_customer_addr,
+      </if>
+      <if test="receiveGoodsCustomerCode != null" >
+        receive_goods_customer_code,
+      </if>
+      <if test="receiveGoodsCustomerTel != null" >
+        receive_goods_customer_tel,
+      </if>
+      <if test="reduceFund != null" >
+        reduce_fund,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="sendGoodsAddr != null" >
+        send_goods_addr,
+      </if>
+      <if test="sendGoodsCustomer != null" >
+        send_goods_customer,
+      </if>
+      <if test="sendGoodsCustomerAddr != null" >
+        send_goods_customer_addr,
+      </if>
+      <if test="sendGoodsCustomerNo != null" >
+        send_goods_customer_no,
+      </if>
+      <if test="sendGoodsCustomerTel != null" >
+        send_goods_customer_tel,
+      </if>
+      <if test="sendGoodsDate != null" >
+        send_goods_date,
+      </if>
+      <if test="transferFee != null" >
+        transfer_fee,
+      </if>
+      <if test="transferStation != null" >
+        transfer_station,
+      </if>
+      <if test="validity != null" >
+        validity,
+      </if>
+      <if test="writeBillPerson != null" >
+        write_bill_person,
+      </if>
+      <if test="writeDate != null" >
+        write_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsBillCode != null" >
+        #{goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptProcedureRate != null" >
+        #{acceptProcedureRate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptStation != null" >
+        #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="carriage != null" >
+        #{carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsFee != null" >
+        #{carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="employeeCode != null" >
+        #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="factDealDate != null" >
+        #{factDealDate,jdbcType=DATE},
+      </if>
+      <if test="fetchGoodsMode != null" >
+        #{fetchGoodsMode,jdbcType=VARCHAR},
+      </if>
+      <if test="helpAcceptPayment != null" >
+        #{helpAcceptPayment,jdbcType=DOUBLE},
+      </if>
+      <if test="ifAudit != null" >
+        #{ifAudit,jdbcType=BIT},
+      </if>
+      <if test="ifSettleAccounts != null" >
+        #{ifSettleAccounts,jdbcType=BIT},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyOfChangePay != null" >
+        #{moneyOfChangePay,jdbcType=DOUBLE},
+      </if>
+      <if test="payKickback != null" >
+        #{payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="payMode != null" >
+        #{payMode,jdbcType=VARCHAR},
+      </if>
+      <if test="predeliveryDate != null" >
+        #{predeliveryDate,jdbcType=DATE},
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        #{receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomer != null" >
+        #{receiveGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerAddr != null" >
+        #{receiveGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerCode != null" >
+        #{receiveGoodsCustomerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerTel != null" >
+        #{receiveGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="reduceFund != null" >
+        #{reduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsAddr != null" >
+        #{sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomer != null" >
+        #{sendGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerAddr != null" >
+        #{sendGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerNo != null" >
+        #{sendGoodsCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerTel != null" >
+        #{sendGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsDate != null" >
+        #{sendGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="transferFee != null" >
+        #{transferFee,jdbcType=DOUBLE},
+      </if>
+      <if test="transferStation != null" >
+        #{transferStation,jdbcType=VARCHAR},
+      </if>
+      <if test="validity != null" >
+        #{validity,jdbcType=BIT},
+      </if>
+      <if test="writeBillPerson != null" >
+        #{writeBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="writeDate != null" >
+        #{writeDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.GoodsbillExample" resultType="java.lang.Integer" >
+    select count(*) from goodsbill
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update goodsbill
+    <set >
+      <if test="record.goodsBillCode != null" >
+        goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptProcedureRate != null" >
+        accept_procedure_rate = #{record.acceptProcedureRate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptStation != null" >
+        accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carriage != null" >
+        carriage = #{record.carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.carryGoodsFee != null" >
+        carry_goods_fee = #{record.carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.employeeCode != null" >
+        employee_code = #{record.employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.factDealDate != null" >
+        fact_deal_date = #{record.factDealDate,jdbcType=DATE},
+      </if>
+      <if test="record.fetchGoodsMode != null" >
+        fetch_goods_mode = #{record.fetchGoodsMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.helpAcceptPayment != null" >
+        help_accept_payment = #{record.helpAcceptPayment,jdbcType=DOUBLE},
+      </if>
+      <if test="record.ifAudit != null" >
+        if_audit = #{record.ifAudit,jdbcType=BIT},
+      </if>
+      <if test="record.ifSettleAccounts != null" >
+        if_settle_accounts = #{record.ifSettleAccounts,jdbcType=BIT},
+      </if>
+      <if test="record.insurance != null" >
+        insurance = #{record.insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.moneyOfChangePay != null" >
+        money_of_change_pay = #{record.moneyOfChangePay,jdbcType=DOUBLE},
+      </if>
+      <if test="record.payKickback != null" >
+        pay_kickback = #{record.payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="record.payMode != null" >
+        pay_mode = #{record.payMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.predeliveryDate != null" >
+        predelivery_date = #{record.predeliveryDate,jdbcType=DATE},
+      </if>
+      <if test="record.receiveGoodsAddr != null" >
+        receive_goods_addr = #{record.receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsCustomer != null" >
+        receive_goods_customer = #{record.receiveGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsCustomerAddr != null" >
+        receive_goods_customer_addr = #{record.receiveGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsCustomerCode != null" >
+        receive_goods_customer_code = #{record.receiveGoodsCustomerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsCustomerTel != null" >
+        receive_goods_customer_tel = #{record.receiveGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reduceFund != null" >
+        reduce_fund = #{record.reduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsAddr != null" >
+        send_goods_addr = #{record.sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsCustomer != null" >
+        send_goods_customer = #{record.sendGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsCustomerAddr != null" >
+        send_goods_customer_addr = #{record.sendGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsCustomerNo != null" >
+        send_goods_customer_no = #{record.sendGoodsCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsCustomerTel != null" >
+        send_goods_customer_tel = #{record.sendGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendGoodsDate != null" >
+        send_goods_date = #{record.sendGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="record.transferFee != null" >
+        transfer_fee = #{record.transferFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.transferStation != null" >
+        transfer_station = #{record.transferStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.validity != null" >
+        validity = #{record.validity,jdbcType=BIT},
+      </if>
+      <if test="record.writeBillPerson != null" >
+        write_bill_person = #{record.writeBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.writeDate != null" >
+        write_date = #{record.writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update goodsbill
+    set goods_bill_code = #{record.goodsBillCode,jdbcType=VARCHAR},
+      accept_procedure_rate = #{record.acceptProcedureRate,jdbcType=VARCHAR},
+      accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      carriage = #{record.carriage,jdbcType=DOUBLE},
+      carry_goods_fee = #{record.carryGoodsFee,jdbcType=DOUBLE},
+      employee_code = #{record.employeeCode,jdbcType=VARCHAR},
+      fact_deal_date = #{record.factDealDate,jdbcType=DATE},
+      fetch_goods_mode = #{record.fetchGoodsMode,jdbcType=VARCHAR},
+      help_accept_payment = #{record.helpAcceptPayment,jdbcType=DOUBLE},
+      if_audit = #{record.ifAudit,jdbcType=BIT},
+      if_settle_accounts = #{record.ifSettleAccounts,jdbcType=BIT},
+      insurance = #{record.insurance,jdbcType=DOUBLE},
+      money_of_change_pay = #{record.moneyOfChangePay,jdbcType=DOUBLE},
+      pay_kickback = #{record.payKickback,jdbcType=DOUBLE},
+      pay_mode = #{record.payMode,jdbcType=VARCHAR},
+      predelivery_date = #{record.predeliveryDate,jdbcType=DATE},
+      receive_goods_addr = #{record.receiveGoodsAddr,jdbcType=VARCHAR},
+      receive_goods_customer = #{record.receiveGoodsCustomer,jdbcType=VARCHAR},
+      receive_goods_customer_addr = #{record.receiveGoodsCustomerAddr,jdbcType=VARCHAR},
+      receive_goods_customer_code = #{record.receiveGoodsCustomerCode,jdbcType=VARCHAR},
+      receive_goods_customer_tel = #{record.receiveGoodsCustomerTel,jdbcType=VARCHAR},
+      reduce_fund = #{record.reduceFund,jdbcType=DOUBLE},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      send_goods_addr = #{record.sendGoodsAddr,jdbcType=VARCHAR},
+      send_goods_customer = #{record.sendGoodsCustomer,jdbcType=VARCHAR},
+      send_goods_customer_addr = #{record.sendGoodsCustomerAddr,jdbcType=VARCHAR},
+      send_goods_customer_no = #{record.sendGoodsCustomerNo,jdbcType=VARCHAR},
+      send_goods_customer_tel = #{record.sendGoodsCustomerTel,jdbcType=VARCHAR},
+      send_goods_date = #{record.sendGoodsDate,jdbcType=DATE},
+      transfer_fee = #{record.transferFee,jdbcType=DOUBLE},
+      transfer_station = #{record.transferStation,jdbcType=VARCHAR},
+      validity = #{record.validity,jdbcType=BIT},
+      write_bill_person = #{record.writeBillPerson,jdbcType=VARCHAR},
+      write_date = #{record.writeDate,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Goodsbill" >
+    update goodsbill
+    <set >
+      <if test="acceptProcedureRate != null" >
+        accept_procedure_rate = #{acceptProcedureRate,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptStation != null" >
+        accept_station = #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="carriage != null" >
+        carriage = #{carriage,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsFee != null" >
+        carry_goods_fee = #{carryGoodsFee,jdbcType=DOUBLE},
+      </if>
+      <if test="employeeCode != null" >
+        employee_code = #{employeeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="factDealDate != null" >
+        fact_deal_date = #{factDealDate,jdbcType=DATE},
+      </if>
+      <if test="fetchGoodsMode != null" >
+        fetch_goods_mode = #{fetchGoodsMode,jdbcType=VARCHAR},
+      </if>
+      <if test="helpAcceptPayment != null" >
+        help_accept_payment = #{helpAcceptPayment,jdbcType=DOUBLE},
+      </if>
+      <if test="ifAudit != null" >
+        if_audit = #{ifAudit,jdbcType=BIT},
+      </if>
+      <if test="ifSettleAccounts != null" >
+        if_settle_accounts = #{ifSettleAccounts,jdbcType=BIT},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="moneyOfChangePay != null" >
+        money_of_change_pay = #{moneyOfChangePay,jdbcType=DOUBLE},
+      </if>
+      <if test="payKickback != null" >
+        pay_kickback = #{payKickback,jdbcType=DOUBLE},
+      </if>
+      <if test="payMode != null" >
+        pay_mode = #{payMode,jdbcType=VARCHAR},
+      </if>
+      <if test="predeliveryDate != null" >
+        predelivery_date = #{predeliveryDate,jdbcType=DATE},
+      </if>
+      <if test="receiveGoodsAddr != null" >
+        receive_goods_addr = #{receiveGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomer != null" >
+        receive_goods_customer = #{receiveGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerAddr != null" >
+        receive_goods_customer_addr = #{receiveGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerCode != null" >
+        receive_goods_customer_code = #{receiveGoodsCustomerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsCustomerTel != null" >
+        receive_goods_customer_tel = #{receiveGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="reduceFund != null" >
+        reduce_fund = #{reduceFund,jdbcType=DOUBLE},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsAddr != null" >
+        send_goods_addr = #{sendGoodsAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomer != null" >
+        send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerAddr != null" >
+        send_goods_customer_addr = #{sendGoodsCustomerAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerNo != null" >
+        send_goods_customer_no = #{sendGoodsCustomerNo,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsCustomerTel != null" >
+        send_goods_customer_tel = #{sendGoodsCustomerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="sendGoodsDate != null" >
+        send_goods_date = #{sendGoodsDate,jdbcType=DATE},
+      </if>
+      <if test="transferFee != null" >
+        transfer_fee = #{transferFee,jdbcType=DOUBLE},
+      </if>
+      <if test="transferStation != null" >
+        transfer_station = #{transferStation,jdbcType=VARCHAR},
+      </if>
+      <if test="validity != null" >
+        validity = #{validity,jdbcType=BIT},
+      </if>
+      <if test="writeBillPerson != null" >
+        write_bill_person = #{writeBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="writeDate != null" >
+        write_date = #{writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Goodsbill" >
+    update goodsbill
+    set accept_procedure_rate = #{acceptProcedureRate,jdbcType=VARCHAR},
+      accept_station = #{acceptStation,jdbcType=VARCHAR},
+      carriage = #{carriage,jdbcType=DOUBLE},
+      carry_goods_fee = #{carryGoodsFee,jdbcType=DOUBLE},
+      employee_code = #{employeeCode,jdbcType=VARCHAR},
+      fact_deal_date = #{factDealDate,jdbcType=DATE},
+      fetch_goods_mode = #{fetchGoodsMode,jdbcType=VARCHAR},
+      help_accept_payment = #{helpAcceptPayment,jdbcType=DOUBLE},
+      if_audit = #{ifAudit,jdbcType=BIT},
+      if_settle_accounts = #{ifSettleAccounts,jdbcType=BIT},
+      insurance = #{insurance,jdbcType=DOUBLE},
+      money_of_change_pay = #{moneyOfChangePay,jdbcType=DOUBLE},
+      pay_kickback = #{payKickback,jdbcType=DOUBLE},
+      pay_mode = #{payMode,jdbcType=VARCHAR},
+      predelivery_date = #{predeliveryDate,jdbcType=DATE},
+      receive_goods_addr = #{receiveGoodsAddr,jdbcType=VARCHAR},
+      receive_goods_customer = #{receiveGoodsCustomer,jdbcType=VARCHAR},
+      receive_goods_customer_addr = #{receiveGoodsCustomerAddr,jdbcType=VARCHAR},
+      receive_goods_customer_code = #{receiveGoodsCustomerCode,jdbcType=VARCHAR},
+      receive_goods_customer_tel = #{receiveGoodsCustomerTel,jdbcType=VARCHAR},
+      reduce_fund = #{reduceFund,jdbcType=DOUBLE},
+      remark = #{remark,jdbcType=VARCHAR},
+      send_goods_addr = #{sendGoodsAddr,jdbcType=VARCHAR},
+      send_goods_customer = #{sendGoodsCustomer,jdbcType=VARCHAR},
+      send_goods_customer_addr = #{sendGoodsCustomerAddr,jdbcType=VARCHAR},
+      send_goods_customer_no = #{sendGoodsCustomerNo,jdbcType=VARCHAR},
+      send_goods_customer_tel = #{sendGoodsCustomerTel,jdbcType=VARCHAR},
+      send_goods_date = #{sendGoodsDate,jdbcType=DATE},
+      transfer_fee = #{transferFee,jdbcType=DOUBLE},
+      transfer_station = #{transferStation,jdbcType=VARCHAR},
+      validity = #{validity,jdbcType=BIT},
+      write_bill_person = #{writeBillPerson,jdbcType=VARCHAR},
+      write_date = #{writeDate,jdbcType=DATE}
+    where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

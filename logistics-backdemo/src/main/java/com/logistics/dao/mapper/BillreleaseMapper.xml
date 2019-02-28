@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.BillreleaseMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Billrelease" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="accept_station" property="acceptStation" jdbcType="VARCHAR" />
+    <result column="bill_code" property="billCode" jdbcType="VARCHAR" />
+    <result column="bill_type" property="billType" jdbcType="VARCHAR" />
+    <result column="receive_bill_person" property="receiveBillPerson" jdbcType="VARCHAR" />
+    <result column="receive_bill_time" property="receiveBillTime" jdbcType="DATE" />
+    <result column="release_person" property="releasePerson" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, accept_station, bill_code, bill_type, receive_bill_person, receive_bill_time, 
+    release_person
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.BillreleaseExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from billrelease
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from billrelease
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from billrelease
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.BillreleaseExample" >
+    delete from billrelease
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Billrelease" >
+    insert into billrelease (id, accept_station, bill_code, 
+      bill_type, receive_bill_person, receive_bill_time, 
+      release_person)
+    values (#{id,jdbcType=INTEGER}, #{acceptStation,jdbcType=VARCHAR}, #{billCode,jdbcType=VARCHAR}, 
+      #{billType,jdbcType=VARCHAR}, #{receiveBillPerson,jdbcType=VARCHAR}, #{receiveBillTime,jdbcType=DATE}, 
+      #{releasePerson,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Billrelease" >
+    insert into billrelease
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="acceptStation != null" >
+        accept_station,
+      </if>
+      <if test="billCode != null" >
+        bill_code,
+      </if>
+      <if test="billType != null" >
+        bill_type,
+      </if>
+      <if test="receiveBillPerson != null" >
+        receive_bill_person,
+      </if>
+      <if test="receiveBillTime != null" >
+        receive_bill_time,
+      </if>
+      <if test="releasePerson != null" >
+        release_person,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="acceptStation != null" >
+        #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="billCode != null" >
+        #{billCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null" >
+        #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBillPerson != null" >
+        #{receiveBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBillTime != null" >
+        #{receiveBillTime,jdbcType=DATE},
+      </if>
+      <if test="releasePerson != null" >
+        #{releasePerson,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.BillreleaseExample" resultType="java.lang.Integer" >
+    select count(*) from billrelease
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update billrelease
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.acceptStation != null" >
+        accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billCode != null" >
+        bill_code = #{record.billCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.billType != null" >
+        bill_type = #{record.billType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveBillPerson != null" >
+        receive_bill_person = #{record.receiveBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveBillTime != null" >
+        receive_bill_time = #{record.receiveBillTime,jdbcType=DATE},
+      </if>
+      <if test="record.releasePerson != null" >
+        release_person = #{record.releasePerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update billrelease
+    set id = #{record.id,jdbcType=INTEGER},
+      accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      bill_code = #{record.billCode,jdbcType=VARCHAR},
+      bill_type = #{record.billType,jdbcType=VARCHAR},
+      receive_bill_person = #{record.receiveBillPerson,jdbcType=VARCHAR},
+      receive_bill_time = #{record.receiveBillTime,jdbcType=DATE},
+      release_person = #{record.releasePerson,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Billrelease" >
+    update billrelease
+    <set >
+      <if test="acceptStation != null" >
+        accept_station = #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="billCode != null" >
+        bill_code = #{billCode,jdbcType=VARCHAR},
+      </if>
+      <if test="billType != null" >
+        bill_type = #{billType,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBillPerson != null" >
+        receive_bill_person = #{receiveBillPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveBillTime != null" >
+        receive_bill_time = #{receiveBillTime,jdbcType=DATE},
+      </if>
+      <if test="releasePerson != null" >
+        release_person = #{releasePerson,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Billrelease" >
+    update billrelease
+    set accept_station = #{acceptStation,jdbcType=VARCHAR},
+      bill_code = #{billCode,jdbcType=VARCHAR},
+      bill_type = #{billType,jdbcType=VARCHAR},
+      receive_bill_person = #{receiveBillPerson,jdbcType=VARCHAR},
+      receive_bill_time = #{receiveBillTime,jdbcType=DATE},
+      release_person = #{releasePerson,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

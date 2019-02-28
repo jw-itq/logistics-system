@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CompensationinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Compensationinfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="amends" property="amends" jdbcType="DOUBLE" />
+    <result column="amends_time" property="amendsTime" jdbcType="DATE" />
+    <result column="bad_destroy_goods" property="badDestroyGoods" jdbcType="DOUBLE" />
+    <result column="customer" property="customer" jdbcType="VARCHAR" />
+    <result column="receive_station_id" property="receiveStationId" jdbcType="INTEGER" />
+    <result column="receive_station_name" property="receiveStationName" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="write_date" property="writeDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, amends, amends_time, bad_destroy_goods, customer, receive_station_id, receive_station_name, 
+    remark, write_date
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CompensationinfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from compensationinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from compensationinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from compensationinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CompensationinfoExample" >
+    delete from compensationinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Compensationinfo" >
+    insert into compensationinfo (id, amends, amends_time, 
+      bad_destroy_goods, customer, receive_station_id, 
+      receive_station_name, remark, write_date
+      )
+    values (#{id,jdbcType=INTEGER}, #{amends,jdbcType=DOUBLE}, #{amendsTime,jdbcType=DATE}, 
+      #{badDestroyGoods,jdbcType=DOUBLE}, #{customer,jdbcType=VARCHAR}, #{receiveStationId,jdbcType=INTEGER}, 
+      #{receiveStationName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{writeDate,jdbcType=DATE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Compensationinfo" >
+    insert into compensationinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="amends != null" >
+        amends,
+      </if>
+      <if test="amendsTime != null" >
+        amends_time,
+      </if>
+      <if test="badDestroyGoods != null" >
+        bad_destroy_goods,
+      </if>
+      <if test="customer != null" >
+        customer,
+      </if>
+      <if test="receiveStationId != null" >
+        receive_station_id,
+      </if>
+      <if test="receiveStationName != null" >
+        receive_station_name,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="writeDate != null" >
+        write_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="amends != null" >
+        #{amends,jdbcType=DOUBLE},
+      </if>
+      <if test="amendsTime != null" >
+        #{amendsTime,jdbcType=DATE},
+      </if>
+      <if test="badDestroyGoods != null" >
+        #{badDestroyGoods,jdbcType=DOUBLE},
+      </if>
+      <if test="customer != null" >
+        #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveStationId != null" >
+        #{receiveStationId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveStationName != null" >
+        #{receiveStationName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="writeDate != null" >
+        #{writeDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CompensationinfoExample" resultType="java.lang.Integer" >
+    select count(*) from compensationinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update compensationinfo
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.amends != null" >
+        amends = #{record.amends,jdbcType=DOUBLE},
+      </if>
+      <if test="record.amendsTime != null" >
+        amends_time = #{record.amendsTime,jdbcType=DATE},
+      </if>
+      <if test="record.badDestroyGoods != null" >
+        bad_destroy_goods = #{record.badDestroyGoods,jdbcType=DOUBLE},
+      </if>
+      <if test="record.customer != null" >
+        customer = #{record.customer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveStationId != null" >
+        receive_station_id = #{record.receiveStationId,jdbcType=INTEGER},
+      </if>
+      <if test="record.receiveStationName != null" >
+        receive_station_name = #{record.receiveStationName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.writeDate != null" >
+        write_date = #{record.writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update compensationinfo
+    set id = #{record.id,jdbcType=INTEGER},
+      amends = #{record.amends,jdbcType=DOUBLE},
+      amends_time = #{record.amendsTime,jdbcType=DATE},
+      bad_destroy_goods = #{record.badDestroyGoods,jdbcType=DOUBLE},
+      customer = #{record.customer,jdbcType=VARCHAR},
+      receive_station_id = #{record.receiveStationId,jdbcType=INTEGER},
+      receive_station_name = #{record.receiveStationName,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      write_date = #{record.writeDate,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Compensationinfo" >
+    update compensationinfo
+    <set >
+      <if test="amends != null" >
+        amends = #{amends,jdbcType=DOUBLE},
+      </if>
+      <if test="amendsTime != null" >
+        amends_time = #{amendsTime,jdbcType=DATE},
+      </if>
+      <if test="badDestroyGoods != null" >
+        bad_destroy_goods = #{badDestroyGoods,jdbcType=DOUBLE},
+      </if>
+      <if test="customer != null" >
+        customer = #{customer,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveStationId != null" >
+        receive_station_id = #{receiveStationId,jdbcType=INTEGER},
+      </if>
+      <if test="receiveStationName != null" >
+        receive_station_name = #{receiveStationName,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="writeDate != null" >
+        write_date = #{writeDate,jdbcType=DATE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Compensationinfo" >
+    update compensationinfo
+    set amends = #{amends,jdbcType=DOUBLE},
+      amends_time = #{amendsTime,jdbcType=DATE},
+      bad_destroy_goods = #{badDestroyGoods,jdbcType=DOUBLE},
+      customer = #{customer,jdbcType=VARCHAR},
+      receive_station_id = #{receiveStationId,jdbcType=INTEGER},
+      receive_station_name = #{receiveStationName,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      write_date = #{writeDate,jdbcType=DATE}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

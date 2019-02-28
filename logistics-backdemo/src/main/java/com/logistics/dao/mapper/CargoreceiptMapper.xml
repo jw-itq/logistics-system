@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CargoreceiptMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Cargoreceipt" >
+    <id column="goods_revert_bill_code" property="goodsRevertBillCode" jdbcType="VARCHAR" />
+    <result column="accept_station" property="acceptStation" jdbcType="VARCHAR" />
+    <result column="all_carriage" property="allCarriage" jdbcType="DOUBLE" />
+    <result column="arrive_time" property="arriveTime" jdbcType="DATE" />
+    <result column="back_bill_state" property="backBillState" jdbcType="VARCHAR" />
+    <result column="carriage_banlance_mode" property="carriageBanlanceMode" jdbcType="VARCHAR" />
+    <result column="carriage_mode" property="carriageMode" jdbcType="VARCHAR" />
+    <result column="carry_goods_bill_deposit" property="carryGoodsBillDeposit" jdbcType="DOUBLE" />
+    <result column="carry_goods_insurance" property="carryGoodsInsurance" jdbcType="DOUBLE" />
+    <result column="deal_goods_station" property="dealGoodsStation" jdbcType="VARCHAR" />
+    <result column="dispatch_service_fee" property="dispatchServiceFee" jdbcType="DOUBLE" />
+    <result column="driver_id" property="driverId" jdbcType="VARCHAR" />
+    <result column="if_balance" property="ifBalance" jdbcType="VARCHAR" />
+    <result column="insurance" property="insurance" jdbcType="DOUBLE" />
+    <result column="linkman_phone" property="linkmanPhone" jdbcType="VARCHAR" />
+    <result column="load_station" property="loadStation" jdbcType="VARCHAR" />
+    <result column="receive_goods_detail_addr" property="receiveGoodsDetailAddr" jdbcType="VARCHAR" />
+    <result column="receive_goods_linkman" property="receiveGoodsLinkman" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="sign_time" property="signTime" jdbcType="DATE" />
+    <result column="start_advance" property="startAdvance" jdbcType="DOUBLE" />
+    <result column="start_carry_time" property="startCarryTime" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goods_revert_bill_code, accept_station, all_carriage, arrive_time, back_bill_state, 
+    carriage_banlance_mode, carriage_mode, carry_goods_bill_deposit, carry_goods_insurance, 
+    deal_goods_station, dispatch_service_fee, driver_id, if_balance, insurance, linkman_phone, 
+    load_station, receive_goods_detail_addr, receive_goods_linkman, remark, sign_time, 
+    start_advance, start_carry_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CargoreceiptExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cargoreceipt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cargoreceipt
+    where goods_revert_bill_code = #{goodsRevertBillCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cargoreceipt
+    where goods_revert_bill_code = #{goodsRevertBillCode,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CargoreceiptExample" >
+    delete from cargoreceipt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Cargoreceipt" >
+    insert into cargoreceipt (goods_revert_bill_code, accept_station, 
+      all_carriage, arrive_time, back_bill_state, 
+      carriage_banlance_mode, carriage_mode, carry_goods_bill_deposit, 
+      carry_goods_insurance, deal_goods_station, dispatch_service_fee, 
+      driver_id, if_balance, insurance, 
+      linkman_phone, load_station, receive_goods_detail_addr, 
+      receive_goods_linkman, remark, sign_time, 
+      start_advance, start_carry_time)
+    values (#{goodsRevertBillCode,jdbcType=VARCHAR}, #{acceptStation,jdbcType=VARCHAR}, 
+      #{allCarriage,jdbcType=DOUBLE}, #{arriveTime,jdbcType=DATE}, #{backBillState,jdbcType=VARCHAR}, 
+      #{carriageBanlanceMode,jdbcType=VARCHAR}, #{carriageMode,jdbcType=VARCHAR}, #{carryGoodsBillDeposit,jdbcType=DOUBLE}, 
+      #{carryGoodsInsurance,jdbcType=DOUBLE}, #{dealGoodsStation,jdbcType=VARCHAR}, #{dispatchServiceFee,jdbcType=DOUBLE}, 
+      #{driverId,jdbcType=VARCHAR}, #{ifBalance,jdbcType=VARCHAR}, #{insurance,jdbcType=DOUBLE}, 
+      #{linkmanPhone,jdbcType=VARCHAR}, #{loadStation,jdbcType=VARCHAR}, #{receiveGoodsDetailAddr,jdbcType=VARCHAR}, 
+      #{receiveGoodsLinkman,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{signTime,jdbcType=DATE}, 
+      #{startAdvance,jdbcType=DOUBLE}, #{startCarryTime,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Cargoreceipt" >
+    insert into cargoreceipt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsRevertBillCode != null" >
+        goods_revert_bill_code,
+      </if>
+      <if test="acceptStation != null" >
+        accept_station,
+      </if>
+      <if test="allCarriage != null" >
+        all_carriage,
+      </if>
+      <if test="arriveTime != null" >
+        arrive_time,
+      </if>
+      <if test="backBillState != null" >
+        back_bill_state,
+      </if>
+      <if test="carriageBanlanceMode != null" >
+        carriage_banlance_mode,
+      </if>
+      <if test="carriageMode != null" >
+        carriage_mode,
+      </if>
+      <if test="carryGoodsBillDeposit != null" >
+        carry_goods_bill_deposit,
+      </if>
+      <if test="carryGoodsInsurance != null" >
+        carry_goods_insurance,
+      </if>
+      <if test="dealGoodsStation != null" >
+        deal_goods_station,
+      </if>
+      <if test="dispatchServiceFee != null" >
+        dispatch_service_fee,
+      </if>
+      <if test="driverId != null" >
+        driver_id,
+      </if>
+      <if test="ifBalance != null" >
+        if_balance,
+      </if>
+      <if test="insurance != null" >
+        insurance,
+      </if>
+      <if test="linkmanPhone != null" >
+        linkman_phone,
+      </if>
+      <if test="loadStation != null" >
+        load_station,
+      </if>
+      <if test="receiveGoodsDetailAddr != null" >
+        receive_goods_detail_addr,
+      </if>
+      <if test="receiveGoodsLinkman != null" >
+        receive_goods_linkman,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="signTime != null" >
+        sign_time,
+      </if>
+      <if test="startAdvance != null" >
+        start_advance,
+      </if>
+      <if test="startCarryTime != null" >
+        start_carry_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsRevertBillCode != null" >
+        #{goodsRevertBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptStation != null" >
+        #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="allCarriage != null" >
+        #{allCarriage,jdbcType=DOUBLE},
+      </if>
+      <if test="arriveTime != null" >
+        #{arriveTime,jdbcType=DATE},
+      </if>
+      <if test="backBillState != null" >
+        #{backBillState,jdbcType=VARCHAR},
+      </if>
+      <if test="carriageBanlanceMode != null" >
+        #{carriageBanlanceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carriageMode != null" >
+        #{carriageMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carryGoodsBillDeposit != null" >
+        #{carryGoodsBillDeposit,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsInsurance != null" >
+        #{carryGoodsInsurance,jdbcType=DOUBLE},
+      </if>
+      <if test="dealGoodsStation != null" >
+        #{dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchServiceFee != null" >
+        #{dispatchServiceFee,jdbcType=DOUBLE},
+      </if>
+      <if test="driverId != null" >
+        #{driverId,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBalance != null" >
+        #{ifBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null" >
+        #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="linkmanPhone != null" >
+        #{linkmanPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="loadStation != null" >
+        #{loadStation,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsDetailAddr != null" >
+        #{receiveGoodsDetailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsLinkman != null" >
+        #{receiveGoodsLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null" >
+        #{signTime,jdbcType=DATE},
+      </if>
+      <if test="startAdvance != null" >
+        #{startAdvance,jdbcType=DOUBLE},
+      </if>
+      <if test="startCarryTime != null" >
+        #{startCarryTime,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CargoreceiptExample" resultType="java.lang.Integer" >
+    select count(*) from cargoreceipt
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cargoreceipt
+    <set >
+      <if test="record.goodsRevertBillCode != null" >
+        goods_revert_bill_code = #{record.goodsRevertBillCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acceptStation != null" >
+        accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allCarriage != null" >
+        all_carriage = #{record.allCarriage,jdbcType=DOUBLE},
+      </if>
+      <if test="record.arriveTime != null" >
+        arrive_time = #{record.arriveTime,jdbcType=DATE},
+      </if>
+      <if test="record.backBillState != null" >
+        back_bill_state = #{record.backBillState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carriageBanlanceMode != null" >
+        carriage_banlance_mode = #{record.carriageBanlanceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carriageMode != null" >
+        carriage_mode = #{record.carriageMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.carryGoodsBillDeposit != null" >
+        carry_goods_bill_deposit = #{record.carryGoodsBillDeposit,jdbcType=DOUBLE},
+      </if>
+      <if test="record.carryGoodsInsurance != null" >
+        carry_goods_insurance = #{record.carryGoodsInsurance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.dealGoodsStation != null" >
+        deal_goods_station = #{record.dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dispatchServiceFee != null" >
+        dispatch_service_fee = #{record.dispatchServiceFee,jdbcType=DOUBLE},
+      </if>
+      <if test="record.driverId != null" >
+        driver_id = #{record.driverId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ifBalance != null" >
+        if_balance = #{record.ifBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.insurance != null" >
+        insurance = #{record.insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.linkmanPhone != null" >
+        linkman_phone = #{record.linkmanPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loadStation != null" >
+        load_station = #{record.loadStation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsDetailAddr != null" >
+        receive_goods_detail_addr = #{record.receiveGoodsDetailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveGoodsLinkman != null" >
+        receive_goods_linkman = #{record.receiveGoodsLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signTime != null" >
+        sign_time = #{record.signTime,jdbcType=DATE},
+      </if>
+      <if test="record.startAdvance != null" >
+        start_advance = #{record.startAdvance,jdbcType=DOUBLE},
+      </if>
+      <if test="record.startCarryTime != null" >
+        start_carry_time = #{record.startCarryTime,jdbcType=DATE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cargoreceipt
+    set goods_revert_bill_code = #{record.goodsRevertBillCode,jdbcType=VARCHAR},
+      accept_station = #{record.acceptStation,jdbcType=VARCHAR},
+      all_carriage = #{record.allCarriage,jdbcType=DOUBLE},
+      arrive_time = #{record.arriveTime,jdbcType=DATE},
+      back_bill_state = #{record.backBillState,jdbcType=VARCHAR},
+      carriage_banlance_mode = #{record.carriageBanlanceMode,jdbcType=VARCHAR},
+      carriage_mode = #{record.carriageMode,jdbcType=VARCHAR},
+      carry_goods_bill_deposit = #{record.carryGoodsBillDeposit,jdbcType=DOUBLE},
+      carry_goods_insurance = #{record.carryGoodsInsurance,jdbcType=DOUBLE},
+      deal_goods_station = #{record.dealGoodsStation,jdbcType=VARCHAR},
+      dispatch_service_fee = #{record.dispatchServiceFee,jdbcType=DOUBLE},
+      driver_id = #{record.driverId,jdbcType=VARCHAR},
+      if_balance = #{record.ifBalance,jdbcType=VARCHAR},
+      insurance = #{record.insurance,jdbcType=DOUBLE},
+      linkman_phone = #{record.linkmanPhone,jdbcType=VARCHAR},
+      load_station = #{record.loadStation,jdbcType=VARCHAR},
+      receive_goods_detail_addr = #{record.receiveGoodsDetailAddr,jdbcType=VARCHAR},
+      receive_goods_linkman = #{record.receiveGoodsLinkman,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      sign_time = #{record.signTime,jdbcType=DATE},
+      start_advance = #{record.startAdvance,jdbcType=DOUBLE},
+      start_carry_time = #{record.startCarryTime,jdbcType=DATE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Cargoreceipt" >
+    update cargoreceipt
+    <set >
+      <if test="acceptStation != null" >
+        accept_station = #{acceptStation,jdbcType=VARCHAR},
+      </if>
+      <if test="allCarriage != null" >
+        all_carriage = #{allCarriage,jdbcType=DOUBLE},
+      </if>
+      <if test="arriveTime != null" >
+        arrive_time = #{arriveTime,jdbcType=DATE},
+      </if>
+      <if test="backBillState != null" >
+        back_bill_state = #{backBillState,jdbcType=VARCHAR},
+      </if>
+      <if test="carriageBanlanceMode != null" >
+        carriage_banlance_mode = #{carriageBanlanceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carriageMode != null" >
+        carriage_mode = #{carriageMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carryGoodsBillDeposit != null" >
+        carry_goods_bill_deposit = #{carryGoodsBillDeposit,jdbcType=DOUBLE},
+      </if>
+      <if test="carryGoodsInsurance != null" >
+        carry_goods_insurance = #{carryGoodsInsurance,jdbcType=DOUBLE},
+      </if>
+      <if test="dealGoodsStation != null" >
+        deal_goods_station = #{dealGoodsStation,jdbcType=VARCHAR},
+      </if>
+      <if test="dispatchServiceFee != null" >
+        dispatch_service_fee = #{dispatchServiceFee,jdbcType=DOUBLE},
+      </if>
+      <if test="driverId != null" >
+        driver_id = #{driverId,jdbcType=VARCHAR},
+      </if>
+      <if test="ifBalance != null" >
+        if_balance = #{ifBalance,jdbcType=VARCHAR},
+      </if>
+      <if test="insurance != null" >
+        insurance = #{insurance,jdbcType=DOUBLE},
+      </if>
+      <if test="linkmanPhone != null" >
+        linkman_phone = #{linkmanPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="loadStation != null" >
+        load_station = #{loadStation,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsDetailAddr != null" >
+        receive_goods_detail_addr = #{receiveGoodsDetailAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveGoodsLinkman != null" >
+        receive_goods_linkman = #{receiveGoodsLinkman,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="signTime != null" >
+        sign_time = #{signTime,jdbcType=DATE},
+      </if>
+      <if test="startAdvance != null" >
+        start_advance = #{startAdvance,jdbcType=DOUBLE},
+      </if>
+      <if test="startCarryTime != null" >
+        start_carry_time = #{startCarryTime,jdbcType=DATE},
+      </if>
+    </set>
+    where goods_revert_bill_code = #{goodsRevertBillCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Cargoreceipt" >
+    update cargoreceipt
+    set accept_station = #{acceptStation,jdbcType=VARCHAR},
+      all_carriage = #{allCarriage,jdbcType=DOUBLE},
+      arrive_time = #{arriveTime,jdbcType=DATE},
+      back_bill_state = #{backBillState,jdbcType=VARCHAR},
+      carriage_banlance_mode = #{carriageBanlanceMode,jdbcType=VARCHAR},
+      carriage_mode = #{carriageMode,jdbcType=VARCHAR},
+      carry_goods_bill_deposit = #{carryGoodsBillDeposit,jdbcType=DOUBLE},
+      carry_goods_insurance = #{carryGoodsInsurance,jdbcType=DOUBLE},
+      deal_goods_station = #{dealGoodsStation,jdbcType=VARCHAR},
+      dispatch_service_fee = #{dispatchServiceFee,jdbcType=DOUBLE},
+      driver_id = #{driverId,jdbcType=VARCHAR},
+      if_balance = #{ifBalance,jdbcType=VARCHAR},
+      insurance = #{insurance,jdbcType=DOUBLE},
+      linkman_phone = #{linkmanPhone,jdbcType=VARCHAR},
+      load_station = #{loadStation,jdbcType=VARCHAR},
+      receive_goods_detail_addr = #{receiveGoodsDetailAddr,jdbcType=VARCHAR},
+      receive_goods_linkman = #{receiveGoodsLinkman,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      sign_time = #{signTime,jdbcType=DATE},
+      start_advance = #{startAdvance,jdbcType=DOUBLE},
+      start_carry_time = #{startCarryTime,jdbcType=DATE}
+    where goods_revert_bill_code = #{goodsRevertBillCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

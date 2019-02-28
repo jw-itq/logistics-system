@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.logistics.dao.mapper.CargoreceiptdetailMapper" >
+  <resultMap id="BaseResultMap" type="com.logistics.pojo.Cargoreceiptdetail" >
+    <id column="goods_revert_bill_id" property="goodsRevertBillId" jdbcType="VARCHAR" />
+    <result column="goods_bill_detail_id" property="goodsBillDetailId" jdbcType="VARCHAR" />
+    <result column="goods_value" property="goodsValue" jdbcType="DOUBLE" />
+    <result column="piece_amount" property="pieceAmount" jdbcType="INTEGER" />
+    <result column="price_mode" property="priceMode" jdbcType="VARCHAR" />
+    <result column="price_standard" property="priceStandard" jdbcType="VARCHAR" />
+    <result column="volume" property="volume" jdbcType="DOUBLE" />
+    <result column="weight" property="weight" jdbcType="DOUBLE" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    goods_revert_bill_id, goods_bill_detail_id, goods_value, piece_amount, price_mode, 
+    price_standard, volume, weight
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.logistics.pojo.CargoreceiptdetailExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from cargoreceiptdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from cargoreceiptdetail
+    where goods_revert_bill_id = #{goodsRevertBillId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from cargoreceiptdetail
+    where goods_revert_bill_id = #{goodsRevertBillId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.logistics.pojo.CargoreceiptdetailExample" >
+    delete from cargoreceiptdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.logistics.pojo.Cargoreceiptdetail" >
+    insert into cargoreceiptdetail (goods_revert_bill_id, goods_bill_detail_id, 
+      goods_value, piece_amount, price_mode, 
+      price_standard, volume, weight
+      )
+    values (#{goodsRevertBillId,jdbcType=VARCHAR}, #{goodsBillDetailId,jdbcType=VARCHAR}, 
+      #{goodsValue,jdbcType=DOUBLE}, #{pieceAmount,jdbcType=INTEGER}, #{priceMode,jdbcType=VARCHAR}, 
+      #{priceStandard,jdbcType=VARCHAR}, #{volume,jdbcType=DOUBLE}, #{weight,jdbcType=DOUBLE}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.logistics.pojo.Cargoreceiptdetail" >
+    insert into cargoreceiptdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="goodsRevertBillId != null" >
+        goods_revert_bill_id,
+      </if>
+      <if test="goodsBillDetailId != null" >
+        goods_bill_detail_id,
+      </if>
+      <if test="goodsValue != null" >
+        goods_value,
+      </if>
+      <if test="pieceAmount != null" >
+        piece_amount,
+      </if>
+      <if test="priceMode != null" >
+        price_mode,
+      </if>
+      <if test="priceStandard != null" >
+        price_standard,
+      </if>
+      <if test="volume != null" >
+        volume,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="goodsRevertBillId != null" >
+        #{goodsRevertBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsBillDetailId != null" >
+        #{goodsBillDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsValue != null" >
+        #{goodsValue,jdbcType=DOUBLE},
+      </if>
+      <if test="pieceAmount != null" >
+        #{pieceAmount,jdbcType=INTEGER},
+      </if>
+      <if test="priceMode != null" >
+        #{priceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="priceStandard != null" >
+        #{priceStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        #{volume,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.logistics.pojo.CargoreceiptdetailExample" resultType="java.lang.Integer" >
+    select count(*) from cargoreceiptdetail
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cargoreceiptdetail
+    <set >
+      <if test="record.goodsRevertBillId != null" >
+        goods_revert_bill_id = #{record.goodsRevertBillId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsBillDetailId != null" >
+        goods_bill_detail_id = #{record.goodsBillDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsValue != null" >
+        goods_value = #{record.goodsValue,jdbcType=DOUBLE},
+      </if>
+      <if test="record.pieceAmount != null" >
+        piece_amount = #{record.pieceAmount,jdbcType=INTEGER},
+      </if>
+      <if test="record.priceMode != null" >
+        price_mode = #{record.priceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priceStandard != null" >
+        price_standard = #{record.priceStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.volume != null" >
+        volume = #{record.volume,jdbcType=DOUBLE},
+      </if>
+      <if test="record.weight != null" >
+        weight = #{record.weight,jdbcType=DOUBLE},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cargoreceiptdetail
+    set goods_revert_bill_id = #{record.goodsRevertBillId,jdbcType=VARCHAR},
+      goods_bill_detail_id = #{record.goodsBillDetailId,jdbcType=VARCHAR},
+      goods_value = #{record.goodsValue,jdbcType=DOUBLE},
+      piece_amount = #{record.pieceAmount,jdbcType=INTEGER},
+      price_mode = #{record.priceMode,jdbcType=VARCHAR},
+      price_standard = #{record.priceStandard,jdbcType=VARCHAR},
+      volume = #{record.volume,jdbcType=DOUBLE},
+      weight = #{record.weight,jdbcType=DOUBLE}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.logistics.pojo.Cargoreceiptdetail" >
+    update cargoreceiptdetail
+    <set >
+      <if test="goodsBillDetailId != null" >
+        goods_bill_detail_id = #{goodsBillDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsValue != null" >
+        goods_value = #{goodsValue,jdbcType=DOUBLE},
+      </if>
+      <if test="pieceAmount != null" >
+        piece_amount = #{pieceAmount,jdbcType=INTEGER},
+      </if>
+      <if test="priceMode != null" >
+        price_mode = #{priceMode,jdbcType=VARCHAR},
+      </if>
+      <if test="priceStandard != null" >
+        price_standard = #{priceStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="volume != null" >
+        volume = #{volume,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where goods_revert_bill_id = #{goodsRevertBillId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Cargoreceiptdetail" >
+    update cargoreceiptdetail
+    set goods_bill_detail_id = #{goodsBillDetailId,jdbcType=VARCHAR},
+      goods_value = #{goodsValue,jdbcType=DOUBLE},
+      piece_amount = #{pieceAmount,jdbcType=INTEGER},
+      price_mode = #{priceMode,jdbcType=VARCHAR},
+      price_standard = #{priceStandard,jdbcType=VARCHAR},
+      volume = #{volume,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE}
+    where goods_revert_bill_id = #{goodsRevertBillId,jdbcType=VARCHAR}
+  </update>
+</mapper>
