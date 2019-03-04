@@ -1,23 +1,20 @@
 package com.logistics.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.logistics.dao.mapper.BillinfoMapper;
 import com.logistics.dao.mapper.CargoreceiptdetailMapper;
 import com.logistics.dao.mapper.GoodsbillMapper;
 import com.logistics.dao.mapper.GoodsbilleventMapper;
-import com.logistics.pojo.Billinfo;
-import com.logistics.pojo.Cargoreceiptdetail;
-import com.logistics.pojo.Goodsbill;
-import com.logistics.pojo.Goodsbillevent;
+import com.logistics.pojo.*;
 import com.logistics.service.GoodsBillService;
+import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Service(value = "goodsBillService")
 @Transactional(propagation = Propagation.REQUIRED)
@@ -119,6 +116,29 @@ public class GoodsBillServiceImpl implements GoodsBillService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    /**
+     * 分页查询货运单的状态
+     * @param eventNum 这个是状态
+     * @param pageNum 表示当前页
+     * @param limit 表示每页显示的数量
+     * @return
+     */
+    @Override
+    public Result selectByEvent(String eventNum, int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+
+        GoodsbilleventExample example = new GoodsbilleventExample();
+        GoodsbilleventExample.Criteria criteria = example.createCriteria();
+        criteria.andEventNameEqualTo(eventNum);
+
+        List<Goodsbillevent> list = goodsbilleventMapper.selectByExample(example);
+        PageInfo<Goodsbillevent> pageInfo = new PageInfo<Goodsbillevent>(list);
+
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        System.out.println("查询货运单的状态成功   "+result.toString());
+        return result;
     }
 
     /**

@@ -2,13 +2,13 @@ package com.logistics.util;
 
 public class Result {
 	
-	private int code;
+	private int code;//数据状态的字段名称
 	
-	private String msg;
+	private String msg;//状态信息的字段名称
 	
-	private int count;
+	private int count;//数据总数的字段名称
 	
-	private Object data;
+	private Object data;//数据列表的字段名称
 	
 	public Result() {
 		

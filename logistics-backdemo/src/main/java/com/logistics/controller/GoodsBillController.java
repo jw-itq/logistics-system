@@ -3,8 +3,10 @@ package com.logistics.controller;
 import com.logistics.pojo.Cargoreceiptdetail;
 import com.logistics.pojo.Goodsbill;
 import com.logistics.service.GoodsBillService;
+import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,5 +49,10 @@ public class GoodsBillController extends ReturnType{
         }
         map.put("ERROR",ERROR);
         return map;
+    }
+
+    @RequestMapping(value = "/selectByEvent/{eventName}",method = RequestMethod.GET)
+    public Result selectByEvent(@PathVariable("eventName") String eventName,@RequestParam("pageNum") int pageNum,@RequestParam("limit") int limit){
+        return goodsBillService.selectByEvent(eventName,pageNum,limit);
     }
 }
