@@ -1,5 +1,9 @@
 package com.logistics.pojo;
 
+/**
+ * 货物回执单详表
+ * @author shiwanming
+ */
 public class Cargoreceiptdetail {
     private String goodsRevertBillId;
 

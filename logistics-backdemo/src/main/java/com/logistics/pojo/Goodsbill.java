@@ -3,39 +3,39 @@ package com.logistics.pojo;
 import java.util.Date;
 
 public class Goodsbill {
-    private String goodsBillCode;
+    private String goodsBillCode;//货运单的编号
 
-    private String acceptProcedureRate;
+    private String acceptProcedureRate;//代收手续费率
 
-    private String acceptStation;
+    private String acceptStation;//接货点
 
-    private Double carriage;
+    private Double carriage;//运费
 
-    private Double carryGoodsFee;
+    private Double carryGoodsFee;//送货费
 
-    private String employeeCode;
+    private String employeeCode;//职员编号
 
-    private Date factDealDate;
+    private Date factDealDate;//实际交货日期
 
-    private String fetchGoodsMode;
+    private String fetchGoodsMode;//取货方式
 
-    private Double helpAcceptPayment;
+    private Double helpAcceptPayment;//代收贷款
 
-    private Boolean ifAudit;
+    private Boolean ifAudit;//是否审核
 
-    private Boolean ifSettleAccounts;
+    private Boolean ifSettleAccounts;//是否结帐
 
-    private Double insurance;
+    private Double insurance;//保险费
 
-    private Double moneyOfChangePay;
+    private Double moneyOfChangePay;//变更后金额
 
-    private Double payKickback;
+    private Double payKickback;//代回扣
 
-    private String payMode;
+    private String payMode;//付款方式
 
-    private Date predeliveryDate;
+    private Date predeliveryDate;//预期交货日期
 
-    private String receiveGoodsAddr;
+    private String receiveGoodsAddr;//收获地址
 
     private String receiveGoodsCustomer;
 
@@ -45,11 +45,11 @@ public class Goodsbill {
 
     private String receiveGoodsCustomerTel;
 
-    private Double reduceFund;
+    private Double reduceFund;//减款
 
-    private String remark;
+    private String remark;//备注
 
-    private String sendGoodsAddr;
+    private String sendGoodsAddr;//
 
     private String sendGoodsCustomer;
 
@@ -65,9 +65,9 @@ public class Goodsbill {
 
     private String transferStation;
 
-    private Boolean validity;
+    private Boolean validity;//是否有效
 
-    private String writeBillPerson;
+    private String writeBillPerson;//
 
     private Date writeDate;
 
@@ -341,5 +341,45 @@ public class Goodsbill {
 
     public void setWriteDate(Date writeDate) {
         this.writeDate = writeDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Goodsbill{" +
+                "goodsBillCode='" + goodsBillCode + '\'' +
+                ", acceptProcedureRate='" + acceptProcedureRate + '\'' +
+                ", acceptStation='" + acceptStation + '\'' +
+                ", carriage=" + carriage +
+                ", carryGoodsFee=" + carryGoodsFee +
+                ", employeeCode='" + employeeCode + '\'' +
+                ", factDealDate=" + factDealDate +
+                ", fetchGoodsMode='" + fetchGoodsMode + '\'' +
+                ", helpAcceptPayment=" + helpAcceptPayment +
+                ", ifAudit=" + ifAudit +
+                ", ifSettleAccounts=" + ifSettleAccounts +
+                ", insurance=" + insurance +
+                ", moneyOfChangePay=" + moneyOfChangePay +
+                ", payKickback=" + payKickback +
+                ", payMode='" + payMode + '\'' +
+                ", predeliveryDate=" + predeliveryDate +
+                ", receiveGoodsAddr='" + receiveGoodsAddr + '\'' +
+                ", receiveGoodsCustomer='" + receiveGoodsCustomer + '\'' +
+                ", receiveGoodsCustomerAddr='" + receiveGoodsCustomerAddr + '\'' +
+                ", receiveGoodsCustomerCode='" + receiveGoodsCustomerCode + '\'' +
+                ", receiveGoodsCustomerTel='" + receiveGoodsCustomerTel + '\'' +
+                ", reduceFund=" + reduceFund +
+                ", remark='" + remark + '\'' +
+                ", sendGoodsAddr='" + sendGoodsAddr + '\'' +
+                ", sendGoodsCustomer='" + sendGoodsCustomer + '\'' +
+                ", sendGoodsCustomerAddr='" + sendGoodsCustomerAddr + '\'' +
+                ", sendGoodsCustomerNo='" + sendGoodsCustomerNo + '\'' +
+                ", sendGoodsCustomerTel='" + sendGoodsCustomerTel + '\'' +
+                ", sendGoodsDate=" + sendGoodsDate +
+                ", transferFee=" + transferFee +
+                ", transferStation='" + transferStation + '\'' +
+                ", validity=" + validity +
+                ", writeBillPerson='" + writeBillPerson + '\'' +
+                ", writeDate=" + writeDate +
+                '}';
     }
 }

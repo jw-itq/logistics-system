@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +18,13 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * 登陆的方法，根据用户名和密码两个参数来判断
+     * @param loginId
+     * @param password
+     * @return
+     */
     @Override
     public Map<?, ?> userLogin(String loginId, String password) {
         Map<String,Object> map = new HashMap<>();

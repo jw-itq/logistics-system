@@ -2,6 +2,9 @@ package com.logistics.pojo;
 
 import java.util.Date;
 
+/**
+ * 货运单事件表
+ */
 public class Goodsbillevent {
     private String goodsBillId;
 

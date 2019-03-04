@@ -2,6 +2,9 @@ package com.logistics.pojo;
 
 import java.util.Date;
 
+/**
+ * 单据明细表
+ */
 public class Billinfo {
     private Integer id;
 
