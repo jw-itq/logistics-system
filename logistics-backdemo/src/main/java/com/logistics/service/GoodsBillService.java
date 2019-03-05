@@ -20,4 +20,6 @@ public interface GoodsBillService {
     public Goodsbill selectByCode(String goodsBillCode);
 
     public String updateByCode(String goodsBillCode,Goodsbill goodsbill);
+
+    public String deleteByCode(String goodsBillCode);
 }

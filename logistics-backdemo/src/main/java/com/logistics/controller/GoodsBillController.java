@@ -71,4 +71,9 @@ public class GoodsBillController extends ReturnType{
     public String updateByCode(@PathVariable("goodsBillCode") String goodsBillCode,Goodsbill goodsbill){
         return goodsBillService.updateByCode(goodsBillCode,goodsbill);
     }
+
+    @RequestMapping(value = "deleteByCode/{goodsBillCode}",method = RequestMethod.PUT)
+    public String deleteByCode(@PathVariable("goodsBillCode") String goodsBillCode){
+        return goodsBillService.deleteByCode(goodsBillCode);
+    }
 }

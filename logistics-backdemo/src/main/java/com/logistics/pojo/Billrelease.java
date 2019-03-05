@@ -2,6 +2,9 @@ package com.logistics.pojo;
 
 import java.util.Date;
 
+/**
+ * 单据分发表
+ */
 public class Billrelease {
     private Integer id;
 

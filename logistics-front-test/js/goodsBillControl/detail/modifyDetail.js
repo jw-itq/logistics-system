@@ -124,7 +124,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
         })
     });
 
-   /* $.ajax({
+    $.ajax({
         type: "get",
         url: nginx_url + "/selectAllCusCode",
         success: function (result) {
@@ -138,7 +138,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             });
         }
 
-    });*/
+    });
 
     form.on('select(changeSend)', function (data) {
         // ajax

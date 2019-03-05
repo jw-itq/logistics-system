@@ -39,15 +39,15 @@
                         <label class="layui-form-label">主要城市：</label>
                         <div class="layui-input-inline">
                             <select name="city" id="city" lay-verify="required" lay-search lay-filter="changeCity">
-                                <option value="">请选择城市</option>
+                                <option value="">请输入匹配的城市</option>
                             </select>
                         </div>
                     </div>
                     <div class="layui-form-item">
                         <label class="layui-form-label">范围城市：</label>
                         <div class="layui-input-inline">
-                            <select name="rangeCity" disabled id="rangeCity" lay-filter="changeRange">
-                                <option value="">请选择范围城市</option>
+                            <select name="rangeCity" disabled id="rangeCity" lay-search lay-filter="changeRange">
+                                <option value="">请输入匹配范围城市</option>
                             </select>
                         </div>
                     </div>

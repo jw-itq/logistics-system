@@ -190,6 +190,28 @@ public class GoodsBillServiceImpl implements GoodsBillService {
     }
 
     /**
+     * 根据货运单编号来进行删除,并且要删除几张关联的表：货运单事件表，单据明细表，货运单表
+     * @param goodsBillCode 这是货运单的编号
+     * @return
+     */
+    @Override
+    public String deleteByCode(String goodsBillCode) {
+        int result = goodsbillMapper.deleteByPrimaryKey(goodsBillCode);
+
+        BillinfoExample example = new BillinfoExample();
+        BillinfoExample.Criteria criteria = example.createCriteria();
+        criteria.andBillCodeEqualTo(goodsBillCode);
+        int result1 = billinfoMapper.deleteByExample(example);
+
+        int result2 = goodsbilleventMapper.deleteByPrimaryKey(goodsBillCode);
+        if(result<0||result1<0||result2<0){
+            return "ERROR";
+        }
+        System.out.println("删除货运单成功");
+        return "SUCCESS";
+    }
+
+    /**
      * 生成一个6位的随即数，作为单号
      * @return
      */

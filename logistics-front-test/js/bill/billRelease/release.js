@@ -43,7 +43,7 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table', 'laydate'], function()
             type: 'post',
             url: nginx_url + '/bill/addRelease/' + bill_code,
             data: $("#releaseForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             async: false,
             success: function (result) {
                 if (result === 'SUCCESS') {

@@ -27,9 +27,11 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
                     }
                 });
                 layer.msg('删除成功', {
-                    time: 800
-                })
+                    time: 800,
+                });
             });
+
+
         } else if(layEvent === 'edit'){ //编辑
             layer.open({
                 type: 2,
@@ -56,6 +58,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
         }
 
     });
+
 
     element.on('tab(demo)', function (data) {
 
