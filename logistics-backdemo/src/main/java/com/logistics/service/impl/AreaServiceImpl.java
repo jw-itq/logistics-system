@@ -31,4 +31,13 @@ public class AreaServiceImpl implements AreaService {
         List<Area> list = areaMapper.selectByExample(areaExample);
         return list;
     }
+
+    /**
+     *
+     */
+    public List<Area> PinyinTest(){
+        AreaExample example = new AreaExample();
+        List<Area> list = areaMapper.selectByExample(example);
+        return list;
+    }
 }
