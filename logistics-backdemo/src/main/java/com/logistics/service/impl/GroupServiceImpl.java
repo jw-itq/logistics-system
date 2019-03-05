@@ -37,7 +37,9 @@ public class GroupServiceImpl implements GroupService {
         criteria.andUserIdEqualTo(loginId);
 
         List<Userwithgroup> list = userwithgroupMapper.selectByExample(example);
-
+        if(list.size()==0||list==null){
+            return null;
+        }
         FunctionwithgroupExample functionwithgroupExample = new FunctionwithgroupExample();
         FunctionwithgroupExample.Criteria criteria1 = functionwithgroupExample.createCriteria();
         criteria1.andGroupIdEqualTo(list.get(0).getGroupId());

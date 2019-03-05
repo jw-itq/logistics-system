@@ -103,8 +103,9 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
 
 function createTime(v){
     let dateTime;
-    let date = new Date();
-    date.setTime(v);
+    let date = new Date(v);
+    //如果是这样写就是将一个毫秒转换为日期，因为我数据库传过来的不是一个毫秒，所以不能这样写
+    //date.setTime(v);
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
     m = m < 10 ? '0' + m : m;

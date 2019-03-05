@@ -13,9 +13,28 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
         success: function (result) {
             console.log(result);
             $.each(result, function (i, item) {
+                //console.log(item);
                 let temp_id = '#' + i;
                 $(temp_id).val(item);
+                if(i==='sendGoodsCustomerNo'){
+                    let option = "<option value='" + item + "'>";
+                    option += item;
+                    option += "</option>";
+                    $("#sendGoodsCustomerNo").append(option);
+                    $("#sendGoodsCustomerNo").find("option[value="+item+"]").prop("selected",true);
+                    form.render();
+                }
+                if(i==='receiveGoodsCustomerCode'){
+                    let option = "<option value='" + item + "'>";
+                    option += item;
+                    option += "</option>";
+                    $("#receiveGoodsCustomerCode").append(option);
+                    $("#receiveGoodsCustomerCode").find("option[value="+item+"]").prop("selected",true);
+                    form.render();
+                }
             });
+
+
 
             // 审核
             if (result.ifAudit === '审核') {
@@ -75,7 +94,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/goodsBill/updateByCode/' + goodsBillCode,
             data: $("#goodsBillForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {
@@ -105,7 +124,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
         })
     });
 
-    $.ajax({
+   /* $.ajax({
         type: "get",
         url: nginx_url + "/selectAllCusCode",
         success: function (result) {
@@ -119,7 +138,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             });
         }
 
-    });
+    });*/
 
     form.on('select(changeSend)', function (data) {
         // ajax

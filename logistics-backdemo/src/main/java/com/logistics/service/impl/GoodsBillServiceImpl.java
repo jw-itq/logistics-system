@@ -9,6 +9,7 @@ import com.logistics.dao.mapper.GoodsbilleventMapper;
 import com.logistics.pojo.*;
 import com.logistics.service.GoodsBillService;
 import com.logistics.util.Result;
+import com.sun.org.apache.regexp.internal.RE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -139,6 +140,53 @@ public class GoodsBillServiceImpl implements GoodsBillService {
         Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
         System.out.println("查询货运单的状态成功   "+result.toString());
         return result;
+    }
+
+    /**
+     * 查询所有的货运单
+     * @param pageNum 当前的页数
+     * @param limit 当前显示的行数
+     * @return
+     */
+    @Override
+    public Result selectByEvent(int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+
+        GoodsbilleventExample example = new GoodsbilleventExample();
+        List<Goodsbillevent> list = goodsbilleventMapper.selectByExample(example);
+        PageInfo<Goodsbillevent> pageInfo = new PageInfo<>(list);
+
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        System.out.println("查询所有的货运单成功");
+        return result;
+    }
+
+    /**
+     * 根据货运单的编号查看货运单详情页面，也就是查询货运单的主表
+     * @param goodsBillCode 货运单的编号
+     * @return
+     */
+    @Override
+    public Goodsbill selectByCode(String goodsBillCode) {
+        Goodsbill result = goodsbillMapper.selectByPrimaryKey(goodsBillCode);
+        return result;
+    }
+
+    /**
+     * 根据货运单的编号修改货运单
+     * @param goodsBillCode 货运单的编号
+     * @param goodsbill 货运单
+     * @return
+     */
+    @Override
+    public String updateByCode(String goodsBillCode, Goodsbill goodsbill) {
+        goodsbill.setGoodsBillCode(goodsBillCode);
+        int resutl = goodsbillMapper.updateByPrimaryKey(goodsbill);
+        System.out.println("货运单修改的状态——————"+resutl);
+        if(resutl<0){
+            return "ERROR";
+        }
+        return "SUCCESS";
     }
 
     /**

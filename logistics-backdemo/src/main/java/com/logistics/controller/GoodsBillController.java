@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin
@@ -54,5 +55,20 @@ public class GoodsBillController extends ReturnType{
     @RequestMapping(value = "/selectByEvent/{eventName}",method = RequestMethod.GET)
     public Result selectByEvent(@PathVariable("eventName") String eventName,@RequestParam("pageNum") int pageNum,@RequestParam("limit") int limit){
         return goodsBillService.selectByEvent(eventName,pageNum,limit);
+    }
+
+    @RequestMapping(value = "/selectByEvent",method = RequestMethod.GET)
+    public Result selectByEvent(@RequestParam("pageNum") int pageNum,@RequestParam("limit") int limit){
+        return goodsBillService.selectByEvent(pageNum,limit);
+    }
+
+    @RequestMapping(value = "/selectByCode/{goodsBillCode}",method = RequestMethod.GET)
+    public Goodsbill selectByCode(@PathVariable("goodsBillCode") String goodsBillCode){
+        return goodsBillService.selectByCode(goodsBillCode);
+    }
+
+    @RequestMapping(value = "updateByCode/{goodsBillCode}",method = RequestMethod.PUT)
+    public String updateByCode(@PathVariable("goodsBillCode") String goodsBillCode,Goodsbill goodsbill){
+        return goodsBillService.updateByCode(goodsBillCode,goodsbill);
     }
 }
