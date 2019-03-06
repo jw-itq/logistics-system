@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Transactional(propagation = Propagation.REQUIRED)
 @Service(value = "areaService")
@@ -33,11 +35,19 @@ public class AreaServiceImpl implements AreaService {
     }
 
     /**
-     *
+     * 得到所有的城市并且按照拼音排序
      */
-    public List<Area> PinyinTest(){
+    public String getAllArea(){
         AreaExample example = new AreaExample();
         List<Area> list = areaMapper.selectByExample(example);
-        return list;
+
+        Map<String,List<String>> map = new HashMap<>();
+        /*map.put("name",)
+
+        for(Area a : list){
+
+        }*/
+
+        return "";
     }
 }
