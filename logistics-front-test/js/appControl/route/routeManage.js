@@ -5,7 +5,7 @@ let cityId;
 let range_dot = [ '', 'layui-bg-orange', 'layui-bg-green', 'layui-bg-cyan', 'layui-bg-blue', 'layui-bg-black', 'layui-bg-gray' ];
 
 // 获取所有城市信息（id + cityName）
-$.ajax({
+/*$.ajax({
     type: 'get',
     url: nginx_url + '/route/findAllRegions',
     dataType: 'json',
@@ -26,7 +26,8 @@ $.ajax({
         });
         console.log(cityArray);
     }
-});
+});*/
+
 
 layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function() {
     let element = layui.element,
@@ -123,7 +124,9 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
         if (data.index === 0) {
             refreshTable();
         } else if (data.index === 1) {
-            $.ajax({
+            // part 4: 为输入框绑定光标聚焦事件的触发该函数，
+            //alert($(this).attr("id"));
+            /*$.ajax({
                 type: 'get',
                 url: nginx_url + '/route/findLeftRegions',
                 dataType: 'json',
@@ -142,7 +145,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                     });
                     form.render('select');
                 }
-            });
+            });*/
         } else {
             $("#routeInfo").empty();
             $.ajax({
@@ -184,8 +187,69 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
         }
     });
 
-    form.on('select(changeCity)', function (data) {
-        $("#selectedCity").empty();
+    $(document).on('click',"#mainroute",function () {
+
+
+        layer.open({
+            type: 2,
+            title: '地区选择',
+            content: ['index.html?changecity=1', 'no'],
+            area: ['30%', '75%'],
+            shadeClose: true,
+            move: false,
+            /*end: function() {
+                table.reload('billTable', {
+                    url: nginx_url + '/bill/findNotRelease'
+                })
+            }*/
+        });
+    });
+
+    $(document).on('click','#rangeCity',function () {
+
+        /*range_city.push(select_id);
+        let rangeCity = $("#rangeCity");
+        rangeCity.empty();
+        let init = "<option value=''>请选择范围城市</option>";
+        rangeCity.append(init);
+        $.each(cityArray, function (i, item) {
+            if ((i+1) !== cityId && $.inArray((i+1), range_city) === -1 && item !== '') {
+                let option = "<option value='" + (i+1) + "'>";
+                option += item;
+                option += "</option>";
+                rangeCity.append(option);
+            }
+        });*/
+        layer.open({
+            type: 2,
+            title: '地区选择',
+            content: ['index.html?changecity=2', 'no'],
+            area: ['30%', '75%'],
+            shadeClose: true,
+            move: false,
+            end: function() {
+                let select_id = $('#rangecityhidden').val();
+                let select_value = $('#rangeCity').val();
+                range_city.push(select_id);
+                if(select_id!=''&&select_id!=null){
+                    console.log(select_id+"why");
+                    let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + select_id +"' onclick='removeSpan(" + select_id + ")'>";
+                    content += select_value;
+                    content += "<span class='layui-badge layui-bg-gray' style='font-size: 4px; line-height: 16px; height: 16px'>X</span></button>";
+                    $("#selectedCity").append(content);
+                    console.log(range_city);
+
+                }
+            }
+        });
+        //console.log('当前选中的城市：' + cityArray[select_id-1]);
+
+    });
+
+    /*form.on('input(changeCity)', function (data) {
+        alert(data.value());
+        $('#mainroute').focus(depart_input_focus_handler);
+        /!*$("#selectedCity").empty();
         cityId = data.value;
         range_city = [];
         let rangeCity = $("#rangeCity");
@@ -199,14 +263,13 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             }
         });
         rangeCity.removeAttr('disabled');
-        form.render('select');
+        form.render('select');*!/
     });
-
-    form.on('select(changeRange)', function (data) {
+    form.on('input(changeRange)', function (data) {
         let select_id = parseInt(data.value);
         console.log(select_id);
         console.log('当前选中的城市：' + cityArray[select_id-1]);
-        range_city.push(select_id);
+        /!*range_city.push(select_id);
         let rangeCity = $("#rangeCity");
         rangeCity.empty();
         let init = "<option value=''>请选择范围城市</option>";
@@ -218,18 +281,51 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                 option += "</option>";
                 rangeCity.append(option);
             }
-        });
+        });*!/
+        $('#rangeCity').focus(depart_input_focus_handler);
         let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + select_id +"' onclick='removeSpan(" + select_id + ")'>";
         content += cityArray[select_id-1];
         content += "<span class='layui-badge layui-bg-gray' style='font-size: 4px; line-height: 16px; height: 16px'>X</span></button>";
         $("#selectedCity").append(content);
         console.log(range_city);
         form.render('select');
-    });
+    });*/
 
     $("#resetForm").click(function () {
         $("#selectedCity").empty();
     });
+
+    function depart_input_focus_handler() {
+        // “客户”输入框的光标聚焦事件的触发函数， 弹出弹层，弹层上显示所有的客户，以供选择。
+        /*layer.open({
+            //type : 1 , area : [ '600px', '450px' ] ,
+            type: 2,
+            title: '货运单编号：',
+            area: [ '30%', '70%' ],
+            content: [ 'index.html'],
+            shadeClose: true,
+            move: false
+            //content : $('#hidden1') , success : function () {// 重新加载表格中的数据
+            //table.reload('department_result', department_result_table_options);
+            //$('#hidden1').css('display', 'block');
+            // }
+        });*/
+        alert($(this).attr("value")+"hahah");
+
+        layer.open({
+            type: 2,
+            title: '地区选择',
+            content: ['index.html?changecity='+$('#'), 'no'],
+            area: ['30%', '75%'],
+            shadeClose: true,
+            move: false,
+            /*end: function() {
+                table.reload('billTable', {
+                    url: nginx_url + '/bill/findNotRelease'
+                })
+            }*/
+        });
+    }
 
     function refreshTable() {
         table.render({
@@ -261,6 +357,40 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
     }
 
 });
+
+
+
+function mainroute() {
+    // “客户”输入框的光标聚焦事件的触发函数， 弹出弹层，弹层上显示所有的客户，以供选择。
+    /*layer.open({
+        //type : 1 , area : [ '600px', '450px' ] ,
+        type: 2,
+        title: '货运单编号：',
+        area: [ '30%', '70%' ],
+        content: [ 'index.html'],
+        shadeClose: true,
+        move: false
+        //content : $('#hidden1') , success : function () {// 重新加载表格中的数据
+        //table.reload('department_result', department_result_table_options);
+        //$('#hidden1').css('display', 'block');
+        // }
+    });*/
+
+    layer.open({
+        type: 2,
+        title: '地区选择',
+        content: ['index.html?changecity='+$('#'), 'no'],
+        area: ['30%', '75%'],
+        shadeClose: true,
+        move: false,
+        /*end: function() {
+            table.reload('billTable', {
+                url: nginx_url + '/bill/findNotRelease'
+            })
+        }*/
+    });
+}
+
 
 function format(id) {
     let array = ('' + id).split(',');

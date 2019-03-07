@@ -1,9 +1,12 @@
 //****************针对第三种方式的具体js实现部分******************//
+//var addrShow03 = $('addr-show03');
+var addrShow03 = document.getElementById('addr-show03');
 //****************所使用的数据是city02.js******************//
+//alert("--hahah");
+var dataOrder = document.getElementById('data-order').querySelectorAll('li');
+var dataShow = document.getElementById('data-show');
 
-var addrShow03 = $('addr-show03');
-var dataOrder = $('data-order').querySelectorAll('li');
-var dataShow = $('data-show');
+var changecity = window.location.href.split("=")[1];
 
 (function init() {
     showHotCity();
@@ -69,7 +72,10 @@ function showCitys(index, m) {
         for (var k = 0; k < citysLen; k++) {
             var aCity = document.createElement('a');
             aCity.innerText = currentAll[j].city[k].cityname;
+            //aCity.value=currentAll[j].city[k].cityname;
+            //console.log(aCity.value()+"  --");
                 //alert(aCity.innerText+" "+city[k].id);
+
             dd.appendChild(aCity);
         }
         dl[j].appendChild(dd);
@@ -86,3 +92,84 @@ dataShow.onclick = function (e) {
         addrShow03.value = target.innerText;
     }
 }
+
+
+layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function() {
+    let element = layui.element,
+        form = layui.form,
+        laydate = layui.laydate,
+        layer = layui.layer,
+        table = layui.table,
+        $ = layui.jquery;
+
+    form.on('submit(addInfo)', function () {
+
+        let data = $('#addr-show03').val();
+
+        if(data==''||data==null){
+            alert("地区不能以空提交！");
+        }else {
+            if(changecity==1){
+                for(var i = 0;i<cityAll.length;i++){
+                    var t = cityAll[i].city.length;
+                    for(var j = 0;j<t;j++){
+                        var ct = cityAll[i].city[j].cityname;
+                        if(ct==data){
+                            var id = cityAll[i].city[j].id;
+                            alert(ct+"找到了"+id);
+                        }
+                    }
+                }
+                window.parent.document.getElementById("mainroutehidden").value=id;
+
+                window.parent.document.getElementById("mainroute").value = data;
+            }else{
+                for(var i = 0;i<cityAll.length;i++){
+                    var t = cityAll[i].city.length;
+                    for(var j = 0;j<t;j++){
+                        var ct = cityAll[i].city[j].cityname;
+                        if(ct==data){
+                            var id = cityAll[i].city[j].id;
+                            alert(ct+"找到了"+id);
+                        }
+                    }
+                }
+                window.parent.document.getElementById("rangecityhidden").value=id;
+                window.parent.document.getElementById("rangeCity").value = data;
+            }
+            let index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+            parent.layer.close(index); //再执行关闭
+
+        }
+
+        /*let cityId = $("#city").val();
+        console.log("cityId: " + cityId);
+        console.log("range: " + range_city.toString());
+        $.ajax({
+            type: 'post',
+            url: nginx_url + '/route/add',
+            data: {
+                'cityId': cityId,
+                'rangeCity': range_city.toString()
+            },
+            dataType: 'json',
+            success: function (result) {
+                if (result === 'SUCCESS') {
+                    layer.msg('添加成功', {
+                        time: 800,
+                        icon: 1
+                    });
+                    $("#resetForm").click();
+                } else {
+                    layer.msg('添加失败', {
+                        time: 800,
+                        icon: 5
+                    })
+                }
+            }
+        });
+        return false;*/
+    });
+
+
+});
