@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b23ba5a-8922-4b02-b14d-dea2a6f04c7e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/appControl/route/routeManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/appControl/route/routeManage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/appControl/route/method03.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/appControl/route/method03.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/appControl/route/routeManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/appControl/route/routeManage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" beforeDir="false" afterPath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" afterDir="false" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/appControl/route/routeManage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="232" column="43" selection-start-line="232" selection-start-column="43" selection-end-line="232" selection-end-column="43" />
+            <state relative-caret-position="345">
+              <caret line="167" column="47" selection-start-line="167" selection-start-column="47" selection-end-line="167" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
               </folding>
@@ -42,8 +40,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/appControl/route/method03.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
-              <caret line="134" column="21" lean-forward="true" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
+            <state relative-caret-position="-45">
+              <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -136,6 +134,7 @@
         <option value="$PROJECT_DIR$/js/appControl/route/index.html" />
         <option value="$PROJECT_DIR$/html/appControl/route/index.html" />
         <option value="$PROJECT_DIR$/html/appControl/route/routeManage.html" />
+        <option value="$PROJECT_DIR$/js/appControl/route/routeManagebk.js" />
         <option value="$PROJECT_DIR$/js/appControl/route/method03.js" />
         <option value="$PROJECT_DIR$/js/appControl/route/routeManage.js" />
       </list>
@@ -336,7 +335,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551934556706" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551935348373" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javaProject/logistics_frontTest2" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -380,12 +379,12 @@
       <workItem from="1551658155796" duration="37275000" />
       <workItem from="1551745811120" duration="27873000" />
       <workItem from="1551830667747" duration="11177000" />
-      <workItem from="1551917939865" duration="15820000" />
+      <workItem from="1551917939865" duration="16786000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99164000" />
+    <option name="totallyTimeSpent" value="100130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="1920" height="1018" extended-state="6" />
@@ -455,9 +454,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/vehicleControl/select/showDetail.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/appControl/driver/driverDetail.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -718,16 +714,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/appControl/route/method03.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="134" column="21" lean-forward="true" selection-start-line="134" selection-start-column="21" selection-end-line="134" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/appControl/route/routeManage.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
@@ -735,10 +721,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/appControl/route/routeManagebk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="413" column="1" selection-start-line="413" selection-start-column="1" selection-end-line="413" selection-end-column="1" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/appControl/route/method03.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="93" column="23" selection-start-line="93" selection-start-column="23" selection-end-line="93" selection-end-column="23" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/appControl/route/routeManage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="232" column="43" selection-start-line="232" selection-start-column="43" selection-end-line="232" selection-end-column="43" />
+        <state relative-caret-position="345">
+          <caret line="167" column="47" selection-start-line="167" selection-start-column="47" selection-end-line="167" selection-end-column="47" />
           <folding>
             <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
           </folding>

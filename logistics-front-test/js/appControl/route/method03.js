@@ -91,6 +91,7 @@ dataShow.onclick = function (e) {
     if (target && target.nodeName == 'A') {
         addrShow03.value = target.innerText;
     }
+    addrShow03.focus();
 }
 
 
