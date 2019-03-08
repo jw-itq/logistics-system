@@ -11,5 +11,7 @@ public interface RouteService {
 
     public List<Routeinfo> findAllRouteInfos();
 
+    public List<Routeinfo> findRouteByCode(String startLoadstation);
 
+    public List<Routeinfo> startRoutInfos();
 }

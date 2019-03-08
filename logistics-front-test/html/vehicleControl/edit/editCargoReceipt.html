@@ -26,11 +26,20 @@
             <div class="layui-inline">
                 <label class="layui-form-label wd-100">装货地点</label>
                 <div class="layui-input-inline">
-                    <select id="loadStation" name="loadStation" lay-verify="required" lay-search>
+                    <select id="loadStation" name="loadStation" lay-verify="required" lay-filter="changeload" lay-search >
                         <option value="">请选择装货地点</option>
                     </select>
                 </div>
             </div>
+            <!--<div class="layui-inline">
+                <label class="layui-form-label wd-100">装货地点 </label>
+                <div class="layui-input-inline">
+                    <input type="hidden" id="mainroutehidden">
+                    <input type="text" id="loadStation" name="loadStation" lay-verify="required" placeholder="请输入主要城市" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>-->
+
             <div class="layui-inline">
                 <label class="layui-form-label wd-100">起运时间</label>
                 <div class="layui-input-inline">
@@ -47,6 +56,15 @@
                     </select>
                 </div>
             </div>
+            <!--<div class="layui-inline">
+                <label class="layui-form-label wd-100">交货地点 </label>
+                <div class="layui-input-inline">
+                    <input type="hidden" id="rangecityhidden">
+                    <input type="text" id="dealGoodsStation" name="dealGoodsStation" lay-verify="required" placeholder="请输入范围城市" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>-->
+
             <div class="layui-inline">
                 <label class="layui-form-label wd-100">到达时间</label>
                 <div class="layui-input-inline">
@@ -76,6 +94,35 @@
                 <input type="text" id="receiveGoodsDetailAddr" name="receiveGoodsDetailAddr" disabled lay-verify="required"
                        autocomplete="off" class="layui-input">
             </div>
+            <!--<label class="layui-form-label wd-100">收货详细地址</label>
+            <input type="hidden" id="receiveGoodsDetailAddr" name="receiveGoodsDetailAddr">
+            &lt;!&ndash;<div class="layui-input-inline" style="width: 534px">
+                <input type="text" id="receiveGoodsAddr" name="receiveGoodsAddr" lay-verify="required" placeholder="请输入收货地址" autocomplete="off" class="layui-input">
+            </div>&ndash;&gt;
+            <input type="hidden" id="receiveGoodsAddr" name="receiveGoodsAddr">
+            <div class="layui-input-inline" >
+                <select name="province" lay-verify="required" lay-search="" lay-skin="select" lay-filter="province1" id="province1">
+                    <option value="">请选择省</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <select name="city" lay-verify="required" lay-search="" lay-skin="select" lay-filter="city1" id="city1">
+                    <option value="">请选择市/县</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <select name="area" lay-verify="required" lay-search=""lay-skin="select" lay-filter="area1" id="area1">
+                    <option value="">请选择镇区</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <select name="area" lay-verify="required" lay-search=""lay-skin="select" lay-filter="street1" id="street1">
+                    <option value="">请选择街道</option>
+                </select>
+            </div>
+            <div class="layui-input-inline" >
+                <input type="text" id="other1" value="" name="other1" placeholder="其他" autocomplete="off" class="layui-input">
+            </div>-->
         </div>
         <div class="layui-form-item">
             <div class="layui-inline">
@@ -97,7 +144,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label wd-100">司机编号</label>
                 <div class="layui-input-inline">
-                    <input type="text" id="driverId" name="driverId" disabled placeholder="请输入司机编号"
+                    <input type="text" id="driverId" name="driverId" disabled placeholder=""
                            autocomplete="off" class="layui-input">
                 </div>
             </div>

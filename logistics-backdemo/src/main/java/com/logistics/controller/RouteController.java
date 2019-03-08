@@ -13,6 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/route")
+@ControllerAdvice
 public class RouteController extends ReturnType{
 
     @Autowired
@@ -51,4 +52,14 @@ public class RouteController extends ReturnType{
         return cityExpandService.updateExpandById(expandId,cityexpand);
     }
 
+    @RequestMapping(value = "/findRouteByCode/{start}",method = RequestMethod.GET)
+    public List<Routeinfo> findRouteByCode(@PathVariable("start") String startLoadstation){
+        System.out.println("这里的数据是："+startLoadstation);
+        return routeService.findRouteByCode(startLoadstation);
+    }
+
+    @RequestMapping(value = "/startRouteinfo",method = RequestMethod.GET)
+    public List<Routeinfo> startRouteinfo(){
+        return routeService.startRoutInfos();
+    }
 }

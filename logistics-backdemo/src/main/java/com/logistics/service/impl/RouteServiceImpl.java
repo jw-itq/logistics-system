@@ -98,6 +98,44 @@ public class RouteServiceImpl implements RouteService {
     }
 
 
+
+    /**
+     * 根据地方名字查询线路信息
+     * @param startLoadstation
+     * @return
+     */
+    @Override
+    public List<Routeinfo> findRouteByCode(String startLoadstation) {
+        RouteinfoExample routeinfoExample = new RouteinfoExample();
+        RouteinfoExample.Criteria criteria = routeinfoExample.createCriteria();
+        criteria.andStartStationEqualTo(startLoadstation);
+
+        List<Routeinfo> result = routeinfoMapper.selectByExample(routeinfoExample);
+
+        return result;
+    }
+
+    /**
+     * 去掉重复的起点线路信息
+     * @return
+     */
+    @Override
+    public List<Routeinfo> startRoutInfos() {
+        RouteinfoExample example = new RouteinfoExample();
+        List<Routeinfo> list = routeinfoMapper.selectByExample(example);
+        List<String> flag = new ArrayList<>();
+        List<Routeinfo> result = new ArrayList<>();
+        for(Routeinfo route : list){
+            if(flag.contains(route.getStartStation())){
+                continue;
+            }
+            flag.add(route.getStartStation());
+            result.add(route);
+        }
+        return result;
+    }
+
+
     /**
      * 测试添加线路信息
      * @param args
