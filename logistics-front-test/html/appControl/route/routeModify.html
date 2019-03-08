@@ -13,21 +13,30 @@
         <div class="layui-form-item">
             <label class="layui-form-label">主要城市：</label>
             <div class="layui-input-inline">
-                <input type="text" id="cityId" disabled class="layui-input" />
+                <input type="hidden" id="mainroutehidden">
+                <input type="text" id="mainroute" name="mainroute" lay-verify="required" placeholder="请输入主要城市" autocomplete="off"
+                       class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">范围城市：</label>
             <div class="layui-input-inline">
-                <select name="rangeCity" id="rangeCity" lay-filter="changeRange">
-                    <option value="">请选择范围城市</option>
-                </select>
+                <input type="hidden" id="rangecityhidden">
+                <input type="text" id="rangeCity" name="rangeCity" lay-verify="required" placeholder="请输入范围城市" autocomplete="off"
+                       class="layui-input">
+
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">已选范围：</label>
             <div class="layui-btn-container" id="selectedCity"></div>
         </div>
+        <!--<div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="addInfo" id="addInfo">立即提交</button>
+                <button type="reset" id="resetForm" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>-->
         <div class="layui-form-item">
             <div class="layui-input-block">
                 <button class="layui-btn layui-btn-radius layui-btn-normal" lay-submit lay-filter="modInfo" id="modInfo">立即修改</button>
@@ -40,5 +49,6 @@
 
 <script src="../../../js/nginx.js"></script>
 <script src="../../../js/appControl/route/routeModify.js"></script>
+<script src="../../../js/appControl/route/citymap.js"></script>
 </body>
 </html>

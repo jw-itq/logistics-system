@@ -111,13 +111,15 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             alert("地区不能以空提交！");
         }else {
             if(changecity==1){
+                var id = "";
                 for(var i = 0;i<cityAll.length;i++){
                     var t = cityAll[i].city.length;
                     for(var j = 0;j<t;j++){
                         var ct = cityAll[i].city[j].cityname;
                         if(ct==data){
-                            var id = cityAll[i].city[j].id;
-                            alert(ct+"找到了"+id);
+                            id = cityAll[i].city[j].id;
+                            //alert(ct+"找到了"+id);
+                            break;
                         }
                     }
                 }
@@ -125,13 +127,15 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
 
                 window.parent.document.getElementById("mainroute").value = data;
             }else{
+                var id = "";
                 for(var i = 0;i<cityAll.length;i++){
                     var t = cityAll[i].city.length;
                     for(var j = 0;j<t;j++){
                         var ct = cityAll[i].city[j].cityname;
                         if(ct==data){
-                            var id = cityAll[i].city[j].id;
-                            alert(ct+"找到了"+id);
+                            id = cityAll[i].city[j].id;
+                            //alert(ct+"找到了"+id);
+                            break;
                         }
                     }
                 }

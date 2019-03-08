@@ -28,4 +28,7 @@ public interface RouteinfoMapper {
     int updateByPrimaryKeySelective(Routeinfo record);
 
     int updateByPrimaryKey(Routeinfo record);
+
+//    清空表
+    int truntable();
 }

@@ -4,10 +4,10 @@
   <resultMap id="BaseResultMap" type="com.logistics.pojo.Routeinfo" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="distance" property="distance" jdbcType="DOUBLE" />
-    <result column="end_station" property="endStation" jdbcType="INTEGER" />
+    <result column="end_station" property="endStation" jdbcType="VARCHAR" />
     <result column="fetch_time" property="fetchTime" jdbcType="DOUBLE" />
     <result column="pass_station" property="passStation" jdbcType="VARCHAR" />
-    <result column="start_station" property="startStation" jdbcType="INTEGER" />
+    <result column="start_station" property="startStation" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -104,8 +104,8 @@
     insert into routeinfo (id, distance, end_station, 
       fetch_time, pass_station, start_station
       )
-    values (#{id,jdbcType=INTEGER}, #{distance,jdbcType=DOUBLE}, #{endStation,jdbcType=INTEGER}, 
-      #{fetchTime,jdbcType=DOUBLE}, #{passStation,jdbcType=VARCHAR}, #{startStation,jdbcType=INTEGER}
+    values (#{id,jdbcType=INTEGER}, #{distance,jdbcType=DOUBLE}, #{endStation,jdbcType=VARCHAR}, 
+      #{fetchTime,jdbcType=DOUBLE}, #{passStation,jdbcType=VARCHAR}, #{startStation,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.logistics.pojo.Routeinfo" >
@@ -138,7 +138,7 @@
         #{distance,jdbcType=DOUBLE},
       </if>
       <if test="endStation != null" >
-        #{endStation,jdbcType=INTEGER},
+        #{endStation,jdbcType=VARCHAR},
       </if>
       <if test="fetchTime != null" >
         #{fetchTime,jdbcType=DOUBLE},
@@ -147,7 +147,7 @@
         #{passStation,jdbcType=VARCHAR},
       </if>
       <if test="startStation != null" >
-        #{startStation,jdbcType=INTEGER},
+        #{startStation,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -167,7 +167,7 @@
         distance = #{record.distance,jdbcType=DOUBLE},
       </if>
       <if test="record.endStation != null" >
-        end_station = #{record.endStation,jdbcType=INTEGER},
+        end_station = #{record.endStation,jdbcType=VARCHAR},
       </if>
       <if test="record.fetchTime != null" >
         fetch_time = #{record.fetchTime,jdbcType=DOUBLE},
@@ -176,7 +176,7 @@
         pass_station = #{record.passStation,jdbcType=VARCHAR},
       </if>
       <if test="record.startStation != null" >
-        start_station = #{record.startStation,jdbcType=INTEGER},
+        start_station = #{record.startStation,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -187,10 +187,10 @@
     update routeinfo
     set id = #{record.id,jdbcType=INTEGER},
       distance = #{record.distance,jdbcType=DOUBLE},
-      end_station = #{record.endStation,jdbcType=INTEGER},
+      end_station = #{record.endStation,jdbcType=VARCHAR},
       fetch_time = #{record.fetchTime,jdbcType=DOUBLE},
       pass_station = #{record.passStation,jdbcType=VARCHAR},
-      start_station = #{record.startStation,jdbcType=INTEGER}
+      start_station = #{record.startStation,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -202,7 +202,7 @@
         distance = #{distance,jdbcType=DOUBLE},
       </if>
       <if test="endStation != null" >
-        end_station = #{endStation,jdbcType=INTEGER},
+        end_station = #{endStation,jdbcType=VARCHAR},
       </if>
       <if test="fetchTime != null" >
         fetch_time = #{fetchTime,jdbcType=DOUBLE},
@@ -211,7 +211,7 @@
         pass_station = #{passStation,jdbcType=VARCHAR},
       </if>
       <if test="startStation != null" >
-        start_station = #{startStation,jdbcType=INTEGER},
+        start_station = #{startStation,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -219,10 +219,14 @@
   <update id="updateByPrimaryKey" parameterType="com.logistics.pojo.Routeinfo" >
     update routeinfo
     set distance = #{distance,jdbcType=DOUBLE},
-      end_station = #{endStation,jdbcType=INTEGER},
+      end_station = #{endStation,jdbcType=VARCHAR},
       fetch_time = #{fetchTime,jdbcType=DOUBLE},
       pass_station = #{passStation,jdbcType=VARCHAR},
-      start_station = #{startStation,jdbcType=INTEGER}
+      start_station = #{startStation,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <update id="truntable">
+    truncate TABLE routeinfo
   </update>
 </mapper>

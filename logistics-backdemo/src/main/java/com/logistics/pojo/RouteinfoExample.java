@@ -234,52 +234,62 @@ public class RouteinfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andEndStationEqualTo(Integer value) {
+        public Criteria andEndStationEqualTo(String value) {
             addCriterion("end_station =", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationNotEqualTo(Integer value) {
+        public Criteria andEndStationNotEqualTo(String value) {
             addCriterion("end_station <>", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationGreaterThan(Integer value) {
+        public Criteria andEndStationGreaterThan(String value) {
             addCriterion("end_station >", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationGreaterThanOrEqualTo(Integer value) {
+        public Criteria andEndStationGreaterThanOrEqualTo(String value) {
             addCriterion("end_station >=", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationLessThan(Integer value) {
+        public Criteria andEndStationLessThan(String value) {
             addCriterion("end_station <", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationLessThanOrEqualTo(Integer value) {
+        public Criteria andEndStationLessThanOrEqualTo(String value) {
             addCriterion("end_station <=", value, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationIn(List<Integer> values) {
+        public Criteria andEndStationLike(String value) {
+            addCriterion("end_station like", value, "endStation");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndStationNotLike(String value) {
+            addCriterion("end_station not like", value, "endStation");
+            return (Criteria) this;
+        }
+
+        public Criteria andEndStationIn(List<String> values) {
             addCriterion("end_station in", values, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationNotIn(List<Integer> values) {
+        public Criteria andEndStationNotIn(List<String> values) {
             addCriterion("end_station not in", values, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationBetween(Integer value1, Integer value2) {
+        public Criteria andEndStationBetween(String value1, String value2) {
             addCriterion("end_station between", value1, value2, "endStation");
             return (Criteria) this;
         }
 
-        public Criteria andEndStationNotBetween(Integer value1, Integer value2) {
+        public Criteria andEndStationNotBetween(String value1, String value2) {
             addCriterion("end_station not between", value1, value2, "endStation");
             return (Criteria) this;
         }
@@ -424,52 +434,62 @@ public class RouteinfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andStartStationEqualTo(Integer value) {
+        public Criteria andStartStationEqualTo(String value) {
             addCriterion("start_station =", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationNotEqualTo(Integer value) {
+        public Criteria andStartStationNotEqualTo(String value) {
             addCriterion("start_station <>", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationGreaterThan(Integer value) {
+        public Criteria andStartStationGreaterThan(String value) {
             addCriterion("start_station >", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationGreaterThanOrEqualTo(Integer value) {
+        public Criteria andStartStationGreaterThanOrEqualTo(String value) {
             addCriterion("start_station >=", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationLessThan(Integer value) {
+        public Criteria andStartStationLessThan(String value) {
             addCriterion("start_station <", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationLessThanOrEqualTo(Integer value) {
+        public Criteria andStartStationLessThanOrEqualTo(String value) {
             addCriterion("start_station <=", value, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationIn(List<Integer> values) {
+        public Criteria andStartStationLike(String value) {
+            addCriterion("start_station like", value, "startStation");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartStationNotLike(String value) {
+            addCriterion("start_station not like", value, "startStation");
+            return (Criteria) this;
+        }
+
+        public Criteria andStartStationIn(List<String> values) {
             addCriterion("start_station in", values, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationNotIn(List<Integer> values) {
+        public Criteria andStartStationNotIn(List<String> values) {
             addCriterion("start_station not in", values, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationBetween(Integer value1, Integer value2) {
+        public Criteria andStartStationBetween(String value1, String value2) {
             addCriterion("start_station between", value1, value2, "startStation");
             return (Criteria) this;
         }
 
-        public Criteria andStartStationNotBetween(Integer value1, Integer value2) {
+        public Criteria andStartStationNotBetween(String value1, String value2) {
             addCriterion("start_station not between", value1, value2, "startStation");
             return (Criteria) this;
         }

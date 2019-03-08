@@ -1,4 +1,3 @@
-let cityArray = [];
 let range_city = [];
 let cityId;
 
@@ -26,8 +25,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                 //向服务端发送删除指令
                 $.ajax({
                     type: "DELETE",
-                    url: nginx_url + "/route/delete/" + data.id,
-                    dataType: 'json',
+                    url: nginx_url + "/route/delete/" + data.cityId,
+                    //dataType: 'json',
                     async: false,
                     success: function (result) {
                         console.log(result);
@@ -53,9 +52,9 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             layer.open({
                 type: 2,
                 title: '主要城市范围修改',
-                content: [ 'routeModify.html?id=' + data.id, 'no' ],
+                content: [ 'routeModify.html?id=' + data.id +"="+data.rangeCity+"="+data.cityId],
                 area: [ '75%', '75%' ],
-                shadeClose: true,
+                shadeClose: false,
                 move: false,
                 end: function() {
                     table.reload('expandTable', {
@@ -67,7 +66,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
     });
 
     form.on('submit(addInfo)', function () {
-        let cityId = $("#city").val();
+        let cityId = $("#mainroutehidden").val();
         console.log("cityId: " + cityId);
         console.log("range: " + range_city.toString());
         $.ajax({
@@ -77,7 +76,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                 'cityId': cityId,
                 'rangeCity': range_city.toString()
             },
-            dataType: 'json',
+            //dataType: 'json',
             success: function (result) {
                 if (result === 'SUCCESS') {
                     layer.msg('添加成功', {
@@ -116,7 +115,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                             '<div class="layui-card">' +
                             '<div class="layui-card-header">' +
                             '<div class="layui-col-md4">';
-                        content += cityArray[item.startStation-1] + ' - ' + cityArray[item.endStation-1];
+                        content += item.startStation + ' - ' + item.endStation;
                         content +=  '</div><div class="layui-col-md4">';
                         content += '里程：' + item.distance + 'km';
                         content +=  '</div><div class="layui-col-md4">';
@@ -128,7 +127,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                             $.each(passStation, function (j, temp) {
                                 content += j === 0 ? '' : ' - ';
                                 content += '<span class="layui-badge-dot ' + range_dot[(rand++ % 7)] + '"></span> ';
-                                content += '<span> ' + cityArray[temp-1] + '</span>'
+                                content += '<span> ' + temp + '</span>'
 
                             });
                         } else {
@@ -149,7 +148,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             type: 2,
             title: '地区选择',
             content: ['index.html?changecity=1'],
-            area: ['30%', '75%'],
+            area: ['40%', '75%'],
             shadeClose: true,
             move: false,
             /*end: function() {
@@ -167,12 +166,12 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             title: '地区选择',
             content: ['index.html?changecity=2'],
             area: ['30%', '75%'],
-            shadeClose: true,
+            shadeClose: false,
             move: false,
             end: function() {
                 let select_id = $('#rangecityhidden').val();
                 let select_value = $('#rangeCity').val();
-                range_city.push(select_id);
+                range_city.push(select_id.toString());
                 if(select_id!=''&&select_id!=null){
                     console.log(select_id+"why");
                     let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + select_id +"' onclick='removeSpan(" + select_id + ")'>";
@@ -215,6 +214,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             cellMinWidth: 80,
             cols: [[
                 { title: 'ID', fixed: 'left', sort: true, type: 'numbers' },
+                { field:'id',title:'城市ID',width:150,align:'center'},
                 { field: 'cityId', title: '主要城市', sort: true, templet: '#cityFormat', width: 150, align: 'center' },
                 { field: 'rangeCity', title: '范围城市', templet: '#rangeFormat', align: 'center' },
                 { fixed: 'right', title:"操作", align:"center", toolbar: '#barDemo', width: 150    }
@@ -231,16 +231,15 @@ function format(id) {
     let array = ('' + id).split(',');
     let result = '';
     $.each(array, function (i, item) {
-        let index = item-1;
         result += (i === 0 ? '' : ', ');
-        result += cityArray[index];
+        result += cityMap[item];
     });
     return result;
 }
 
 function removeSpan(id) {
     let buttonId = '#city-' + id;
-    range_city.splice($.inArray(id, range_city), 1);
+    range_city.splice($.inArray(id.toString(),range_city), 1);
     console.log(range_city);
     $(buttonId).remove();
     if(range_city==null||range_city.length==0){

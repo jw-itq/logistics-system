@@ -9,5 +9,4 @@ public interface AreaService {
 
     public List<Area> findAreaByParentId(int parent_id);
 
-    public String getAllArea();
 }

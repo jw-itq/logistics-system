@@ -5,13 +5,13 @@ public class Routeinfo {
 
     private Double distance;
 
-    private Integer endStation;
+    private String endStation;
 
     private Double fetchTime;
 
     private String passStation;
 
-    private Integer startStation;
+    private String startStation;
 
     public Integer getId() {
         return id;
@@ -29,12 +29,12 @@ public class Routeinfo {
         this.distance = distance;
     }
 
-    public Integer getEndStation() {
+    public String getEndStation() {
         return endStation;
     }
 
-    public void setEndStation(Integer endStation) {
-        this.endStation = endStation;
+    public void setEndStation(String endStation) {
+        this.endStation = endStation == null ? null : endStation.trim();
     }
 
     public Double getFetchTime() {
@@ -53,11 +53,11 @@ public class Routeinfo {
         this.passStation = passStation == null ? null : passStation.trim();
     }
 
-    public Integer getStartStation() {
+    public String getStartStation() {
         return startStation;
     }
 
-    public void setStartStation(Integer startStation) {
-        this.startStation = startStation;
+    public void setStartStation(String startStation) {
+        this.startStation = startStation == null ? null : startStation.trim();
     }
 }

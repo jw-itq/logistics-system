@@ -37,17 +37,17 @@ public class AreaServiceImpl implements AreaService {
     /**
      * 得到所有的城市并且按照拼音排序
      */
-    public String getAllArea(){
+    /*public String getAllArea(){
         AreaExample example = new AreaExample();
         List<Area> list = areaMapper.selectByExample(example);
 
         Map<String,List<String>> map = new HashMap<>();
-        /*map.put("name",)
+        *//*map.put("name",)
 
         for(Area a : list){
 
-        }*/
+        }*//*
 
         return "";
-    }
+    }*/
 }

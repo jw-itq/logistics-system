@@ -8,25 +8,63 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
         $ = layui.jquery;
     form = layui.form;
 
-    let str = window.location.href.split('=');
-    let expandId = str[1];
-    let range = str[2].length>1?str[2].split(','):str[2];
-    $("#mainroute").val(cityMap[str[3]]);
-    $("#mainroutehidden").val(str[3]);
+    let expandId = window.location.href.split('=')[1];
 
-    $.each(range, function (i, item) {
-        range_city.push(item.toString());
+
+    // 获取所有城市信息（id + cityName）
+   /* $.ajax({
+        type: 'get',
+        url: nginx_url + '/route/findAllRegions',
+        dataType: 'json',
+        async: false,
+        success: function (result) {
+            let index = 1;
+            $.each(result, function (i, item) {
+                while (true) {
+                    if (item.id === index) {
+                        cityArray.push(item.city);
+                        index++;
+                        break;
+                    } else {
+                        cityArray.push('');
+                        index++;
+                    }
+                }
+            });
+        }
+    });*/
+
+   /* $.ajax({
+        type: 'get',
+        url: nginx_url + '/route/findExpand/' + expandId,
+        async: false,
+        dataType: 'json',
+        success: function (result) {
+            cityId = result.cityId;
+            $("#cityId").val(cityArray[cityId-1]);
+            selected = result.rangeCity.split(',');
+            refreshInt();
+            refreshSelect();
+            $.each(selected, function (i, item) {
+                let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + item +"' onclick='removeSpan(" + item + ")'>";
+                content += cityArray[item-1];
+                content += "<span class='layui-badge layui-bg-gray' style='font-size: 4px; line-height: 16px; height: 16px'>X</span></button>";
+                $("#selectedCity").append(content);
+            });
+            form.render('select');
+        }
     });
 
-
-    $.each(range_city, function (i, item) {
-        let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + item + "' onclick='removeSpan(" + item + ")'>";
-        content += cityMap[item];
+    form.on('select(changeRange)', function (data) {
+        let select_id = parseInt(data.value);
+        selected.push(select_id);
+        refreshSelect();
+        let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + select_id +"' onclick='removeSpan(" + select_id + ")'>";
+        content += cityArray[select_id-1];
         content += "<span class='layui-badge layui-bg-gray' style='font-size: 4px; line-height: 16px; height: 16px'>X</span></button>";
         $("#selectedCity").append(content);
-        console.log(range_city);
-    });
-
+        form.render('select');
+    });*/
 
 
 
@@ -61,7 +99,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             end: function() {
                 let select_id = $('#rangecityhidden').val();
                 let select_value = $('#rangeCity').val();
-                range_city.push(select_id.toString());
+                range_city.push(select_id);
                 if(select_id!=''&&select_id!=null){
                     console.log(select_id+"why");
                     let content = "<button type='button' class='layui-btn layui-btn-sm' id='city-" + select_id +"' onclick='removeSpan(" + select_id + ")'>";
@@ -78,19 +116,15 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
     //----------------------------------------------------------------------------------------------------------------《《《
 
     form.on('submit(modInfo)', function () {
-        let cityId = $("#mainroutehidden").val();
-        console.log("expandId--"+expandId);
-        console.log("cityId: " + cityId);
-        console.log("range: " + range_city.toString());
         $.ajax({
             type: 'put',
             url: nginx_url + '/route/update/' + expandId,
             async: false,
             data: {
                 'cityId': cityId,
-                'rangeCity': range_city.toString()
+                'rangeCity': selected.toString()
             },
-            //dataType: 'json',
+            dataType: 'json',
             success: function (result) {
                 if (result === 'SUCCESS') {
                     layer.msg('修改成功', {
@@ -112,10 +146,14 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
     })
 
 });
+let form;
+let selected;
+let cityId;
+let cityArray = [];
 
 function removeSpan(id) {
     let buttonId = '#city-' + id;
-    range_city.splice($.inArray(id.toString(), range_city), 1);
+    range_city.splice($.inArray(id, range_city), 1);
     console.log(range_city);
     $(buttonId).remove();
     if(range_city==null||range_city.length==0){
@@ -144,4 +182,3 @@ function refreshInt() {
         selected[i] = parseInt(item);
     });
 }*/
-
