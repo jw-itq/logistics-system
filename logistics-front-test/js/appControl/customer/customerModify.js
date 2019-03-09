@@ -32,7 +32,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/updateCustomerInfo/' + customerCode,
             data: $("#cusForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {

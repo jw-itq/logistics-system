@@ -62,4 +62,16 @@ public class Employee {
     public void setPosition(String position) {
         this.position = position == null ? null : position.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeCode='" + employeeCode + '\'' +
+                ", birthday=" + birthday +
+                ", department='" + department + '\'' +
+                ", employeeName='" + employeeName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", position='" + position + '\'' +
+                '}';
+    }
 }

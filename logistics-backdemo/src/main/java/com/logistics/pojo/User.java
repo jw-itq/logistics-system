@@ -1,7 +1,11 @@
 package com.logistics.pojo;
 
 public class User {
-
+    public User(String loginId, Boolean ifOnline, String password) {
+        this.loginId = loginId;
+        this.ifOnline = ifOnline;
+        this.password = password;
+    }
 
     private String loginId;
 

@@ -1,11 +1,9 @@
 package com.logistics.service.impl;
 
 import com.logistics.dao.mapper.FunctionwithgroupMapper;
+import com.logistics.dao.mapper.UsergroupMapper;
 import com.logistics.dao.mapper.UserwithgroupMapper;
-import com.logistics.pojo.Functionwithgroup;
-import com.logistics.pojo.FunctionwithgroupExample;
-import com.logistics.pojo.Userwithgroup;
-import com.logistics.pojo.UserwithgroupExample;
+import com.logistics.pojo.*;
 import com.logistics.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +22,9 @@ public class GroupServiceImpl implements GroupService {
 
     @Autowired
     private FunctionwithgroupMapper functionwithgroupMapper;
+
+    @Autowired
+    private UsergroupMapper usergroupMapper;
 
     /**
      * 查询登陆的用户所对应的功能，要先查询对应的组别，再根据组别查询对应的功能
@@ -45,6 +46,17 @@ public class GroupServiceImpl implements GroupService {
         criteria1.andGroupIdEqualTo(list.get(0).getGroupId());
 
         List<Functionwithgroup> result = functionwithgroupMapper.selectByExample(functionwithgroupExample);
+        return result;
+    }
+
+    /**
+     * 查询所有用户组，供添加职员的时候使用
+     * @return
+     */
+    @Override
+    public List<Usergroup> selectAllUserGroup() {
+        UsergroupExample usergroupExample = new UsergroupExample();
+        List<Usergroup> result = usergroupMapper.selectByExample(usergroupExample);
         return result;
     }
 

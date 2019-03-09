@@ -62,4 +62,6 @@ public class RouteController extends ReturnType{
     public List<Routeinfo> startRouteinfo(){
         return routeService.startRoutInfos();
     }
+
+
 }

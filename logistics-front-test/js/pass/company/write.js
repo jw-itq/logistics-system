@@ -6,7 +6,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
         table = layui.table;
 
     function refreshRegion() {
-        $.ajax({
+        /*$.ajax({
             type: 'get',
             url: nginx_url + '/route/findAllRegions',
             dataType: 'json',
@@ -20,10 +20,27 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
                 });
                 form.render('select');
             }
-        });
+        });*/
     }
 
     refreshRegion();
+
+    $(document).on('click',"#city",function () {
+
+        layer.open({
+            type: 2,
+            title: '地区选择',
+            content: ['index.html?changecity=1'],
+            area: ['40%', '75%'],
+            shadeClose: true,
+            move: false,
+            /*end: function() {
+                table.reload('billTable', {
+                    url: nginx_url + '/bill/findNotRelease'
+                })
+            }*/
+        });
+    });
 
     element.on('tab(demo)', function (data) {
 
@@ -67,7 +84,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
             type: 'post',
             url: nginx_url + '/transfer/add',
             data: $("#transferComForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             async: false,
             success: function (result) {
                 if (result === "SUCCESS") {

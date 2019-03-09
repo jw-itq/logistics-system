@@ -70,7 +70,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
                     layer.open({
                         type: 2,
                         title: '职员信息修改',
-                        content: ['employeeModify.html?employeeCode=' + data.employeeCode, 'no'],
+                        content: ['employeeModify.html?employeeCode=' + data.employeeCode],
                         area: ['75%', '75%'],
                         shadeClose: true,
                         move: false,
@@ -104,7 +104,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
             type: "post",
             url: nginx_url + "/addEmp",
             data: $("#empForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 if (result === "SUCCESS") {
                     layer.msg('职员添加成功', {
@@ -145,8 +145,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
 
 function createTime(v){
     let dateTime;
-    let date = new Date();
-    date.setTime(v);
+    let date = new Date(v);
+    //date.setTime(v);
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
     m = m < 10 ? '0' + m : m;

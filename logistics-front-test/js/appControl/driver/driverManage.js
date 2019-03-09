@@ -26,7 +26,7 @@ layui.use(['layer', 'form', 'element', 'laydate', 'jquery', 'table'], function()
             type: 'post',
             url: nginx_url + '/driverInfo/add',
             data: $("#driverForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             success: function (result) {
                 console.log(result);
                 if (result === 'SUCCESS') {
@@ -93,7 +93,7 @@ layui.use(['layer', 'form', 'element', 'laydate', 'jquery', 'table'], function()
                             type: "DELETE",
                             url: nginx_url + "/driverInfo/delete/" + data.id,
                             async: false,
-                            dataType: 'json',
+                            //dataType: 'json',
                             success: function (result) {
                                 console.log(result);
                                 if (result === 'SUCCESS') {

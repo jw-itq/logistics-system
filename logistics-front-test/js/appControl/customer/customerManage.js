@@ -106,7 +106,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
             type: "post",
             url: nginx_url + "/addCus",
             data: $("#cusForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {

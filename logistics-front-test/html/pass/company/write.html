@@ -17,11 +17,17 @@
             <div class="layui-form-item" style="margin-top: 20px">
                 <form class="layui-form" action="" id="transferComForm">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">城市</label>
+                        <!--<label class="layui-form-label">城市</label>
                         <div class="layui-input-inline">
                             <select name="city" lay-verify="required" id="city" lay-search>
                                 <option value="">请选择城市</option>
                             </select>
+                        </div>-->
+                        <label class="layui-form-label">城市：</label>
+                        <div class="layui-input-inline">
+                            <input type="hidden" id="mainroutehidden">
+                            <input type="text" id="city" name="city" lay-verify="required" placeholder="请输入城市" autocomplete="off"
+                                   class="layui-input">
                         </div>
                     </div>
                     <div class="layui-form-item">

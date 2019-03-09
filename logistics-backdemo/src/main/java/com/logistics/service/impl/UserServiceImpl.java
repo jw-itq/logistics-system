@@ -2,6 +2,7 @@ package com.logistics.service.impl;
 
 import com.logistics.dao.mapper.UserMapper;
 import com.logistics.pojo.User;
+import com.logistics.pojo.UserExample;
 import com.logistics.service.UserService;
 import com.logistics.util.Enctype;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Transactional(propagation = Propagation.REQUIRED)
@@ -46,5 +48,22 @@ public class UserServiceImpl implements UserService {
             map.put("STATUS","ERROR");
             return map;
         }
+    }
+
+    /**
+     * 查找对应的职员编号是不是属于终于表中，用来判断这个职员是不是用户
+     * @param employeeCode
+     * @return
+     */
+    @Override
+    public boolean isExist(String employeeCode) {
+        UserExample userExample = new UserExample();
+        List<User> list = userMapper.selectByExample(userExample);
+        for(User user : list){
+            if(user.getLoginId().equals(employeeCode)){
+                return true;
+            }
+        }
+        return false;
     }
 }

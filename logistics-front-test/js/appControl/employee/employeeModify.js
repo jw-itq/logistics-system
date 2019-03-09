@@ -34,7 +34,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function() {
             type: "PUT",
             url: nginx_url + "/updateEmp/" + employeeCode,
             data: $("#empForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {
