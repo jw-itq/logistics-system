@@ -22,11 +22,19 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <div class="layui-inline">
+            <!--<div class="layui-inline">
                 <label class="layui-form-label wd-100">装货地点</label>
                 <div class="layui-input-inline">
                     <input type="text" id="loadStation" name="loadStation" lay-verify="required" placeholder="请输入装货地点"
                            autocomplete="off" class="layui-input">
+                </div>
+            </div>-->
+            <div class="layui-inline">
+                <label class="layui-form-label wd-100">装货地点</label>
+                <div class="layui-input-inline">
+                    <select id="loadStation" name="loadStation" lay-verify="required"  lay-search lay-filter="changedeal">
+                        <option value="">请选择装货地点</option>
+                    </select>
                 </div>
             </div>
             <div class="layui-inline">
@@ -37,11 +45,19 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <div class="layui-inline">
+            <!--<div class="layui-inline">
                 <label class="layui-form-label wd-100">交货地点</label>
                 <div class="layui-input-inline">
                     <input type="text" id="dealGoodsStation" name="dealGoodsStation" disabled placeholder="请输入交货地点"
                            autocomplete="off" class="layui-input">
+                </div>
+            </div>-->
+            <div class="layui-inline">
+                <label class="layui-form-label wd-100">交货地点</label>
+                <div class="layui-input-inline">
+                    <select id="dealGoodsStation" name="dealGoodsStation"  lay-verify="required" lay-search >
+                        <option value="">请选择交货地点</option>
+                    </select>
                 </div>
             </div>
             <div class="layui-inline">
@@ -94,7 +110,7 @@
             <div class="layui-inline">
                 <label class="layui-form-label wd-100">司机编号</label>
                 <div class="layui-input-inline">
-                    <input type="text" id="driverId" name="driverId" placeholder="请输入司机编号"
+                    <input type="text" id="driverId" name="driverId" placeholder=""
                            autocomplete="off" class="layui-input">
                 </div>
             </div>

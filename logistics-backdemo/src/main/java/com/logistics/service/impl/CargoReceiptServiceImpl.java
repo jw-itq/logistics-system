@@ -1,8 +1,11 @@
 package com.logistics.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.logistics.dao.mapper.*;
 import com.logistics.pojo.*;
 import com.logistics.service.CargoReceiptService;
+import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -30,6 +33,9 @@ public class CargoReceiptServiceImpl implements CargoReceiptService {
 
     @Autowired
     private BillinfoMapper billinfoMapper;
+
+    @Autowired
+    private GoodsbilleventMapper goodsbilleventMapper;
 
     /**
      * 查询未被安排的货运单的编号，也就是没有在货运单详细表中的货运单号
@@ -83,9 +89,11 @@ public class CargoReceiptServiceImpl implements CargoReceiptService {
 
         try {
             //1，保存货运回执单cargoreceipt
+            Routeinfo routeinfo = routeinfoMapper.selectByPrimaryKey(routeInfoId);
+            cargoreceipt.setDealGoodsStation(routeinfo.getEndStation());
             cargoreceiptMapper.insert(cargoreceipt);
             //2，更新货运单中的中转费用和中转地goodsbill
-            Routeinfo routeinfo = routeinfoMapper.selectByPrimaryKey(routeInfoId);
+
 
             Cargoreceiptdetail cargoreceiptdetail = cargoreceiptdetailMapper.selectByPrimaryKey(cargoreceipt.getGoodsRevertBillCode());
 
@@ -107,6 +115,114 @@ public class CargoReceiptServiceImpl implements CargoReceiptService {
             return "SUCCESS";
         }catch (Exception e){
             e.printStackTrace();
+            return "ERROR";
+        }
+    }
+
+    /**
+     * 根据货运回执单的状态分页查询
+     * @param pageNum 当前的页数
+     * @param limit 每页显示的条数
+     * @return
+     */
+    @Override
+    public Result selectReceiptByState(String backbillState, int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+        CargoreceiptExample cargoreceiptExample = new CargoreceiptExample();
+        CargoreceiptExample.Criteria criteria = cargoreceiptExample.createCriteria();
+        criteria.andBackBillStateEqualTo(backbillState);
+
+        List<Cargoreceipt> list = cargoreceiptMapper.selectByExample(cargoreceiptExample);
+        PageInfo<Cargoreceipt> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    /**
+     * 根据货运回执单的编号来查询货运单
+     * @param goodsRevertBillCode 货运回执单的编号
+     * @return
+     */
+    @Override
+    public Cargoreceipt selectReceiptByBillCode(String goodsRevertBillCode) {
+        return cargoreceiptMapper.selectByPrimaryKey(goodsRevertBillCode);
+    }
+
+    /**
+     * 修改货运单
+     * @param cargoreceipt
+     * @return
+     */
+    @Override
+    public String updateReceiptByBillCode(Cargoreceipt cargoreceipt) {
+        int result = cargoreceiptMapper.updateByPrimaryKey(cargoreceipt);
+        if(result<0){
+            return "ERROR";
+        }
+        return "SUCCESS";
+    }
+
+    /**
+     * 提交发货，修改货运回执单的状态是“未到车辆”
+     * 修改货运单事件表的状态是“未到”，并更新时间
+     * @param cargoreceipt
+     * @return
+     */
+    @Override
+    public boolean submit(Cargoreceipt cargoreceipt) {
+        try {
+            cargoreceipt.setBackBillState("未到车辆");
+            cargoreceiptMapper.updateByPrimaryKey(cargoreceipt);
+            Cargoreceiptdetail cargoreceiptdetail = cargoreceiptdetailMapper.selectByPrimaryKey(cargoreceipt.getGoodsRevertBillCode());
+            Goodsbillevent goodsbillevent = goodsbilleventMapper.selectByPrimaryKey(cargoreceiptdetail.getGoodsBillDetailId());
+            goodsbillevent.setEventName("未到");
+            goodsbillevent.setOccurTime(new Date());
+            goodsbilleventMapper.updateByPrimaryKey(goodsbillevent);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("货运回执单提交失败");
+            return false;
+        }
+    }
+
+    /**
+     * 查询所有的货运回执单
+     * @return
+     */
+    @Override
+    public Result selectRecetiptAll(int pageNum,int limit) {
+        PageHelper.startPage(pageNum,limit);
+        CargoreceiptExample cargoreceiptExample = new CargoreceiptExample();
+        List<Cargoreceipt> list = cargoreceiptMapper.selectByExample(cargoreceiptExample);
+        PageInfo<Cargoreceipt> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    /**
+     * 根据货运回执单的编号删除,并且更新单据明细表的状态是“作废”
+     * @param goodsRevertBillCode 货运回执单的编号
+     * @return
+     */
+    @Override
+    public String deleteReceiptByBillCode(String goodsRevertBillCode) {
+        try {
+            Cargoreceiptdetail cargoreceiptdetail = cargoreceiptdetailMapper.selectByPrimaryKey(goodsRevertBillCode);
+            BillinfoExample billinfoExample = new BillinfoExample();
+            BillinfoExample.Criteria criteria = billinfoExample.createCriteria();
+            criteria.andBillCodeEqualTo(cargoreceiptdetail.getGoodsBillDetailId());
+            List<Billinfo> list = billinfoMapper.selectByExample(billinfoExample);
+
+            Billinfo billinfo = list.get(0);
+            billinfo.setBillState("作废");
+            billinfo.setWriteDate(new Date());
+            billinfoMapper.updateByPrimaryKey(billinfo);
+
+            cargoreceiptMapper.deleteByPrimaryKey(goodsRevertBillCode);
+            return "SUCCESS";
+        }catch (Exception e){
+            System.out.println("货运回执单删除失败");
             return "ERROR";
         }
     }

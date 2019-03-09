@@ -7,14 +7,45 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
         $ = layui.jquery;
 
     let goodsRevertBillCode = window.location.href.split("=")[1];
+
     $.ajax({
         type: "get",
         url: nginx_url + "/vehicle/selectByCode/" + goodsRevertBillCode,
         success: function (result) {
             console.log(result);
             $.each(result, function (i, item) {
-                let temp_id = '#' + i;
-                $(temp_id).val(item);
+                console.log(i);
+                if(i=='loadStation'||i=='dealGoodsStation'){
+                    let option = "<option value='"+item+"'>"+item+"</option>";
+                    $('#'+i).append(option);
+                    $("#"+i).find("option:contains('"+item+"')").attr("selected",true);
+                    form.render('select');
+                    //form.render('select');
+                }else {
+                    let temp_id = '#' + i;
+                    $(temp_id).val(item);
+                }
+                if($('#loadStation')!=null&&$('#loadStation')!=''){
+                    $.ajax({
+                        type: "get",
+                        url: nginx_url + "/route/findRouteByCode/"+$("#loadStation").val(),
+                        async: false,
+                        success: function (result) {
+                            $.each(result, function (i, item) {
+                                let option = "<option value='" + item.endStation + "'>";
+                                if(item.passStation==""||item.passStation==null||item.passStation.length==0){
+                                    option += item.endStation+"<无中转>";
+                                }else{
+                                    option += item.endStation+"<有中转>"+item.passStation;
+                                }
+                                option += "</option>";
+                                $("#dealGoodsStation").append(option);
+
+                            });
+                            form.render('select');
+                        }
+                    });
+                }
             });
 
             // 日期
@@ -43,6 +74,49 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
         }
     });
 
+    //alert($("#loadStation").val());
+    //装货地点
+    $.ajax({
+        type: "get",
+        url: nginx_url + "/route/startRouteinfo",
+        async: false,
+        success: function (result) {
+            $.each(result, function (i, item) {
+                let option = "<option value='" + item.startStation + "'>";
+                option += item.startStation;
+                option += "</option>";
+                $("#loadStation").append(option);
+
+            });
+            form.render('select');
+        }
+    });
+
+
+
+    //交货地点
+    form.on('select(changedeal)',function () {
+        $.ajax({
+            type: "get",
+            url: nginx_url + "/route/findRouteByCode/"+$("#loadStation").val(),
+            async: false,
+            success: function (result) {
+                $.each(result, function (i, item) {
+                    let option = "<option value='" + item.id + "'>";
+                    if(item.passStation==""||item.passStation==null||item.passStation.length==0){
+                        option += item.endStation+"<无中转>";
+                    }else{
+                        option += item.endStation+"<有中转>"+item.passStation;
+                    }
+                    option += "</option>";
+                    $("#dealGoodsStation").append(option);
+
+                });
+                form.render('select');
+            }
+        });
+    });
+
     form.on('submit(update)', function () {
 
         $("#cargoReceiptForm :input").each(function () {
@@ -55,7 +129,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/vehicle/update',
             data: $("#cargoReceiptForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {
@@ -89,7 +163,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/vehicle/submit',
             data: $("#cargoReceiptForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {

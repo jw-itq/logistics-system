@@ -63,6 +63,7 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table'], function() {
                     { title: 'ID', fixed: 'left', type: 'numbers', align: 'center' },
                     { field: 'billType', title: '单据类型', align: "center", sort: true },
                     { field: 'billCode', title: '单据编号', align: 'center' },
+                    {field:'billState',title:'单据状态',align:"center"},
                     { field: 'writeDate', title: '填写日期', align: 'center', templet: '#createTime' }
                 ]]
             });
