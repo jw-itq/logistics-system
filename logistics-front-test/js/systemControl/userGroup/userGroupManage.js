@@ -180,7 +180,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function() {
                 'groupId': $("#groupId").val(),
                 'array': array
             },
-            dataType: 'json',
+            //dataType: 'json',
             async: false,
             success: function (result) {
                 if (result === 'SUCCESS') {

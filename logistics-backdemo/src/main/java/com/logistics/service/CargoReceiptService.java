@@ -3,6 +3,7 @@ package com.logistics.service;
 import com.logistics.pojo.Cargoreceipt;
 import com.logistics.pojo.Goodsbill;
 import com.logistics.util.Result;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -25,4 +26,6 @@ public interface CargoReceiptService {
     public Result selectRecetiptAll(int pageNum,int limit);
 
     public String deleteReceiptByBillCode(String goodsRevertBillCode);
+
+    public String findGoodsRevertCode(String goodsBillCode);
 }

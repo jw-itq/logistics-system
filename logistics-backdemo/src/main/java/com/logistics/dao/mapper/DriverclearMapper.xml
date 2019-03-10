@@ -336,4 +336,13 @@
       prepay_money = #{prepayMoney,jdbcType=DOUBLE}
     where back_bill_code = #{backBillCode,jdbcType=VARCHAR}
   </update>
+
+  <!--额外的-->
+  <select id="find" resultType="java.util.HashMap">
+    select driver_code,
+			 sum(carry_fee) as carryFeeTotal ,
+			 sum(add_carriage) as addCarriageTotal ,
+			 count(driver_code) as total from driverclear
+    group by driver_code order by total DESC
+  </select>
 </mapper>

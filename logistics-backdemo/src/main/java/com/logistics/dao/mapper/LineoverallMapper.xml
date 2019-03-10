@@ -225,4 +225,10 @@
       times = #{times,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="truncateTable">
+    truncate table lineoverall
+  </select>
+
+
 </mapper>

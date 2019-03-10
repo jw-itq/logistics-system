@@ -19,4 +19,11 @@ public class UserController extends ReturnType{
         Map<?,?> result = userService.userLogin(loginId,password);
         return result;
     }
+
+    @RequestMapping(value = "/change", method = RequestMethod.PUT)
+    public String change(String loginId, String oldPassword, String newPassword) {
+
+        System.out.println(loginId + " " + oldPassword + " " + newPassword);
+        return userService.changePassword(loginId, oldPassword, newPassword);
+    }
 }

@@ -16,7 +16,7 @@ layui.use(['layer', 'form', 'element', 'jquery'], function() {
                 'oldPassword': $("#oldPassword").val(),
                 'newPassword': $("#newPassword").val()
             },
-            dataType: 'json',
+            //dataType: 'json',
             success: function (result) {
                 console.log(result);
                 if (result === 'SUCCESS') {

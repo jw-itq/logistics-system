@@ -84,4 +84,18 @@ public class Cargoreceiptdetail {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Cargoreceiptdetail{" +
+                "goodsRevertBillId='" + goodsRevertBillId + '\'' +
+                ", goodsBillDetailId='" + goodsBillDetailId + '\'' +
+                ", goodsValue=" + goodsValue +
+                ", pieceAmount=" + pieceAmount +
+                ", priceMode='" + priceMode + '\'' +
+                ", priceStandard='" + priceStandard + '\'' +
+                ", volume=" + volume +
+                ", weight=" + weight +
+                '}';
+    }
 }

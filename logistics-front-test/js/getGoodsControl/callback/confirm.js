@@ -11,7 +11,7 @@ layui.use([ 'layer', 'form', 'element', 'jquery', 'table', 'laydate' ], function
     $.ajax({
         type: 'get',
         url: nginx_url + '/goodsBill/selectByCode/' + customerCode,
-        dataType: 'json',
+        //dataType: 'json',
         async: false,
         success: function (result) {
             console.log(result);
@@ -37,7 +37,7 @@ layui.use([ 'layer', 'form', 'element', 'jquery', 'table', 'laydate' ], function
             type: 'post',
             url: nginx_url + '/transfer/addCusRec',
             data: $("#confirmForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             success: function (result) {
                 if (result === 'SUCCESS') {
                     layer.msg('回执填写成功', {

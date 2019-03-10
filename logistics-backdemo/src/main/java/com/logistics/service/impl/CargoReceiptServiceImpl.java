@@ -226,4 +226,18 @@ public class CargoReceiptServiceImpl implements CargoReceiptService {
             return "ERROR";
         }
     }
+
+    /**
+     * 查询货运回执单的的单号
+     * @param goodsBillCode
+     * @return
+     */
+    @Override
+    public String findGoodsRevertCode(String goodsBillCode) {
+        CargoreceiptdetailExample cargoreceiptdetailExample = new CargoreceiptdetailExample();
+        CargoreceiptdetailExample.Criteria criteria = cargoreceiptdetailExample.createCriteria();
+        criteria.andGoodsBillDetailIdEqualTo(goodsBillCode);
+        List<Cargoreceiptdetail> result = cargoreceiptdetailMapper.selectByExample(cargoreceiptdetailExample);
+        return result.get(0).getGoodsRevertBillId();
+    }
 }

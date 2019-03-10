@@ -5,6 +5,7 @@ import com.logistics.pojo.GoodsbillExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface GoodsbillMapper {
     int countByExample(GoodsbillExample example);
@@ -28,4 +29,17 @@ public interface GoodsbillMapper {
     int updateByPrimaryKeySelective(Goodsbill record);
 
     int updateByPrimaryKey(Goodsbill record);
+
+//    额外加条件
+    List<Goodsbill> transferState(@Param("type") String type,@Param("driverId") String driverId);
+
+    List<Goodsbill> informGet(@Param("type")String type);
+
+    List<Goodsbill> findOldCall(@Param("type") String type);
+
+    List<Goodsbill> findAllGot();
+
+    List<Goodsbill> findOnWayBills();
+
+    List<Map<String,Object>> find();
 }

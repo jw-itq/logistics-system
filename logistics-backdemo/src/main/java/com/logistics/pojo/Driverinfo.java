@@ -252,4 +252,35 @@ public class Driverinfo {
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Driverinfo{" +
+                "id='" + id + '\'' +
+                ", address='" + address + '\'' +
+                ", allowCarryVolume=" + allowCarryVolume +
+                ", allowCarryWeight=" + allowCarryWeight +
+                ", birthday=" + birthday +
+                ", bizLicence='" + bizLicence + '\'' +
+                ", carDept='" + carDept + '\'' +
+                ", carDeptTel='" + carDeptTel + '\'' +
+                ", carFrameNo='" + carFrameNo + '\'' +
+                ", carLength='" + carLength + '\'' +
+                ", carNo='" + carNo + '\'' +
+                ", carType='" + carType + '\'' +
+                ", carWidth='" + carWidth + '\'' +
+                ", companyCar=" + companyCar +
+                ", driveLicence='" + driveLicence + '\'' +
+                ", driverName='" + driverName + '\'' +
+                ", engineNo='" + engineNo + '\'' +
+                ", gender='" + gender + '\'' +
+                ", goodsHeight='" + goodsHeight + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", insuranceCard='" + insuranceCard + '\'' +
+                ", phone='" + phone + '\'' +
+                ", remark='" + remark + '\'' +
+                ", runLicence='" + runLicence + '\'' +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }

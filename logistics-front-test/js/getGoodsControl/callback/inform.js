@@ -13,7 +13,7 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table', 'laydate'], function()
     $.ajax({
         type: 'get',
         url: nginx_url + '/vehicle/findRevertId/' + goodBillCode,
-        dataType: 'json',
+        //dataType: 'json',
         async: false,
         success: function (result) {
             goodsRevertBillCode = result;
@@ -49,7 +49,7 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table', 'laydate'], function()
             type: 'post',
             url: nginx_url + '/bill/addArrived/' + goodsRevertBillCode,
             data: $("#releaseForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             async: false,
             success: function (result) {
                 if (result === 'SUCCESS') {

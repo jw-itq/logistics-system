@@ -222,4 +222,32 @@ public class Cargoreceipt {
     public void setStartCarryTime(Date startCarryTime) {
         this.startCarryTime = startCarryTime;
     }
+
+    @Override
+    public String toString() {
+        return "Cargoreceipt{" +
+                "goodsRevertBillCode='" + goodsRevertBillCode + '\'' +
+                ", acceptStation='" + acceptStation + '\'' +
+                ", allCarriage=" + allCarriage +
+                ", arriveTime=" + arriveTime +
+                ", backBillState='" + backBillState + '\'' +
+                ", carriageBanlanceMode='" + carriageBanlanceMode + '\'' +
+                ", carriageMode='" + carriageMode + '\'' +
+                ", carryGoodsBillDeposit=" + carryGoodsBillDeposit +
+                ", carryGoodsInsurance=" + carryGoodsInsurance +
+                ", dealGoodsStation='" + dealGoodsStation + '\'' +
+                ", dispatchServiceFee=" + dispatchServiceFee +
+                ", driverId='" + driverId + '\'' +
+                ", ifBalance='" + ifBalance + '\'' +
+                ", insurance=" + insurance +
+                ", linkmanPhone='" + linkmanPhone + '\'' +
+                ", loadStation='" + loadStation + '\'' +
+                ", receiveGoodsDetailAddr='" + receiveGoodsDetailAddr + '\'' +
+                ", receiveGoodsLinkman='" + receiveGoodsLinkman + '\'' +
+                ", remark='" + remark + '\'' +
+                ", signTime=" + signTime +
+                ", startAdvance=" + startAdvance +
+                ", startCarryTime=" + startCarryTime +
+                '}';
+    }
 }

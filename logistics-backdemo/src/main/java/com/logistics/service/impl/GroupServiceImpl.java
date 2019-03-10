@@ -1,15 +1,17 @@
 package com.logistics.service.impl;
 
-import com.logistics.dao.mapper.FunctionwithgroupMapper;
-import com.logistics.dao.mapper.UsergroupMapper;
-import com.logistics.dao.mapper.UserwithgroupMapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.logistics.dao.mapper.*;
 import com.logistics.pojo.*;
 import com.logistics.service.GroupService;
+import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -25,6 +27,13 @@ public class GroupServiceImpl implements GroupService {
 
     @Autowired
     private UsergroupMapper usergroupMapper;
+
+    @Autowired
+    private EmployeeMapper employeeMapper;
+
+    @Autowired
+    private FunctionMapper functionMapper;
+
 
     /**
      * 查询登陆的用户所对应的功能，要先查询对应的组别，再根据组别查询对应的功能
@@ -58,6 +67,106 @@ public class GroupServiceImpl implements GroupService {
         UsergroupExample usergroupExample = new UsergroupExample();
         List<Usergroup> result = usergroupMapper.selectByExample(usergroupExample);
         return result;
+    }
+
+    @Override
+    public boolean save(Usergroup userGroup) {
+        try {
+            usergroupMapper.insert(userGroup);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("用户组表插入失败！");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean delete(int id) {
+        try {
+            Usergroup usergroup = usergroupMapper.selectByPrimaryKey(id);
+            usergroupMapper.deleteByPrimaryKey(id);
+            EmployeeExample employeeExample = new EmployeeExample();
+            EmployeeExample.Criteria criteria = employeeExample.createCriteria();
+            criteria.andDepartmentEqualTo(usergroup.getGroupName());
+            List<Employee> list = employeeMapper.selectByExample(employeeExample);
+            Employee employee = list.get(0);
+            employee.setDepartment("临时组");
+            return true;
+        }catch (Exception e){
+            System.err.println("用户组表删除 | 职工部门更新 失败！");
+            return false;
+        }
+    }
+
+    @Override
+    public Result selectAllGroup(int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+        UsergroupExample usergroupExample = new UsergroupExample();
+        List<Usergroup> list = usergroupMapper.selectByExample(usergroupExample);
+        PageInfo<Usergroup> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    @Override
+    public Usergroup findById(int id) {
+        return usergroupMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public boolean update(int id, String description) {
+        Usergroup usergroup = usergroupMapper.selectByPrimaryKey(id);
+        usergroup.setDescription(description);
+        try {
+            usergroupMapper.updateByPrimaryKey(usergroup);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("用户组描述更新失败！");
+            return false;
+        }
+    }
+
+    @Override
+    public List<Function> findAllFunction() {
+        FunctionExample functionExample = new FunctionExample();
+        return functionMapper.selectByExample(functionExample);
+    }
+
+    @Override
+    public List<Functionwithgroup> findAllFunctionWithGroups(int groupId) {
+        FunctionwithgroupExample functionwithgroupExample = new FunctionwithgroupExample();
+        FunctionwithgroupExample.Criteria criteria = functionwithgroupExample.createCriteria();
+        criteria.andGroupIdEqualTo(groupId);
+        return functionwithgroupMapper.selectByExample(functionwithgroupExample);
+    }
+
+    @Override
+    public boolean addFuncGro(int groupId, int[] functionId) {
+        System.out.println(groupId);
+        System.out.println(functionId);
+        List<Integer> list = new LinkedList<>();
+        for (int i : functionId) {
+            list.add(i);
+        }
+        System.out.println(list);
+        for (int i = 0; i < 11; i++) {
+            FunctionwithgroupExample functionwithgroupExample = new FunctionwithgroupExample();
+            FunctionwithgroupExample.Criteria criteria = functionwithgroupExample.createCriteria();
+            criteria.andGroupIdEqualTo(groupId);
+            criteria.andFunctionIdEqualTo(i+1);
+            if (functionwithgroupMapper.selectByExample(functionwithgroupExample) == null) {
+                System.out.println(i);
+                if (list.contains(i+1)) {
+                    Functionwithgroup functionWithGroup = new Functionwithgroup();
+                    functionWithGroup.setFunctionId(i+1);
+                    functionWithGroup.setGroupId(groupId);
+                    functionwithgroupMapper.insert(functionWithGroup);
+                }
+            }
+        }
+        return true;
     }
 
 }

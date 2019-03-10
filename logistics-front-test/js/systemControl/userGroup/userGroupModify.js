@@ -22,7 +22,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             data: {
                 description: $("#description").val()
             },
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 if (result === "SUCCESS") {
                     layer.msg('更新成功', {

@@ -1,6 +1,7 @@
 package com.logistics.controller;
 
 import com.logistics.pojo.Billrelease;
+import com.logistics.pojo.Goodsreceiptinfo;
 import com.logistics.service.BillService;
 import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +28,10 @@ public class BillController {
     @RequestMapping(value = "/addRelease/{billCode}",method = RequestMethod.POST)
     public String addRelease(@PathVariable("billCode") String billCode, Billrelease billrelease){
         return billService.addRelease(billCode,billrelease);
+    }
+
+    @RequestMapping(value = "/addArrived/{goodsRevertBillCode}",method = RequestMethod.POST)
+    public String addArrived(@PathVariable("goodsRevertBillCode")String goodsRevertBillCode, Goodsreceiptinfo goodsreceiptinfo){
+        return billService.addArrived(goodsRevertBillCode,goodsreceiptinfo);
     }
 }

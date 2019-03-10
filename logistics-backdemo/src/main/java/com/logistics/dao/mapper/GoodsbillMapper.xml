@@ -673,4 +673,62 @@
       write_date = #{writeDate,jdbcType=DATE}
     where goods_bill_code = #{goodsBillCode,jdbcType=VARCHAR}
   </update>
+
+
+  <!--额外加的条件-->
+  <select id="transferState" resultMap="BaseResultMap">
+    select * from goodsbill
+    where goods_bill_code
+    in (
+    select goods_bill_detail_id
+    from cargoreceiptdetail d
+    inner join cargoreceipt c
+    where d.goods_revert_bill_id = c.goods_revert_bill_code
+    and c.back_bill_state = #{type}
+    and c.driver_id = #{driverId})
+  </select>
+
+    <select id="informGet" resultMap="BaseResultMap">
+        select * from goodsbill
+        where goods_bill_code
+        in (select goods_bill_id
+        from goodsbillevent
+        where event_name = '未结'
+        and goods_bill_id
+        not in (select goods_bill_id
+        from callbackinfo
+        where type = #{type}))
+    </select>
+
+  <select id="findOldCall" resultMap="BaseResultMap">
+    select * from goodsbill where goods_bill_code in
+    (select goods_bill_id from callbackinfo where type = #{type})
+  </select>
+
+  <select id="findAllGot" resultMap="BaseResultMap">
+    select * from goodsbill
+    where goods_bill_code not in
+    (select goods_bill_id
+    from callbackinfo
+    where type = '已提回告') and goods_bill_code
+    in (select goods_bill_code
+    from customerreceiptinfo)
+  </select>
+
+  <select id="findOnWayBills" resultMap="BaseResultMap">
+    select * from logistics.goodsbill
+    where goods_bill_code in
+    (select goods_bill_id
+    from goodsbillevent
+    where event_name = '未到') and transfer_station is not null
+  </select>
+
+  <select id="find" resultType="java.util.HashMap">
+      select send_goods_customer,
+			 sum(carriage) as carriageTotal ,
+			 sum(insurance) as insuranceTotal ,
+			 count(*) as pieceAmountTotal from goodsbill
+       group by send_goods_customer order by pieceAmountTotal DESC
+  </select>
+
 </mapper>

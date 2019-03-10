@@ -5,6 +5,7 @@ import com.logistics.pojo.DriverclearExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface DriverclearMapper {
     int countByExample(DriverclearExample example);
@@ -28,4 +29,7 @@ public interface DriverclearMapper {
     int updateByPrimaryKeySelective(Driverclear record);
 
     int updateByPrimaryKey(Driverclear record);
+
+//    增加的接口
+    List<Map<String,Object>> find();
 }

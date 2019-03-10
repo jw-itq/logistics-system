@@ -5,6 +5,7 @@ import com.logistics.pojo.CargoreceiptExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CargoreceiptMapper {
     int countByExample(CargoreceiptExample example);
@@ -28,4 +29,7 @@ public interface CargoreceiptMapper {
     int updateByPrimaryKeySelective(Cargoreceipt record);
 
     int updateByPrimaryKey(Cargoreceipt record);
+
+
+    List<Map<String,Object>> find();
 }

@@ -212,6 +212,53 @@ public class GoodsBillServiceImpl implements GoodsBillService {
     }
 
     /**
+     * 获取所有未发过{提货 | 到货 | 中转 | 已提 | 代收} 回告的运单
+     * @param billType
+     * @param pageNum
+     * @param limit
+     * @return
+     */
+    @Override
+    public Result findInform(String billType, int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+        List<Goodsbill> list = goodsbillMapper.informGet(billType);
+        PageInfo<Goodsbill> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    /**
+     * 获取所有已发过 {提货 | 到货 | 中转 | 已提 | 代收} 回告的运单
+     * @param type
+     * @param pageNum
+     * @param limit
+     * @return
+     */
+    @Override
+    public Result findOldInform(String type, int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+        List<Goodsbill> list = goodsbillMapper.findOldCall(type);
+        PageInfo<Goodsbill> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    /**
+     * 获取已提货的运单
+     * @param pageNum
+     * @param limit
+     * @return
+     */
+    @Override
+    public Result findAllGot(int pageNum, int limit) {
+        PageHelper.startPage(pageNum,limit);
+        List<Goodsbill> list = goodsbillMapper.findAllGot();
+        PageInfo<Goodsbill> pageInfo = new PageInfo<>(list);
+        Result result = new Result(200,"SUCCESS", (int) pageInfo.getTotal(),pageInfo.getList());
+        return result;
+    }
+
+    /**
      * 生成一个6位的随即数，作为单号
      * @return
      */

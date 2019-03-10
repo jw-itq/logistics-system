@@ -1,5 +1,6 @@
 package com.logistics.controller;
 
+import com.logistics.pojo.Customerreceiptinfo;
 import com.logistics.pojo.Transfercominfo;
 import com.logistics.service.TransferService;
 import com.logistics.util.Result;
@@ -23,5 +24,25 @@ public class TransferController {
     @RequestMapping(value = "/findByPage",method = RequestMethod.GET)
     public Result findByPage(@RequestParam("pageNum")int pageNum,@RequestParam("limit")int limit){
         return transferService.findByPage(pageNum,limit);
+    }
+
+    @RequestMapping(value = "/arriveGoods/{driverId}",method = RequestMethod.GET)
+    public Result arriveGoods(@PathVariable("driverId")String driverId, @RequestParam("pageNum")int pageNum,@RequestParam("limit")int limit){
+        return transferService.arriveGoods(driverId,pageNum,limit);
+    }
+
+    @RequestMapping(value = "/findCusRes/{customerCode}",method = RequestMethod.GET)
+    public Result findCusRes(@PathVariable("customerCode")String customerCode,int pageNum,int limit){
+        return transferService.findCusRes(customerCode,pageNum,limit);
+    }
+
+    @RequestMapping(value = "/findOnWayBills",method = RequestMethod.GET)
+    public Result findOnWayBills(){
+        return transferService.findOnWayBills();
+    }
+
+    @RequestMapping(value = "/addCusRec",method = RequestMethod.POST)
+    public String addCusRes(Customerreceiptinfo customerreceiptinfo){
+        return transferService.addCusRes(customerreceiptinfo);
     }
 }

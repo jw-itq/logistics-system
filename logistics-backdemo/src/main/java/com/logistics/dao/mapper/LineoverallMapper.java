@@ -5,6 +5,7 @@ import com.logistics.pojo.LineoverallExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface LineoverallMapper {
     int countByExample(LineoverallExample example);
@@ -28,4 +29,9 @@ public interface LineoverallMapper {
     int updateByPrimaryKeySelective(Lineoverall record);
 
     int updateByPrimaryKey(Lineoverall record);
+
+//    额外的
+    void truncateTable();
+
+
 }

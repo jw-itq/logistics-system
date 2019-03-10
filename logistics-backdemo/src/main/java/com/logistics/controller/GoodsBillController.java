@@ -67,13 +67,28 @@ public class GoodsBillController extends ReturnType{
         return goodsBillService.selectByCode(goodsBillCode);
     }
 
-    @RequestMapping(value = "updateByCode/{goodsBillCode}",method = RequestMethod.PUT)
+    @RequestMapping(value = "/updateByCode/{goodsBillCode}",method = RequestMethod.PUT)
     public String updateByCode(@PathVariable("goodsBillCode") String goodsBillCode,Goodsbill goodsbill){
         return goodsBillService.updateByCode(goodsBillCode,goodsbill);
     }
 
-    @RequestMapping(value = "deleteByCode/{goodsBillCode}",method = RequestMethod.PUT)
+    @RequestMapping(value = "/deleteByCode/{goodsBillCode}",method = RequestMethod.PUT)
     public String deleteByCode(@PathVariable("goodsBillCode") String goodsBillCode){
         return goodsBillService.deleteByCode(goodsBillCode);
+    }
+
+    @RequestMapping(value = "/findInform/{billType}",method = RequestMethod.GET)
+    public Result findInform(@PathVariable("billType")String billType,@RequestParam("pageNum")int pageNum,@RequestParam("limit")int limit){
+        return goodsBillService.findInform(billType,pageNum,limit);
+    }
+
+    @RequestMapping(value = "/findOldInform/{type}",method = RequestMethod.GET)
+    public Result findOldInform(@PathVariable("type")String type,@RequestParam("pageNum")int pageNum,@RequestParam("limit")int limit){
+        return goodsBillService.findOldInform(type,pageNum,limit);
+    }
+
+    @RequestMapping(value = "/findAllGot", method = RequestMethod.GET)
+    public Result findAllGot(@RequestParam("pageNum") int pageNum, @RequestParam("limit") int limit) {
+        return goodsBillService.findAllGot(pageNum,limit);
     }
 }

@@ -66,4 +66,15 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public String changePassword(String loginId, String oldPassword, String newPassword) {
+        User user = userMapper.selectByPrimaryKey(loginId);
+        if(Enctype.MD5(oldPassword).equals(user.getPassword())){
+            user.setPassword(Enctype.MD5(newPassword));
+            userMapper.updateByPrimaryKey(user);
+            return "SUCCESS";
+        }
+        return "ERROR";
+    }
 }

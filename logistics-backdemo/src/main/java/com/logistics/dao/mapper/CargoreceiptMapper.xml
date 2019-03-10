@@ -479,4 +479,16 @@
       start_carry_time = #{startCarryTime,jdbcType=DATE}
     where goods_revert_bill_code = #{goodsRevertBillCode,jdbcType=VARCHAR}
   </update>
+
+
+
+
+  <select id="find" resultType="java.util.HashMap">
+      select load_station as loadStation,
+      deal_goods_station as dealGoodsStation,
+       sum(all_carriage) as allCarriageTotal ,
+       sum(insurance) as insuranceTotal ,
+       count(*) as times from cargoreceipt
+      group by load_station, deal_goods_station order by times DESC
+  </select>
 </mapper>

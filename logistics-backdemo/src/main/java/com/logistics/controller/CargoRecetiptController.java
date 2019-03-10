@@ -66,4 +66,9 @@ public class CargoRecetiptController{
     public String deleteReceiptByBillCode(@PathVariable("goodsRevertBillCode")String goodsRevertBillCode){
         return cargoReceiptService.deleteReceiptByBillCode(goodsRevertBillCode);
     }
+
+    @RequestMapping(value = "/findRevertId/{goodsBillCode}",method = RequestMethod.GET)
+    public String findGoodsRevertCode(@PathVariable("goodsBillCode")String goodsBillCode){
+        return cargoReceiptService.findGoodsRevertCode(goodsBillCode);
+    }
 }
