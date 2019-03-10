@@ -178,3 +178,49 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
 
 
 });
+
+/*jquery区块*/
+/*另外一个种获取input框数值改变的方法bind()*/
+$(document).ready(function(){
+    var datas=[];
+
+    $("#addr-show03").bind("input onchange",function(){
+        datas=[];  //每次将数组清空
+        $(".intpuData p").remove();
+        //console.log(cityAll);
+        let inputVal=$("#addr-show03").val();
+        let inputVals=new RegExp(inputVal);
+        console.log(cityAll[0]);
+        console.log(cityAll[0].city);
+        console.log(cityAll[0].city[0]);
+        if($("#addr-show03").val()!=""){
+            //将下拉列表做动画优化处理
+            $(".intpuData").animate({top:'0px',opacity:'1'},500);
+            //将下拉列表做动画优化处理
+            //输入框非空时在进行模糊查询
+            for(let i=0;i<cityAll.length;i++){
+                for(let j=0;j<cityAll[i].city.length;j++){
+                    if(inputVals.test(cityAll[i].city[j].cityname)){
+                        let dataObject={};
+                        dataObject.i=i;
+                        dataObject.j=j;
+                        datas.push(dataObject);
+                    }
+                }
+            }
+            //console.log(datas);
+            for(let k=0;k<datas.length;k++){
+                console.log(datas[k]);
+                console.log(datas[k].i);
+                $(".intpuData").append(`<p>${cityAll[datas[k].i].city[datas[k].j].cityname}</p>`);
+            }
+        }else{
+            $('.intpuData').animate({top:'-205px',opacity:'0'},500);
+        }
+    });
+    $(".intpuData").on("click","p",function(){
+        console.log($(this).text());
+        $("#addr-show03").val($(this).text());
+        $('.intpuData').animate({top:'-205px',opacity:'0'},500);
+    });
+});
