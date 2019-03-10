@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>城市选择</title>
+   <!-- <link rel="stylesheet" href="style.css">-->
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../layui/css/layui.css">
+    <style type="text/css" media="screen">
+    .intpuData{
+        width: 205px;height: 200px;
+        position: absolute;top:-205px;left:84px;overflow: auto;border: 1px solid red;opacity: 0;
+        background-color: #fff;
+    }
+    .intpuData p{
+        padding: 5px 15px;
+        transition: .5s all;
+    }
+    .intpuData p:hover{background-color:#CBCBCB;}
+    </style>
+</head>
+<body>
+
+<!--**********************************华丽丽*************************************-->
+<div>
+    <fieldset>
+        <legend>按字母顺序选中城市</legend>
+        <form class="layui-form" action="" id="cityForm">
+            <label for="addr-show03">您选择的是：
+                <input type="text" id="addr-show03" name="addr-show03" autocomplete="off">
+            </label>
+            <button class="layui-btn" lay-submit lay-filter="addInfo" id="addInfo">确定</button>
+        </form>
+        <div id="data-wrap" style="position: relative;overflow:hidden;">
+            <ul id="data-order">
+                <li value='0'>热门</li>
+                <li value='1'>ABCD</li>
+                <li value='2'>EFGH</li>
+                <li value='3'>JKLM</li>
+                <li value='4'>NPQR</li>
+                <li value='5'>STWX</li>
+                <li value='6'>YZ</li>
+            </ul>
+            <div id="data-show"></div>
+            <div class="intpuData"></div>
+        </div>
+    </fieldset>
+</div>
+<!-- 引入jquery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="../../../layui/layui.js"></script>
+<script src="../../../js/appControl/route/test.js"></script>
+<script src="../../../js/appControl/route/method03.js"></script>
+<!-- <script type="text/javascript" src="../../../js/appControl/route/searhc.js"></script> -->
+</body>
+</html>
