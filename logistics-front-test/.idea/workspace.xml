@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b23ba5a-8922-4b02-b14d-dea2a6f04c7e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/citymap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/citymap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" beforeDir="false" afterPath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myresourse/py4j" beforeDir="false" afterPath="$PROJECT_DIR$/../myresourse/py4j" afterDir="false" />
     </list>
@@ -271,7 +269,7 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552314244451" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552314351547" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
