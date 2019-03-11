@@ -39,7 +39,7 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table', 'laydate'], function()
             type: 'post',
             url: nginx_url + '/callback/add/' + goodsBillCode,
             data: $("#informForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             async: false,
             success: function (result) {
                 if (result === 'SUCCESS') {

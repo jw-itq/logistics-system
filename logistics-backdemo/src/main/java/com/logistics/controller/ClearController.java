@@ -38,7 +38,7 @@ public class ClearController {
     /**
      * 司机结算（前台返回一个完整的实体）
      */
-    @RequestMapping(value = "/addDriClear", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/addDriClear", method = RequestMethod.PUT)
     public String addDriClear(Driverclear driverClear) {
         return clearService.driClear(driverClear);
     }
@@ -62,7 +62,7 @@ public class ClearController {
     /**
      * 客户结算（前台返回一个完整的实体）
      */
-    @RequestMapping(value = "/addCusClear", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/addCusClear", method = RequestMethod.PUT)
     public String addCusClear(Customerbillclear customerBillClear) {
         return clearService.cusClear(customerBillClear);
     }
@@ -86,7 +86,7 @@ public class ClearController {
     /**
      * 代收结算（前台返回一个完整的实体）
      */
-    @RequestMapping(value = "/addCHelpClear", method = RequestMethod.PUT, produces = "application/json")
+    @RequestMapping(value = "/addCHelpClear", method = RequestMethod.PUT)
     public String addCHelpClear(Proxyfeeclear proxyFeeClear) {
         return clearService.helpClear(proxyFeeClear);
     }

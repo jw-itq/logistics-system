@@ -132,4 +132,23 @@ public class Driverclear {
     public void setPrepayMoney(Double prepayMoney) {
         this.prepayMoney = prepayMoney;
     }
+
+    @Override
+    public String toString() {
+        return "Driverclear{" +
+                "backBillCode='" + backBillCode + '\'' +
+                ", addCarriage=" + addCarriage +
+                ", balance=" + balance +
+                ", balanceTime=" + balanceTime +
+                ", balanceType='" + balanceType + '\'' +
+                ", bindInsurance=" + bindInsurance +
+                ", carryFee=" + carryFee +
+                ", dispatchServiceFee=" + dispatchServiceFee +
+                ", driverCode='" + driverCode + '\'' +
+                ", insurance=" + insurance +
+                ", needPayment=" + needPayment +
+                ", payedMoney=" + payedMoney +
+                ", prepayMoney=" + prepayMoney +
+                '}';
+    }
 }

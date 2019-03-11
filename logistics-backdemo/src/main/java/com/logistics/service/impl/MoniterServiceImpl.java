@@ -125,8 +125,8 @@ public class MoniterServiceImpl implements MoniterService {
             customeramount.setSendGoodsCustomer((String) map.get("sendGoodsCustomer"));
             customeramount.setCarriageTotal((Double) map.get("carriageTotal"));
             customeramount.setInsuranceTotal((Double) map.get("insuranceTotal"));
-            customeramount.setPieceAmountTotal((Integer) map.get("pieceAmountTotal"));
-            customeramountMapper.insert(customeramount);
+            customeramount.setPieceAmountTotal(Integer.parseInt(map.get("pieceAmountTotal")+""));
+            customeramountMapper.updateByPrimaryKey(customeramount);
             customerAmounts.add(customeramount);
         }
         return customerAmounts;
@@ -140,10 +140,11 @@ public class MoniterServiceImpl implements MoniterService {
 
         for(Map<String,Object> map : list){
             Driveramount driveramount = new Driveramount();
+            driveramount.setDriverCode((String) map.get("driverCode"));
             driveramount.setAddCarriageTotal((Double) map.get("addCarriageTotal"));
             driveramount.setCarryFeeTotal((Double) map.get("carryFeeTotal"));
-            driveramount.setTotal((Double) map.get("total"));
-            driveramountMapper.insert(driveramount);
+            driveramount.setTotal(Double.parseDouble(map.get("total")+""));
+            driveramountMapper.updateByPrimaryKey(driveramount);
             driverAmounts.add(driveramount);
         }
 
@@ -196,7 +197,7 @@ public class MoniterServiceImpl implements MoniterService {
             lineoverall.setAllCarriageTotal((Double) map.get("allCarriageTotal"));
             lineoverall.setDealGoodsStation((String) map.get("dealGoodsStation"));
             lineoverall.setInsuranceTotal((Double) map.get("insuranceTotal"));
-            lineoverall.setTimes((Integer) map.get("times"));
+            lineoverall.setTimes(Integer.parseInt( map.get("times")+"") );
             lineoverallMapper.insert(lineoverall);
             lineOveralls.add(lineoverall);
         }

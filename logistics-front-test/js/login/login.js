@@ -28,6 +28,22 @@ layui.use(['layer', 'form', 'jquery'], function() {
                         });
                     }, 800);
                 }
+                if(result.STATUS === 'ERROR'){
+                    setTimeout(function() {
+                        layer.close(index);
+                        layer.msg('帐号或者密码错误', {
+                            time: 1500
+                        });
+                    }, 800);
+                }
+            },
+            error:function () {
+                setTimeout(function() {
+                    layer.close(index);
+                    layer.msg('帐号或者密码错误', {
+                        time: 1500
+                    });
+                }, 800);
             }
         });
         return false;

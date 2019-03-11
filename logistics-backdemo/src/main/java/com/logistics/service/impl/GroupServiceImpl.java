@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -151,7 +152,7 @@ public class GroupServiceImpl implements GroupService {
             list.add(i);
         }
         System.out.println(list);
-        for (int i = 0; i < 11; i++) {
+        /*for (int i = 0; i < 11; i++) {
             FunctionwithgroupExample functionwithgroupExample = new FunctionwithgroupExample();
             FunctionwithgroupExample.Criteria criteria = functionwithgroupExample.createCriteria();
             criteria.andGroupIdEqualTo(groupId);
@@ -164,6 +165,34 @@ public class GroupServiceImpl implements GroupService {
                     functionWithGroup.setGroupId(groupId);
                     functionwithgroupMapper.insert(functionWithGroup);
                 }
+            }
+        }*/
+
+        FunctionwithgroupExample functionwithgroupExample = new FunctionwithgroupExample();
+        FunctionwithgroupExample.Criteria criteria = functionwithgroupExample.createCriteria();
+        criteria.andGroupIdEqualTo(groupId);
+        List<Functionwithgroup> ls = functionwithgroupMapper.selectByExample(functionwithgroupExample);
+
+        List<Integer> function = new ArrayList<>();
+        for(Functionwithgroup f : ls){
+            function.add(f.getFunctionId());
+        }
+        for(Integer in : list){
+            if(!function.contains(in)){
+                Functionwithgroup functionWithGroup = new Functionwithgroup();
+                functionWithGroup.setFunctionId(in);
+                functionWithGroup.setGroupId(groupId);
+                functionwithgroupMapper.insert(functionWithGroup);
+            }
+        }
+
+        for(Integer in : function){
+            if(!list.contains(in)){
+                FunctionwithgroupExample funcExample = new FunctionwithgroupExample();
+                FunctionwithgroupExample.Criteria criteria1 = funcExample.createCriteria();
+                criteria1.andFunctionIdEqualTo(in);
+                criteria1.andGroupIdEqualTo(groupId);
+                functionwithgroupMapper.deleteByExample(funcExample);
             }
         }
         return true;

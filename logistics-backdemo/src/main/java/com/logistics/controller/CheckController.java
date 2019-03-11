@@ -18,7 +18,7 @@ public class CheckController extends ReturnType {
 	/**
 	 * 录入营业外收入
 	 */
-	@RequestMapping(value = "/addExtraIncome", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/addExtraIncome", method = RequestMethod.POST)
 	public String add(Extraincome extraIncome) {
 		boolean flag = false;
 		flag = checkService.save(extraIncome);
@@ -39,7 +39,7 @@ public class CheckController extends ReturnType {
 	/**
 	 * 录入财务费用
 	 */
-	@RequestMapping(value = "/addFinanceFee", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/addFinanceFee", method = RequestMethod.POST)
 	public String add(Financefee financeFee) {
 		boolean flag = false;
 		flag = checkService.save(financeFee);
@@ -60,7 +60,7 @@ public class CheckController extends ReturnType {
     /**
 	 * 录入管理费用
 	 */
-	@RequestMapping(value = "/addManageFee", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/addManageFee", method = RequestMethod.POST)
 	public String add(Managefee manageFee) {
 		boolean flag = false;
 		flag = checkService.save(manageFee);
@@ -90,7 +90,7 @@ public class CheckController extends ReturnType {
 	/**
 	 * 录入员工工资
 	 */
-	@RequestMapping(value = "/addWage", method = RequestMethod.POST, produces = "application/json")
+	@RequestMapping(value = "/addWage", method = RequestMethod.POST)
 	public String add(Employeewage wage) {
 		boolean flag = false;
 		flag = checkService.save(wage);

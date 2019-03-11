@@ -61,11 +61,14 @@ public class BillReleaseImpl implements BillService {
 
         BillreleaseExample billreleaseExample = new BillreleaseExample();
         List<Billrelease> billreleases = billreleaseMapper.selectByExample(billreleaseExample);
-        List<String> notIn = new ArrayList<>();
-        for(Billrelease b : billreleases){
-            notIn.add(b.getBillCode());
+        System.out.println(billreleases.toString());
+        if(billreleases!=null&&billreleases.size()>0){
+            List<String> notIn = new ArrayList<>();
+            for(Billrelease b : billreleases){
+                notIn.add(b.getBillCode());
+            }
+            criteria.andBillCodeNotIn(notIn);
         }
-        criteria.andBillCodeNotIn(notIn);
 
         List<Billinfo> list = billinfoMapper.selectByExample(example);
 
@@ -120,7 +123,8 @@ public class BillReleaseImpl implements BillService {
             List<Cargoreceiptdetail> list = cargoreceiptdetailMapper.selectByExample(cargoreceiptdetailExample);
             Cargoreceipt cargoreceipt = cargoreceiptMapper.selectByPrimaryKey(list.get(0).getGoodsRevertBillId());
 
-//            System.out.println(list.get(1).toString() +"--------------单据分发的时候-------------"+cargoreceipt);
+            System.out.println(list.get(0).toString() +"--------------单据分发的时候-------"+billrelease.toString());
+            System.out.println(cargoreceipt.toString());
             cargoreceipt.setStartCarryTime(billrelease.getReceiveBillTime());
             cargoreceipt.setDriverId(billrelease.getReceiveBillPerson());
             cargoreceipt.setBackBillState("未到车辆");
@@ -165,6 +169,42 @@ public class BillReleaseImpl implements BillService {
         }catch (Exception e){
             e.printStackTrace();
             System.err.println("货运回执信息添加失败");
+            return "ERROR";
+        }
+    }
+
+    /**
+     * 通知中转的目的就是为了改变以下cargoreceipt的状态
+     * @param goodsRevertBillCode
+     * @return
+     */
+    @Override
+    public String addTransferArrived(String goodsRevertBillCode) {
+        try {
+            Goodsreceiptinfo goodsreceiptinfo = new Goodsreceiptinfo();
+            goodsreceiptinfo.setGoodsRevertCode(goodsRevertBillCode);
+            goodsreceiptinfo.setCheckGoodsRecord("货物已经中转");
+            goodsreceiptinfoMapper.insert(goodsreceiptinfo);
+
+            Cargoreceiptdetail cargoreceiptdetail = cargoreceiptdetailMapper.selectByPrimaryKey(goodsRevertBillCode);
+            Goodsbillevent goodsbillevent = goodsbilleventMapper.selectByPrimaryKey(cargoreceiptdetail.getGoodsBillDetailId());
+            goodsbillevent.setEventName("已中转");
+            goodsbillevent.setOccurTime(new Date());
+            goodsbilleventMapper.updateByPrimaryKey(goodsbillevent);
+
+            Goodsbill goodsbill = goodsbillMapper.selectByPrimaryKey(cargoreceiptdetail.getGoodsBillDetailId());
+            goodsbill.setFactDealDate(goodsreceiptinfo.getRceiveGoodsDate());
+            goodsbillMapper.updateByPrimaryKey(goodsbill);
+
+            Cargoreceipt cargoreceipt = cargoreceiptMapper.selectByPrimaryKey(goodsRevertBillCode);
+            cargoreceipt.setArriveTime(new Date());
+            cargoreceipt.setBackBillState("已中转");
+            cargoreceiptMapper.updateByPrimaryKey(cargoreceipt);
+
+            return "SUCCESS";
+        }catch (Exception e){
+            e.printStackTrace();
+            System.err.println("通知中转的时候出错");
             return "ERROR";
         }
     }

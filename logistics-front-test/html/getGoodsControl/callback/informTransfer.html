@@ -11,74 +11,38 @@
 <div class="layui-form-item" style="margin-top: 20px">
     <form class="layui-form" action="" id="releaseForm">
         <div class="layui-form-item">
-            <label class="layui-form-label">测试文字</label>
+            <label class="layui-form-label">回执编号</label>
             <div class="layui-input-inline">
-                <input type="text" id="customer" name="customer" class="layui-input">
+                <input type="text" id="goodsRevertCode" disabled class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">中转编号</label>
+            <label class="layui-form-label">发货客户姓名</label>
             <div class="layui-input-inline">
-                <input type="text" id="goodsBillCodes" name="goodsBillCode" class="layui-input">
+                <input type="text" id="sendGoodsCustomer" disabled class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">测试文字</label>
+            <label class="layui-form-label">发货客户电话</label>
             <div class="layui-input-inline">
-                <input type="text" id="goodsRevertBillCode" name="goodsRevertBillCode" class="layui-input">
+                <input type="text" id="sendGoodsCustomerTel" disabled class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">测试文字</label>
+            <label class="layui-form-label">收货客户姓名</label>
             <div class="layui-input-inline">
-                <input type="text" id="goodsValue" name="goodsValue" class="layui-input">
+                <input type="text" id="receiveGoodsCustomer" disabled class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">测试文字</label>
+            <label class="layui-form-label">收货客户电话</label>
             <div class="layui-input-inline">
-                <input type="text" id="mistakeType" name="mistakeType" class="layui-input">
+                <input type="text" id="receiveGoodsCustomerTel" disabled class="layui-input">
             </div>
         </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">测试文字</label>
-            <div class="layui-input-inline">
-                <input type="text" id="pieceAmount" name="pieceAmount" class="layui-input">
-            </div>
-        </div>
-        <!-- <div class="layui-form-item">
-            <label class="layui-form-label">中转时间</label>
-            <div class="layui-input-inline">
-                <input type="text" id="checkTimes" name="checkTime" class="layui-input">
-            </div>
-        </div> -->
-        <div class="layui-inline">
-          <label class="layui-form-label">中转时间</label>
-          <div class="layui-input-inline">
-            <input type="text" class="layui-input" id="checkTime" placeholder="yyyy-MM-dd">
-          </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">描述</label>
-            <div class="layui-input-inline">
-                <input type="text" id="descriptions" name="description" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-form-item">
-            <label class="layui-form-label">核查转让信息</label>
-            <div class="layui-input-inline">
-                <input type="text" id="transferChecks" name="transferCheck" required lay-verify="required" placeholder="请输入接货点" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <!-- <div class="layui-form-item">
-            <label class="layui-form-label">收货日期</label>
-            <div class="layui-input-inline">
-                <input type="text" id="rceiveGoodsDate" name="rceiveGoodsDate"disabled class="layui-input">
-            </div>
-        </div> -->
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn layui-btn-radius layui-btn-normal" style="line-height: 34px;" lay-submit lay-filter="confirm" id="confirm">确认提交</button>
+                <button class="layui-btn layui-btn-radius layui-btn-normal" lay-submit lay-filter="confirm" id="confirm">确认提交</button>
             </div>
         </div>
     </form>
@@ -88,7 +52,7 @@
 <script src="../../../js/jquery/jquery-3.3.1.js"></script>
  <script src="../../../js/jquery/jquery.cookie.js"></script>
  <script src="../../../js/nginx.js"></script>
- <script src="../../../js/getGoodsControl/callback/inform.js"></script>
+ <script src="../../../js/getGoodsControl/callback/informTransfer.js"></script>
 <!--<script type="text/javascript">
     layui.use('laydate',function(){
         var laydate = layui.laydate;

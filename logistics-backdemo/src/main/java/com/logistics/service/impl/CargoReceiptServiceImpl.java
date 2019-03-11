@@ -60,7 +60,7 @@ public class CargoReceiptServiceImpl implements CargoReceiptService {
             if(result.contains(c.getGoodsRevertBillId())){
                 continue;
             }
-            result.add(c.getGoodsRevertBillId());
+            result.add(c.getGoodsRevertBillId()+"-"+c.getGoodsBillDetailId());
         }
         return result;
     }

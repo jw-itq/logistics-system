@@ -27,6 +27,8 @@ public class CallbackServiceImpl implements CallbackService {
     @Override
     public String addInfo(Callbackinfo callbackinfo) {
         try {
+            callbackinfo.setLocked(false);
+            callbackinfo.setSuccess(true);
             callbackinfoMapper.insert(callbackinfo);
             return "SUCCESS";
         }catch (Exception e){

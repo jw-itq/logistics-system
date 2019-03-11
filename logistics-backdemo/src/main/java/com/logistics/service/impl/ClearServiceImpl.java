@@ -42,6 +42,7 @@ public class ClearServiceImpl implements ClearService {
     
     @Override
     public Result selectDrclear(String eventName) {
+        System.out.println("查询出结算历史");
         List<Driverclear> driverCleareds = new ArrayList(); // 已结
         List<Driverclear> driverUnClears = new ArrayList(); // 未结
 
@@ -91,6 +92,7 @@ public class ClearServiceImpl implements ClearService {
 
     @Override
     public String driClear(Driverclear driverClear) {
+        System.out.println("司机结算的信息--"+driverClear.toString());
         try {
             double carryFee = driverClear.getCarryFee(); // 承运费
             double bindInsurance = driverClear.getBindInsurance();// 定装保证金
@@ -100,16 +102,18 @@ public class ClearServiceImpl implements ClearService {
 
             double balance = carryFee + bindInsurance + addCarriage - driverClear.getPayedMoney(); // 余额
 
-            driverClear.setBalance(balance);
+            driverClear.setBalance(balance>0?balance:0);
 
             double money = allCarriage + bindInsurance + addCarriage;
-            System.out.println("输入的是："+driverClear.getPayedMoney());
-            if (money != driverClear.getPayedMoney()) {
-                driverclearMapper.insert(driverClear);
+            System.out.println(money+"输入的是："+driverClear.getPayedMoney());
+            if (money!=driverClear.getPayedMoney()||driverClear.getPayedMoney()>money) {
+                driverClear.setBalance(driverClear.getPayedMoney()-money);
+                driverclearMapper.updateByPrimaryKey(driverClear);
             } else {
-                driverclearMapper.insert(driverClear);
+                driverclearMapper.updateByPrimaryKey(driverClear);
                 Cargoreceipt cargoreceipt = cargoreceiptMapper.selectByPrimaryKey(driverClear.getBackBillCode());
                 cargoreceipt.setBackBillState("已结合同");
+                cargoreceiptMapper.updateByPrimaryKey(cargoreceipt);
             }
             return "SUCCESS";
         }catch (Exception e){
@@ -177,7 +181,7 @@ public class ClearServiceImpl implements ClearService {
             double billMoney = customerBillClear.getBillMoney(); // 本单
             double insurance = customerBillClear.getInsurance(); // 保险费
             double carriageReduceFund = customerBillClear.getCarriageReduceFund(); // 减款
-            double prepayMoney = customerBillClear.getPrepayMoney(); // 预付金额
+            double prepayMoney = customerBillClear.getPrepayMoney()==null?0:customerBillClear.getPrepayMoney(); // 预付金额
             double receivedMoney = customerBillClear.getReceivedMoney(); // 已收
 
             double moneyReceivable = billMoney + insurance - carriageReduceFund - prepayMoney; // 应收
@@ -187,10 +191,10 @@ public class ClearServiceImpl implements ClearService {
             double money = billMoney + insurance - carriageReduceFund;
             if (money != receivedMoney) {
                 System.out.println(1);
-                customerbillclearMapper.insert(customerBillClear);
+                customerbillclearMapper.updateByPrimaryKey(customerBillClear);
             } else {
                 System.out.println(2);
-                customerbillclearMapper.insert(customerBillClear);
+                customerbillclearMapper.updateByPrimaryKey(customerBillClear);
                 Goodsbillevent goodsbillevent = goodsbilleventMapper.selectByPrimaryKey(customerBillClear.getGoodsBillCode());
                 goodsbillevent.setEventName("已结运单");
                 goodsbilleventMapper.updateByPrimaryKey(goodsbillevent);
@@ -198,6 +202,7 @@ public class ClearServiceImpl implements ClearService {
             return "SUCCESS";
         } catch (Exception e) {
             // TODO: handle exception
+            e.printStackTrace();
             System.err.println("客户结算 插入失败！");
             return "ERROR";
         }

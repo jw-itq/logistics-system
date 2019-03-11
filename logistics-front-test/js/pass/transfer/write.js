@@ -42,7 +42,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
             type: 'post',
             url: nginx_url + '/transfer/addInfo/' + goodsBillCode,
             data: $("#transferForm").serialize(),
-            dataType: 'json',
+            //dataType: 'json',
             success: function (result) {
                 if (result === 'SUCCESS') {
                     layer.msg('中转信息插入成功', {

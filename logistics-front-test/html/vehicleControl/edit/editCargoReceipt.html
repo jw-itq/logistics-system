@@ -17,7 +17,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label wd-100">货运回执单编号</label>
             <div class="layui-input-inline">
-                <select name="goodsRevertBillCode" lay-verify="required" lay-filter="changeSend" id="goodsRevertBillCode" lay-search>
+                <input type="hidden" name="goodsRevertBillCode" id="goodsRevertBillCode1">
+                <select lay-verify="required" lay-filter="changeSend" id="goodsRevertBillCode" lay-search>
                     <option value="">请选择货运回执单编号</option>
                 </select>
             </div>

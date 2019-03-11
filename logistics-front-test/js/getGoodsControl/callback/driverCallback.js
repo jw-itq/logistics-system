@@ -55,8 +55,22 @@ layui.use(['layer', 'form', 'element', 'jquery', 'table'], function() {
                     })
                 }
             });
-        } else {
-
+        } else if(layEvent==='edit'){
+            layer.open({
+                type: 2,
+                title: data.goodsBillCode + '通知中转页面',
+                content: [ 'informTransfer.html?code=' + data.goodsBillCode
+                +'='+data.sendGoodsCustomer+'='+data.sendGoodsCustomerTel
+                +'='+data.receiveGoodsCustomer+'='+data.receiveGoodsCustomerTel],
+                area: [ '85%', '85%' ],
+                shadeClose: true,
+                move: false,
+                end: function() {
+                    table.reload('billTable', {
+                        url: nginx_url + '/transfer/arriveGoods/' + driverId
+                    })
+                }
+            });
         }
     });
 

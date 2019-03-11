@@ -72,6 +72,19 @@ public class Billrelease {
         return releasePerson;
     }
 
+    @Override
+    public String toString() {
+        return "Billrelease{" +
+                "id=" + id +
+                ", acceptStation='" + acceptStation + '\'' +
+                ", billCode='" + billCode + '\'' +
+                ", billType='" + billType + '\'' +
+                ", receiveBillPerson='" + receiveBillPerson + '\'' +
+                ", receiveBillTime=" + receiveBillTime +
+                ", releasePerson='" + releasePerson + '\'' +
+                '}';
+    }
+
     public void setReleasePerson(String releasePerson) {
         this.releasePerson = releasePerson == null ? null : releasePerson.trim();
     }

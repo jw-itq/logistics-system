@@ -70,8 +70,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function () {
 
 function createTime(v){
     let dateTime;
-    let date = new Date();
-    date.setTime(v);
+    let date = new Date(v);
+    //date.setTime(v);
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
     m = m < 10 ? '0' + m : m;

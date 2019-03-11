@@ -724,7 +724,7 @@
   </select>
 
   <select id="find" resultType="java.util.HashMap">
-      select send_goods_customer,
+      select send_goods_customer as sendGoodsCustomer,
 			 sum(carriage) as carriageTotal ,
 			 sum(insurance) as insuranceTotal ,
 			 count(*) as pieceAmountTotal from goodsbill

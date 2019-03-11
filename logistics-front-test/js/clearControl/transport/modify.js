@@ -45,7 +45,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/clear/addDriClear',
             data: $("#transportForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {
@@ -62,6 +62,9 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
                         icon: 2
                     });
                 }
+            },
+            error:function () {
+                alert("errorrrrr");
             }
 
         });

@@ -19,4 +19,12 @@ public interface TransferService {
     public Result findOnWayBills();
 
     public String addCusRes(Customerreceiptinfo customerreceiptinfo);
+
+    public boolean addTransferInfo(Transferinfo transferinfo);
+
+    public Result transferGoods(String type,String driverId);
+
+    public Transfercominfo findByGoodsBillCode(String goodsBillCode);
+
+    public Result findInfoByPage(int pageNum,int limit);
 }

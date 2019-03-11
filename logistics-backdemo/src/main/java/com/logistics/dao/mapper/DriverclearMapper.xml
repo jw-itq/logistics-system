@@ -339,7 +339,7 @@
 
   <!--额外的-->
   <select id="find" resultType="java.util.HashMap">
-    select driver_code,
+    select driver_code as driverCode,
 			 sum(carry_fee) as carryFeeTotal ,
 			 sum(add_carriage) as addCarriageTotal ,
 			 count(driver_code) as total from driverclear

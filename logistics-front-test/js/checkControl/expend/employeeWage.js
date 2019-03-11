@@ -22,7 +22,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
             type: "post",
             url: nginx_url + "/check/addWage",
             data: $("#employeeWageForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 if (result === "SUCCESS") {
                     layer.msg('员工工资添加成功', {

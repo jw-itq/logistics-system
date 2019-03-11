@@ -12,4 +12,6 @@ public interface BillService {
     public String addRelease(String billCode, Billrelease billrelease);
 
     public String addArrived(String goodsRevertBillCode, Goodsreceiptinfo goodsreceiptinfo);
+
+    public String addTransferArrived(String goodsRevertBillCode);
 }

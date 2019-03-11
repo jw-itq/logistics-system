@@ -2,12 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b23ba5a-8922-4b02-b14d-dea2a6f04c7e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../informTransfer(2).html" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/getGoodsControl/callback/informTransfer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/BillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/BillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/CheckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/CheckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/ClearController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/ClearController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/TransferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/controller/TransferController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/DriverclearMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/DriverclearMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/GoodsbillMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/GoodsbillMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/GoodsbillMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/dao/mapper/GoodsbillMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/pojo/Billrelease.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/pojo/Billrelease.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/pojo/Driverclear.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/pojo/Driverclear.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/BillService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/TransferService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/TransferService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/BillReleaseImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/BillReleaseImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CallbackServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CallbackServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CargoReceiptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CargoReceiptServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CheckServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/CheckServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/ClearServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/ClearServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/GroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/GroupServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/MoniterServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/MoniterServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/TransferServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/main/java/com/logistics/service/impl/TransferServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/citymap.js" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/citymap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/../logistics-backdemo/src/test/java/com/logistics/demo/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/appControl/route/method03.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/appControl/route/method03.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../method03.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/bill/billRelease/release.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/bill/billRelease/release.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/clearControl/goodsBill/modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/clearControl/goodsBill/modify.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/getGoodsControl/callback/driverCallback.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/getGoodsControl/callback/driverCallback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/monitor/statistics/statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/monitor/statistics/statistics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/pass/transfer/writeInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/pass/transfer/writeInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/vehicleControl/edit/editCargoReceipt.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/vehicleControl/edit/editCargoReceipt.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/checkControl/expend/employeeWage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/checkControl/expend/employeeWage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/checkControl/income/extraIncome.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/checkControl/income/extraIncome.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/clearControl/extra/extraFee.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/clearControl/extra/extraFee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/clearControl/goodsBill/modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/clearControl/goodsBill/modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/clearControl/transport/modify.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/clearControl/transport/modify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/customerService/write.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/customerService/write.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/getGoodsControl/callback/driverCallback.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/getGoodsControl/callback/driverCallback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/monitor/goodsBill/goodsBill.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/monitor/goodsBill/goodsBill.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/monitor/statistics/statistics.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/monitor/statistics/statistics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/pass/transfer/transferInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pass/transfer/transferInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/pass/transfer/write.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/pass/transfer/write.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/vehicleControl/edit/editCargoReceipt.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/vehicleControl/edit/editCargoReceipt.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" beforeDir="false" afterPath="$PROJECT_DIR$/../myresourse/FrontEnd-examples" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../myresourse/py4j" beforeDir="false" afterPath="$PROJECT_DIR$/../myresourse/py4j" afterDir="false" />
     </list>
@@ -49,74 +87,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="52" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/customerCallback.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/customerCallback.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1094">
-              <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/appControl/route/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/appControl/route/method03.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1125">
-              <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -156,18 +127,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/login/login.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/html/goodsBillControl/edit/editGoodsBill.html" />
-        <option value="$PROJECT_DIR$/js/goodsBillControl/edit/editGoods.js" />
-        <option value="$PROJECT_DIR$/html/goodsBillControl/detail/modifyDetail.html" />
-        <option value="$PROJECT_DIR$/js/goodsBillControl/detail/modifyDetail.js" />
-        <option value="$PROJECT_DIR$/js/goodsBillControl/detail/goodsBillDetail.js" />
-        <option value="$PROJECT_DIR$/js/bill/billRelease/release.js" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/js/goodsBillControl/edit/editGoodsBill.js" />
-        <option value="$PROJECT_DIR$/js/appControl/route/index.html" />
         <option value="$PROJECT_DIR$/js/appControl/route/routeManagebk.js" />
         <option value="$PROJECT_DIR$/js/nginx.js" />
         <option value="$PROJECT_DIR$/html/appControl/route/routeManage.html" />
@@ -177,11 +136,9 @@
         <option value="$PROJECT_DIR$/js/vehicleControl/edit/method03.js" />
         <option value="$PROJECT_DIR$/html/appControl/route/index.html" />
         <option value="$PROJECT_DIR$/html/vehicleControl/edit/index.html" />
-        <option value="$PROJECT_DIR$/html/vehicleControl/edit/editCargoReceipt.html" />
         <option value="$PROJECT_DIR$/html/vehicleControl/select/showDetail.html" />
         <option value="$PROJECT_DIR$/js/vehicleControl/select/modifyDetail.js" />
         <option value="$PROJECT_DIR$/js/bill/billRelease/billRelease.js" />
-        <option value="$PROJECT_DIR$/js/vehicleControl/edit/editCargoReceipt.js" />
         <option value="$PROJECT_DIR$/html/vehicleControl/select/modifyDetail.html" />
         <option value="$PROJECT_DIR$/js/appControl/employee/employeeModify.js" />
         <option value="$PROJECT_DIR$/js/appControl/employee/employeeManage.js" />
@@ -199,7 +156,28 @@
         <option value="$PROJECT_DIR$/js/systemControl/userGroup/userGroupModify.js" />
         <option value="$PROJECT_DIR$/js/systemControl/changePassword.js" />
         <option value="$PROJECT_DIR$/js/appControl/route/method03.js" />
+        <option value="$PROJECT_DIR$/js/clearControl/transport/modify.js" />
+        <option value="$PROJECT_DIR$/html/clearControl/goodsBill/modify.html" />
+        <option value="$PROJECT_DIR$/js/clearControl/goodsBill/modify.js" />
+        <option value="$PROJECT_DIR$/js/clearControl/extra/extraFee.js" />
+        <option value="$PROJECT_DIR$/js/monitor/goodsBill/goodsBill.js" />
+        <option value="$PROJECT_DIR$/js/monitor/statistics/statistics.js" />
+        <option value="$PROJECT_DIR$/html/monitor/statistics/statistics.html" />
+        <option value="$PROJECT_DIR$/js/checkControl/expend/employeeWage.js" />
+        <option value="$PROJECT_DIR$/js/checkControl/income/extraIncome.js" />
+        <option value="$PROJECT_DIR$/html/bill/billRelease/release.html" />
+        <option value="$PROJECT_DIR$/html/vehicleControl/edit/editCargoReceipt.html" />
+        <option value="$PROJECT_DIR$/js/vehicleControl/edit/editCargoReceipt.js" />
+        <option value="$PROJECT_DIR$/js/customerService/write.js" />
+        <option value="$PROJECT_DIR$/html/getGoodsControl/callback/driverCallback.html" />
+        <option value="$PROJECT_DIR$/js/pass/transfer/transferInfo.js" />
+        <option value="$PROJECT_DIR$/js/getGoodsControl/callback/driverCallback.js" />
+        <option value="$PROJECT_DIR$/js/pass/transfer/write.js" />
+        <option value="$PROJECT_DIR$/js/getGoodsControl/callback/informTransfer.js" />
         <option value="$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html" />
+        <option value="$PROJECT_DIR$/html/pass/transfer/writeInfo.html" />
+        <option value="$PROJECT_DIR$/js/login/login.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -222,9 +200,9 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="y" value="28" />
-    <option name="width" value="976" />
+    <option name="width" value="950" />
     <option name="height" value="1018" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -233,8 +211,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -251,7 +227,14 @@
               <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="appControl" type="462c0819:PsiDirectoryNode" />
+              <item name="customerService" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="customerService" type="462c0819:PsiDirectoryNode" />
+              <item name="pass" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
@@ -266,10 +249,63 @@
               <item name="getGoodsControl" type="462c0819:PsiDirectoryNode" />
               <item name="callback" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="pass" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="pass" type="462c0819:PsiDirectoryNode" />
+              <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="pass" type="462c0819:PsiDirectoryNode" />
+              <item name="transfer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="systemControl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="systemControl" type="462c0819:PsiDirectoryNode" />
+              <item name="userGroup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="getGoodsControl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="logistics-front-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="logistics-front-test" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="getGoodsControl" type="462c0819:PsiDirectoryNode" />
+              <item name="callback" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,9 +313,9 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552234140816" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552313717745" />
     <property name="database.console.LAST_STATE" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../logistics-backdemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -287,11 +323,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js/getGoodsControl/callback" />
       <recent name="$PROJECT_DIR$/html/getGoodsControl/callback" />
       <recent name="$PROJECT_DIR$/html/pass/company" />
       <recent name="$PROJECT_DIR$/js/pass/company" />
       <recent name="$PROJECT_DIR$/js/vehicleControl/edit" />
-      <recent name="$PROJECT_DIR$/html/vehicleControl/edit" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -328,17 +364,17 @@
       <workItem from="1552022052574" duration="25960000" />
       <workItem from="1552088750309" duration="32733000" />
       <workItem from="1552176207995" duration="26823000" />
+      <workItem from="1552261800579" duration="29902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200309000" />
+    <option name="totallyTimeSpent" value="230211000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="976" height="1018" extended-state="4" />
-    <editor active="true" />
+    <frame x="0" y="28" width="1920" height="1018" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29761904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26766595" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -369,7 +405,7 @@
       <window_info anchor="right" id="Database" order="8" weight="0.53744495" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29845816" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26801518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -404,89 +440,189 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://82467f07-2675-41c3-9485-ce7de5dc016f/schema/logistics/table/transferinfo">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/js/checkControl/income/extraIncome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="52" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bill/billRelease/billRelease.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/bill/billRelease/release.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="45" lean-forward="true" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bill/billRelease/release.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goodsBillControl/detail/modifyDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="107" column="24" lean-forward="true" selection-start-line="107" selection-start-column="24" selection-end-line="107" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/goodsBillControl/edit/editGoodsBill.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="299" column="38" lean-forward="true" selection-start-line="299" selection-start-column="38" selection-end-line="299" selection-end-column="38" />
+        <state relative-caret-position="675">
+          <caret line="327" column="53" lean-forward="true" selection-start-line="327" selection-start-column="53" selection-end-line="327" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goodsBillControl/edit/editGoodsBill.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="338" column="45" selection-start-line="338" selection-start-column="36" selection-end-line="338" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goodsBillControl/edit/editGoods.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/bill/billRelease/billRelease.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goodsBillControl/detail/showDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goodsBillControl/detail/showDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="246" column="54" lean-forward="true" selection-start-line="246" selection-start-column="54" selection-end-line="246" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goodsBillControl/detail/goodsBillDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="52" column="64" lean-forward="true" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goodsBillControl/detail/goodsBillDetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="91" column="29" lean-forward="true" selection-start-line="91" selection-start-column="29" selection-end-line="91" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/goodsBillControl/edit/editGoods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="944">
+          <caret line="73" column="52" selection-start-line="73" selection-start-column="52" selection-end-line="73" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/goodsBillControl/detail/modifyDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="265" column="37" lean-forward="true" selection-start-line="265" selection-start-column="37" selection-end-line="265" selection-end-column="37" />
+        <state relative-caret-position="4140">
+          <caret line="276" column="57" selection-start-line="276" selection-start-column="57" selection-end-line="276" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/appControl/driver/driverModify.js">
+    <entry file="file://$PROJECT_DIR$/html/vehicleControl/select/showDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="48" column="34" lean-forward="true" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+        <state relative-caret-position="660">
+          <caret line="191" column="52" selection-start-line="191" selection-start-column="52" selection-end-line="191" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/appControl/driver/driverModify.html">
+    <entry file="file://$PROJECT_DIR$/js/vehicleControl/select/showDetail.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/vehicleControl/select/cargoReceiptDetail.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/vehicleControl/select/modifyDetail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2715">
-          <caret line="181" column="50" lean-forward="true" selection-start-line="181" selection-start-column="50" selection-end-line="181" selection-end-column="50" />
+        <state relative-caret-position="165">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/appControl/driver/driverManage.html">
+    <entry file="file://$PROJECT_DIR$/html/vehicleControl/select/modifyDetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="205" column="51" selection-start-line="205" selection-start-column="51" selection-end-line="205" selection-end-column="51" />
+        <state relative-caret-position="689">
+          <caret line="214" column="55" selection-start-line="214" selection-start-column="55" selection-end-line="214" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/vehicleControl/edit/editCargoReceipt.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="56" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/vehicleControl/edit/editCargoReceipt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="266" column="14" selection-start-line="266" selection-start-column="14" selection-end-line="266" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/customerService/got/informGot.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/customerService/get/informGet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-585" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/customerService/writeInform.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="57" column="44" selection-start-line="57" selection-start-column="44" selection-end-line="57" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/customerService/write.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="149">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/writeInform.html">
+    <entry file="file://$PROJECT_DIR$/html/checkControl/expend/employeeWage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="57" column="42" lean-forward="true" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+        <state relative-caret-position="915">
+          <caret line="61" column="52" selection-start-line="61" selection-start-column="52" selection-end-line="61" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/customerService/detail.js">
+    <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/confirm.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+        <state relative-caret-position="105">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/informDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="689">
-          <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/customerService/arrive/informArrive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" column="39" lean-forward="true" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/arrive/informArrive.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="55" lean-forward="true" selection-start-line="35" selection-start-column="55" selection-end-line="35" selection-end-column="55" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/customerCallback.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/html/customerService/get/informGet.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -495,252 +631,137 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/customerService/got/informGot.js">
+    <entry file="file://$PROJECT_DIR$/html/pass/company/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="55" column="33" lean-forward="true" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+        <state relative-caret-position="300">
+          <caret line="20" column="15" lean-forward="true" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/got/informGot.html">
+    <entry file="file://$PROJECT_DIR$/html/pass/company/write.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="50" lean-forward="true" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/customerService/pass/informPass.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/pass/informPass.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/customerService/get/informGet.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/customerService/proxy/informProxy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/clearControl/extra/extraFee.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/clearControl/goodsBill/goodsBillManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="57" column="25" lean-forward="true" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/clearControl/goodsBill/goodsBillManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="61" lean-forward="true" selection-start-line="34" selection-start-column="61" selection-end-line="34" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/checkControl/expend/employeeWage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/checkControl/cost/detail.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/monitor/goodsBill/goodsBill.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/monitor/goodsBill/goodsBill.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="53" lean-forward="true" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/confirm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/confirm.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="54" column="53" lean-forward="true" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
-        </state>
+        <state relative-caret-position="-360" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/driverCallback.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
-          <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/driverCallback.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="33" lean-forward="true" selection-start-line="49" selection-start-column="33" selection-end-line="49" selection-end-column="33" />
+          <caret line="30" column="59" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/inform.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="55" column="54" lean-forward="true" selection-start-line="55" selection-start-column="54" selection-end-line="55" selection-end-column="54" />
+        <state relative-caret-position="825">
+          <caret line="55" column="53" selection-start-line="55" selection-start-column="53" selection-end-line="55" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/driverCallback.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/inform.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="404">
+          <caret line="51" column="31" lean-forward="true" selection-start-line="51" selection-start-column="31" selection-end-line="51" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/appControl/employee/employeeManage.html">
+    <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/informTransfer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="91" column="57" selection-start-line="91" selection-start-column="57" selection-end-line="91" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/appControl/employee/employeeManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1665" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/appControl/employee/employeeModify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="81" column="54" lean-forward="true" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/appControl/employee/employeeModify.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/systemControl/userGroup/userGroupManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="84" column="60" lean-forward="true" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/systemControl/userGroup/userGroupManage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="182" column="14" selection-start-line="182" selection-start-column="14" selection-end-line="182" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/systemControl/userGroup/userGroupModify.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="58" lean-forward="true" selection-start-line="33" selection-start-column="58" selection-end-line="33" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/systemControl/userGroup/userGroupModify.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/vehicleControl/select/cargoReceiptDetail.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/systemControl/changePassword.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="50" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/systemControl/changePassword.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="141" column="18" selection-start-line="141" selection-start-column="18" selection-end-line="141" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="52" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/customerCallback.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="57" lean-forward="true" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/getGoodsControl/callback/customerCallback.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1094">
-          <caret line="86" column="39" lean-forward="true" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/appControl/route/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/appControl/route/method03.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state>
+          <caret column="33" selection-start-column="33" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/getGoodsControl/callback/informTransfer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="90" column="46" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
+        <state relative-caret-position="450">
+          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/systemControl/userGroup/userGroupManage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="181" column="14" lean-forward="true" selection-start-line="181" selection-start-column="14" selection-end-line="181" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/systemControl/userGroup/userGroupManage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="84" column="62" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/systemControl/userGroup/userGroupModify.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pass/transfer/transferInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="68" column="30" lean-forward="true" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/pass/transfer/transferInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/pass/transfer/writeInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="689">
+          <caret line="80" column="43" lean-forward="true" selection-start-line="80" selection-start-column="43" selection-end-line="80" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/pass/transfer/write.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="70" column="31" lean-forward="true" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/login/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="35" column="27" lean-forward="true" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/customerService/pass/informPass.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="53" lean-forward="true" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/customerService/pass/informPass.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="67" column="15" lean-forward="true" selection-start-line="67" selection-start-column="15" selection-end-line="67" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="84" column="21" lean-forward="true" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
         </state>
       </provider>
     </entry>

@@ -66,7 +66,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
             type: "post",
             url: nginx_url + "/check/addExtraIncome",
             data: $("#extraIncomeForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 if (result === "SUCCESS") {
                     layer.msg('营业外收入添加成功', {
@@ -87,8 +87,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
 
 function createTime(v){
     let dateTime;
-    let date = new Date();
-    date.setTime(v);
+    let date = new Date(v);
+    //date.setTime(v);
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
     m = m < 10 ? '0' + m : m;

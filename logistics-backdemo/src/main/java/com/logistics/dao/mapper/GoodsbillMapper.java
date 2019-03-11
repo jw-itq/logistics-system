@@ -42,4 +42,5 @@ public interface GoodsbillMapper {
     List<Goodsbill> findOnWayBills();
 
     List<Map<String,Object>> find();
+
 }

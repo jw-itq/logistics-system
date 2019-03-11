@@ -237,9 +237,11 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
         form.on('select(changeSend)', function (data) {
             //alert($("#loadStation").val());
             // ajax
+            let billcode = $("#goodsRevertBillCode").val();
+            $("#goodsRevertBillCode1").val(billcode.split("-")[0]);
             $.ajax({
                 type: 'get',
-                url: nginx_url + '/vehicle/findGoodsBill/' + data.value,
+                url: nginx_url + '/vehicle/findGoodsBill/' + data.value.split("-")[0],
                 success: function (result) {
                     $("#receiveGoodsLinkman").val(result.receiveGoodsCustomer);
                     $("#linkmanPhone").val(result.receiveGoodsCustomerTel);
@@ -260,8 +262,9 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
             $("#linkmanPhone").removeAttr("disabled");
             $("#receiveGoodsDetailAddr").removeAttr("disabled");
             $("#backBillState").removeAttr("disabled");
+            $("#goodsRevertBillCode").attr("disabled","disabled");
 
-
+            //alert($("#goodsRevertBillCode1").val());
             //去掉不需要提交的数据
             /*$("#province1").attr("disabled","disabled");
             $("#city1").attr("disabled","disabled");

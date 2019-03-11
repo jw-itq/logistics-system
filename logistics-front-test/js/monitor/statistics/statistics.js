@@ -72,7 +72,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                     { field: 'total', title: '总计' }
                 ]]
             });
-        } else if (data.index === 3) {
+       /* } else if (data.index === 3) {
             table.render({
                 elem: '#carCostTable',
                 height: 'full-170',
@@ -100,8 +100,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                     { field: 'carWidth', title: '车厢宽度' },
                     { title: '操作', toolbar: '#bardemo1', fixed: 'right' }
                 ]]
-            });
-        } else {
+            });*/
+        } /*else {
             table.render({
                 elem: '#contactsServiceTable',
                 height: 'full-170',
@@ -129,7 +129,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table', 'jquery'], function()
                     { title: '操作', toolbar: '#barDemo2', fixed: 'right' }
                 ]]
             });
-        }
+        }*/
     });
 
     // 监听工具条

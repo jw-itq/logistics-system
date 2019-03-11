@@ -317,9 +317,10 @@ public class CheckServiceImpl implements CheckService {
             iMonthlyTemp.setPayout(payOut);
             iMonthlyTemp.setProfit(income - payOut);
 
-            incomemonthlytempMapper.insert(iMonthlyTemp);
+            incomemonthlytempMapper.updateByPrimaryKey(iMonthlyTemp);
             return iMonthlyTemp;
         } catch (Exception e) {
+            e.printStackTrace();
             // TODO: handle exception
             System.err.println("月报信息添加失败");
             return null;

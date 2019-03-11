@@ -62,7 +62,7 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
             type: "post",
             url: nginx_url + "/clear/addExtraClear",
             data: $("#extraFeeForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 if (result === "SUCCESS") {
                     layer.msg('杂费结算表添加成功', {
@@ -83,8 +83,8 @@ layui.use(['element', 'form', 'laydate', 'layer', 'table'], function(){
 
 function createTime(v){
     let dateTime;
-    let date = new Date();
-    date.setTime(v);
+    let date = new Date(v);
+    //date.setTime(v);
     let y = date.getFullYear();
     let m = date.getMonth() + 1;
     m = m < 10 ? '0' + m : m;

@@ -34,4 +34,11 @@ public class BillController {
     public String addArrived(@PathVariable("goodsRevertBillCode")String goodsRevertBillCode, Goodsreceiptinfo goodsreceiptinfo){
         return billService.addArrived(goodsRevertBillCode,goodsreceiptinfo);
     }
+
+//    通知中转
+    @RequestMapping(value = "/addTransfer/{goodsRevertBillCode}",method = RequestMethod.GET)
+    public String addTransferArrived(@PathVariable("goodsRevertBillCode")String goodsRevertBillCode){
+        return billService.addTransferArrived(goodsRevertBillCode);
+    }
+
 }

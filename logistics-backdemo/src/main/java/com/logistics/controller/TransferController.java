@@ -1,17 +1,21 @@
 package com.logistics.controller;
 
 import com.logistics.pojo.Customerreceiptinfo;
+import com.logistics.pojo.Goodsbill;
 import com.logistics.pojo.Transfercominfo;
+import com.logistics.pojo.Transferinfo;
 import com.logistics.service.TransferService;
 import com.logistics.util.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @ControllerAdvice
 @RequestMapping(value = "/transfer")
-public class TransferController {
+public class TransferController extends ReturnType{
 
     @Autowired
     private TransferService transferService;
@@ -44,5 +48,33 @@ public class TransferController {
     @RequestMapping(value = "/addCusRec",method = RequestMethod.POST)
     public String addCusRes(Customerreceiptinfo customerreceiptinfo){
         return transferService.addCusRes(customerreceiptinfo);
+    }
+
+    @RequestMapping(value = "/addInfo/{goodsBillCode}", method = RequestMethod.POST)
+    public String addTransfer(@PathVariable("goodsBillCode") String goodsBillCode, Transferinfo transferInfo) {
+        boolean flag = false;
+        flag = transferService.addTransferInfo(transferInfo);
+        if (!flag) {
+            return ERROR;
+        }
+        return SUCCESS;
+    }
+
+    @RequestMapping(value = "/transferGoods/{driverId}", method = RequestMethod.GET)
+    public Result transferGoods(@PathVariable("driverId") String driverId) {
+        return transferService.transferGoods("已中转", driverId);
+    }
+
+    @RequestMapping(value = "/detail/{goodsBillCode}", method = RequestMethod.GET)
+    public Transfercominfo detail(@PathVariable("goodsBillCode") String goodsBillCode) {
+
+        Transfercominfo transferComInfo = transferService.findByGoodsBillCode(goodsBillCode);
+        return transferComInfo;
+
+    }
+
+    @RequestMapping(value = "/findInfoByPage", method = RequestMethod.GET)
+    public Result findInfoByPage(@RequestParam("pageNum") int pageNum, @RequestParam("limit") int limit) {
+        return transferService.findInfoByPage(pageNum,limit);
     }
 }

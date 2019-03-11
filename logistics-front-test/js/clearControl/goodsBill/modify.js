@@ -45,7 +45,7 @@ layui.use(['element', 'form', 'laydate', 'jquery', 'layer', 'table'], function()
             type: 'put',
             url: nginx_url + '/clear/addCusClear',
             data: $("#goodsBillForm").serialize(),
-            dataType: "json",
+            //dataType: "json",
             success: function (result) {
                 console.log(result);
                 if (result === "SUCCESS") {
